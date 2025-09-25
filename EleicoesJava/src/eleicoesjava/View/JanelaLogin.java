@@ -44,7 +44,7 @@ public class JanelaLogin extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(225, 200, 58));
 
-        jTextField1.setBackground(java.awt.Color.white);
+        jTextField1.setBackground(new java.awt.Color(255, 255, 153));
         jTextField1.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
         jTextField1.setForeground(new java.awt.Color(0, 0, 0));
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
@@ -53,7 +53,7 @@ public class JanelaLogin extends javax.swing.JFrame {
             }
         });
 
-        jPasswordField1.setBackground(java.awt.Color.white);
+        jPasswordField1.setBackground(new java.awt.Color(255, 255, 153));
         jPasswordField1.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
         jPasswordField1.setForeground(new java.awt.Color(0, 0, 0));
 

@@ -75,7 +75,7 @@ public void lerBusca(String nome) {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Tabela de Partidos");
 
-        tbPartidos.setFont(new java.awt.Font("Monospaced", 1, 12)); // NOI18N
+        tbPartidos.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
         tbPartidos.setForeground(new java.awt.Color(0, 0, 0));
         tbPartidos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

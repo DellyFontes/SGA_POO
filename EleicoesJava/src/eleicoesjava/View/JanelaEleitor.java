@@ -25,6 +25,7 @@ public class JanelaEleitor extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        grupoGenero = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -106,7 +107,7 @@ public class JanelaEleitor extends javax.swing.JFrame {
             }
         });
 
-        jcDistrito.setBackground(new java.awt.Color(255, 255, 255));
+        jcDistrito.setBackground(new java.awt.Color(255, 255, 153));
         jcDistrito.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
         jcDistrito.setForeground(new java.awt.Color(0, 0, 0));
         jcDistrito.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -116,7 +117,7 @@ public class JanelaEleitor extends javax.swing.JFrame {
             }
         });
 
-        txtNome.setBackground(java.awt.Color.white);
+        txtNome.setBackground(new java.awt.Color(255, 255, 153));
         txtNome.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
         txtNome.setForeground(new java.awt.Color(0, 0, 0));
         txtNome.addActionListener(new java.awt.event.ActionListener() {
@@ -125,7 +126,7 @@ public class JanelaEleitor extends javax.swing.JFrame {
             }
         });
 
-        txtBI.setBackground(java.awt.Color.white);
+        txtBI.setBackground(new java.awt.Color(255, 255, 153));
         txtBI.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
         txtBI.setForeground(new java.awt.Color(0, 0, 0));
         txtBI.addActionListener(new java.awt.event.ActionListener() {
@@ -134,7 +135,7 @@ public class JanelaEleitor extends javax.swing.JFrame {
             }
         });
 
-        txtSobrenome.setBackground(java.awt.Color.white);
+        txtSobrenome.setBackground(new java.awt.Color(255, 255, 153));
         txtSobrenome.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
         txtSobrenome.setForeground(new java.awt.Color(0, 0, 0));
         txtSobrenome.addActionListener(new java.awt.event.ActionListener() {
@@ -143,6 +144,8 @@ public class JanelaEleitor extends javax.swing.JFrame {
             }
         });
 
+        grupoGenero.add(radioM);
+        radioM.setFont(new java.awt.Font("Georgia", 2, 15)); // NOI18N
         radioM.setText("Masculino");
         radioM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -150,6 +153,8 @@ public class JanelaEleitor extends javax.swing.JFrame {
             }
         });
 
+        grupoGenero.add(radioF);
+        radioF.setFont(new java.awt.Font("Georgia", 2, 15)); // NOI18N
         radioF.setText("Femenino");
 
         jDateChooser1.setBackground(new java.awt.Color(255, 255, 255));
@@ -326,6 +331,7 @@ public class JanelaEleitor extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btVoltar;
+    private javax.swing.ButtonGroup grupoGenero;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private com.toedter.calendar.JDateChooser jDateChooser1;

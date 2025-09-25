@@ -50,7 +50,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(170, 108, 58));
         jPanel1.setMinimumSize(new java.awt.Dimension(927, 600));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 32)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Harlow Solid Italic", 0, 28)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(188, 188, 188));
         jLabel1.setText("Candidatos");
 
@@ -85,19 +85,19 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Dialog", 0, 32)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Harlow Solid Italic", 0, 28)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(188, 188, 188));
         jLabel3.setText("Eleitores");
 
-        jLabel5.setFont(new java.awt.Font("Dialog", 0, 32)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Harlow Solid Italic", 0, 28)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(188, 188, 188));
         jLabel5.setText("Votações");
 
-        jLabel6.setFont(new java.awt.Font("Dialog", 0, 32)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Harlow Solid Italic", 0, 28)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(188, 188, 188));
         jLabel6.setText("Relatorios");
 
-        jLabel8.setFont(new java.awt.Font("Dialog", 0, 32)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Harlow Solid Italic", 0, 28)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(188, 188, 188));
         jLabel8.setText("Sair");
 
@@ -131,11 +131,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jLabel7.setFont(new java.awt.Font("Dialog", 0, 32)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Harlow Solid Italic", 0, 28)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(188, 188, 188));
         jLabel7.setText("Partidos");
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI Semibold", 0, 24)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Algerian", 3, 27)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("MENU PRINCIPAL");
 
@@ -160,7 +160,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(144, 144, 144)
                         .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 106, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 132, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -189,9 +189,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
                         .addGap(130, 130, 130))))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                    .addContainerGap(374, Short.MAX_VALUE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(343, 343, 343)))
+                    .addContainerGap(377, Short.MAX_VALUE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(299, 299, 299)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -205,7 +205,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(btnRelatorios, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -231,7 +231,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(43, 43, 43)
                     .addComponent(jLabel4)
-                    .addContainerGap(525, Short.MAX_VALUE)))
+                    .addContainerGap(521, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

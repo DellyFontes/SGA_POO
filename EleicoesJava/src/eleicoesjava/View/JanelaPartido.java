@@ -83,7 +83,7 @@ public class JanelaPartido extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Nome");
 
-        txtNome.setBackground(java.awt.Color.white);
+        txtNome.setBackground(new java.awt.Color(255, 255, 153));
         txtNome.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
         txtNome.setForeground(new java.awt.Color(0, 0, 0));
         txtNome.addActionListener(new java.awt.event.ActionListener() {
@@ -100,7 +100,7 @@ public class JanelaPartido extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Candidato");
 
-        txtNome1.setBackground(java.awt.Color.white);
+        txtNome1.setBackground(new java.awt.Color(255, 255, 153));
         txtNome1.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
         txtNome1.setForeground(new java.awt.Color(0, 0, 0));
         txtNome1.addActionListener(new java.awt.event.ActionListener() {
@@ -109,7 +109,7 @@ public class JanelaPartido extends javax.swing.JFrame {
             }
         });
 
-        txtNome2.setBackground(java.awt.Color.white);
+        txtNome2.setBackground(new java.awt.Color(255, 255, 153));
         txtNome2.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
         txtNome2.setForeground(new java.awt.Color(0, 0, 0));
         txtNome2.addActionListener(new java.awt.event.ActionListener() {

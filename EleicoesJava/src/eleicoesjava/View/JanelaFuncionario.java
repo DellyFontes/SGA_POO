@@ -26,6 +26,7 @@ public class JanelaFuncionario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        radioGenero2 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -111,7 +112,7 @@ public class JanelaFuncionario extends javax.swing.JFrame {
             }
         });
 
-        jcDistrito.setBackground(new java.awt.Color(255, 255, 255));
+        jcDistrito.setBackground(new java.awt.Color(255, 255, 153));
         jcDistrito.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
         jcDistrito.setForeground(new java.awt.Color(0, 0, 0));
         jcDistrito.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -121,34 +122,38 @@ public class JanelaFuncionario extends javax.swing.JFrame {
             }
         });
 
-        txtNome.setBackground(java.awt.Color.white);
+        txtNome.setBackground(new java.awt.Color(255, 255, 153));
         txtNome.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
         txtNome.setForeground(new java.awt.Color(0, 0, 0));
+        txtNome.setCaretColor(new java.awt.Color(255, 102, 102));
         txtNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNomeActionPerformed(evt);
             }
         });
 
-        txtBI.setBackground(java.awt.Color.white);
+        txtBI.setBackground(new java.awt.Color(255, 255, 153));
         txtBI.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
         txtBI.setForeground(new java.awt.Color(0, 0, 0));
+        txtBI.setCaretColor(new java.awt.Color(255, 102, 102));
         txtBI.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtBIActionPerformed(evt);
             }
         });
 
-        txtSobrenome.setBackground(java.awt.Color.white);
+        txtSobrenome.setBackground(new java.awt.Color(255, 255, 153));
         txtSobrenome.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
         txtSobrenome.setForeground(new java.awt.Color(0, 0, 0));
+        txtSobrenome.setCaretColor(new java.awt.Color(255, 102, 102));
         txtSobrenome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtSobrenomeActionPerformed(evt);
             }
         });
 
-        radioM.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        radioGenero2.add(radioM);
+        radioM.setFont(new java.awt.Font("Georgia", 2, 15)); // NOI18N
         radioM.setText("Masculino");
         radioM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -156,7 +161,8 @@ public class JanelaFuncionario extends javax.swing.JFrame {
             }
         });
 
-        radioF.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        radioGenero2.add(radioF);
+        radioF.setFont(new java.awt.Font("Georgia", 2, 15)); // NOI18N
         radioF.setText("Femenino");
 
         jDateChooser1.setBackground(java.awt.Color.white);
@@ -223,7 +229,7 @@ public class JanelaFuncionario extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtSobrenome, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(39, 39, 39)
+                .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -351,6 +357,7 @@ public class JanelaFuncionario extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JComboBox<String> jcDistrito;
     private javax.swing.JRadioButton radioF;
+    private javax.swing.ButtonGroup radioGenero2;
     private javax.swing.JRadioButton radioM;
     private javax.swing.JTextField txtBI;
     private javax.swing.JTextField txtNome;

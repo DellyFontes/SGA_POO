@@ -17,12 +17,12 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Admin
  */
-public class tabelaEleitor extends javax.swing.JFrame {
+public class tabelaFuncionarios extends javax.swing.JFrame {
 
     /**
      * Creates new form TabelaEleitor
      */
-    public tabelaEleitor() {
+    public tabelaFuncionarios() {
         initComponents();
         lerTabela();
     }
@@ -92,17 +92,17 @@ public class tabelaEleitor extends javax.swing.JFrame {
         tbEleitor.setForeground(new java.awt.Color(0, 0, 0));
         tbEleitor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "Nome", "B.I", "Nascimento", "Genero", "Distrito", "Sobrenome"
+                "Nome", "Tipo Funcionario", "B.I", "Nascimento", "Genero", "Sobrenome"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, true
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -165,7 +165,7 @@ public class tabelaEleitor extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Square721 BT", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Tabela de Eleitores");
+        jLabel3.setText("Tabela de Funcionarios");
 
         javax.swing.GroupLayout paneltbEleitorLayout = new javax.swing.GroupLayout(paneltbEleitor);
         paneltbEleitor.setLayout(paneltbEleitorLayout);
