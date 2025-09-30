@@ -23,7 +23,7 @@ public class tabelaFuncionarios extends javax.swing.JFrame {
         lerTabela();
     }
 
-    public void lerTabela() {
+    public void lerTabela () {
         DefaultTableModel modelo = (DefaultTableModel) tbFuncionario.getModel();
         modelo.setNumRows(0);
         FuncionarioDao dao = new FuncionarioDao();
