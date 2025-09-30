@@ -1,13 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Model.Dao;
 
 import Connection.ConnectionFactory;
-
-import eleicoesjava.Modelo.Eleitor;
-import eleicoesjava.Modelo.Partido;
+import eleicoesjava.Modelo.Funcionario;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -17,21 +11,24 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 
-public class EleitorDao {
 
-    public void Salvar(Eleitor e) {
+public class FuncionarioDao {
+
+    
+    public void Salvar(Funcionario f) {
 
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         try {
-            stmt = con.prepareStatement(" Insert into eleitor (codigo,nome, BI, genero, "
-                    + "Distrito, dataNascimento) Values (?,?,?,?,?,?) ");
-            stmt.setString(1, e.getCodigo());            // String - código
-            stmt.setString(2, e.getNome());              // String - nome
-            stmt.setString(3, e.getBI());                // String - BI
-            stmt.setString(4, e.getGenero());            // String - genero
-            stmt.setString(5, e.getDistrito());         // String - Distrito
-            stmt.setDate(6, new java.sql.Date(e.getDataNasc().getTime())); // Date - dataNascimento
+            stmt = con.prepareStatement(" Insert into funcionario (codigoFuncionario, celular, nome, BI,"
+                    + " genero, Distrito, dataNascimento) Values (?,?,?,?,?,?) ");
+            stmt.setString(1, f.getCodigoFuncionario());            // String - código
+            stmt.setInt(2, f.getCelular());              // String - nome
+            stmt.setString(3, f.getNome());                // String - BI
+            stmt.setString(4, f.getBI());                // String - BI
+            stmt.setString(5, f.getGenero());            // String - genero
+            stmt.setString(6, f.getDistrito());         // String - Distrito
+            stmt.setDate(7, new java.sql.Date(f.getDataNasc().getTime())); // Date - dataNascimento
             stmt.executeUpdate();
             JOptionPane.showInternalMessageDialog(null, "Salvo com sucesso");
         } catch (SQLException ex) {
@@ -43,26 +40,25 @@ public class EleitorDao {
 
     }
 
-    public List<Eleitor> listarTabela() {
+    public List<Funcionario> listarTabela() {
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;
 
-        List<Eleitor> eleitores = new ArrayList<>();
+        List<Funcionario> eleitores = new ArrayList<>();
 
         try {
-            stmt = con.prepareStatement(" Select id, nome, bi, dataNascimento, Distrito, genero  from eleitor");
+            stmt = con.prepareStatement(" Select id, nome, bi, dataNascimento, genero  from funcionario");
             rs = stmt.executeQuery();
 
             while (rs.next()) {
-                Eleitor e = new Eleitor();
-                e.setId(rs.getInt("id"));
-                e.setNome(rs.getString("nome"));
-                e.setBI(rs.getString("BI"));
-                e.setDataNasc(rs.getDate("dataNascimento"));
-                e.setDistrito(rs.getString("Distrito"));
-                e.setGenero(rs.getString("Genero"));
-                eleitores.add(e);
+                Funcionario f = new Funcionario();
+                f.setId(rs.getInt("id"));
+                f.setNome(rs.getString("nome"));
+                f.setBI(rs.getString("BI"));
+                f.setDataNasc(rs.getDate("dataNascimento"));
+                f.setGenero(rs.getString("Genero"));
+                eleitores.add(f);
 
             }
             System.out.println("Listado com sucesso");
@@ -76,18 +72,18 @@ public class EleitorDao {
         return eleitores;
     }
 
-    public void atualizar(Eleitor e) {
+    public void atualizar(Funcionario f) {
 
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         try {
-            stmt = con.prepareStatement("Update eleitores set , nome = ?, BI = ? , dataNAscimento = ?, Distrito = ?  Where id = ? ");
+            stmt = con.prepareStatement("Update funcionario set , nome = ?, BI = ? , dataNAscimento = ?, Distrito = ?  Where id = ? ");
 
-            stmt.setInt(1, e.getId());                   // int
-            stmt.setString(2, e.getNome());              // String
-            stmt.setString(3, e.getBI());                // String
-            stmt.setDate(4, (Date) e.getDataNasc());
-            stmt.setString(5, e.getDistrito());
+            stmt.setInt(1, f.getId());                   // int
+            stmt.setString(2, f.getNome());              // String
+            stmt.setString(3, f.getBI());                // String
+            stmt.setDate(4, (Date) f.getDataNasc());
+            stmt.setString(5, f.getDistrito());
             stmt.executeUpdate();
             JOptionPane.showInternalMessageDialog(null, "Atualizado com sucesso");
         } catch (SQLException ex) {
@@ -99,14 +95,14 @@ public class EleitorDao {
 
     }
 
-    public void eliminar(Eleitor e) {
+    public void eliminar(Funcionario f) {
 
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         try {
-            stmt = con.prepareStatement("Delete from Eleitor Where id = ? ");
+            stmt = con.prepareStatement("Delete from Funcionario Where id = ? ");
 
-            stmt.setInt(1, e.getId());
+            stmt.setInt(1, f.getId());
 
             stmt.executeUpdate();
             JOptionPane.showInternalMessageDialog(null, "Excluido com sucesso");
@@ -118,28 +114,28 @@ public class EleitorDao {
         }
     }
 
-    public List<Eleitor> busca(String termo) {
+    public List<Funcionario> busca(String termo) {
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;
         String filtro = " %"+termo+"%";
-        List<Eleitor> eleitores = new ArrayList<>();
+        List<Funcionario> funcionario = new ArrayList<>();
 
         try {
-            stmt = con.prepareStatement(" Select * from eleitor where nome Like ? or BI like?");
+            stmt = con.prepareStatement(" Select * from funcionario where nome Like ? or BI like?");
             stmt.setString(1, filtro);
             stmt.setString(2, filtro);
             rs = stmt.executeQuery();
 
             while (rs.next()) {
 
-                Eleitor e = new Eleitor();
-                e.setId(rs.getInt("id"));
-                e.setNome(rs.getString("nome"));
-                e.setBI(rs.getString("BI"));
-                e.setGenero(rs.getString("dataNascimento"));
-                e.setDistrito(rs.getString("Distrito"));
-                eleitores.add(e);
+                Funcionario f = new Funcionario();
+                f.setId(rs.getInt("id"));
+                f.setNome(rs.getString("nome"));
+                f.setBI(rs.getString("BI"));
+                f.setGenero(rs.getString("dataNascimento"));
+                f.setDistrito(rs.getString("Distrito"));
+                funcionario.add(f);
 
             }
             System.out.println("Listado com sucesso");
@@ -150,7 +146,9 @@ public class EleitorDao {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
 
-        return eleitores;
+        return funcionario;
     }
 
+    
 }
+

@@ -10,10 +10,16 @@ import java.util.Random;
 public class Eleitor  extends  Cidadao{
     private String codigo;
 
-    public Eleitor(String codigo, int id, String nome, String BI, String genero, String Moradia, String Distrito, Date dataNasc) {
-        super(id, nome, BI, genero, Moradia, Distrito, dataNasc);
+    public Eleitor(String codigo, int id, String nome, String BI, String genero, String Distrito, Date dataNasc) {
+        super(id, nome, BI, genero, Distrito, dataNasc);
         this.codigo = codigo;
     }
+
+    public Eleitor(String codigo) {
+        this.codigo = codigo;
+    }
+
+    
 
     public Eleitor() {
         super();

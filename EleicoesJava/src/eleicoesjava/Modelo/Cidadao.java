@@ -6,15 +6,14 @@ import java.util.Date;
 
 public abstract class Cidadao {
     private int id; 
-    private String nome , BI,genero,Moradia,Distrito;
+    private String nome , BI,genero,Distrito;
     private  Date dataNasc;
     
 
-    public Cidadao(int id, String nome, String BI, String genero, String Moradia, String Distrito, Date dataNasc) {
+    public Cidadao(int id, String nome, String BI, String genero, String Distrito, Date dataNasc) {
         this.nome = nome;
         this.BI = BI;
         this.genero = genero;
-        this.Moradia = Moradia;
         this.Distrito = Distrito;
         this.dataNasc = dataNasc;
         this.id = id;
@@ -61,7 +60,7 @@ public abstract class Cidadao {
 
     @Override
     public String toString() {
-        return "Cidadao{" + "nome=" + nome + ", BI=" + BI + ", genero=" + genero + ", dataNasc=" + dataNasc + ", Moradia=" + Moradia + ", Distrito=" + Distrito + '}';
+        return "Cidadao{" + "nome=" + nome + ", BI=" + BI + ", genero=" + genero + ", dataNasc=" + dataNasc + ", Distrito=" + Distrito + '}';
     }
 
     public Date  getDataNasc() {
@@ -70,14 +69,6 @@ public abstract class Cidadao {
 
     public void setDataNasc(Date  dataNasc) {
         this.dataNasc = dataNasc;
-    }
-
-    public String getMoradia() {
-        return Moradia;
-    }
-
-    public void setMoradia(String Moradia) {
-        this.Moradia = Moradia;
     }
 
     public String getDistrito() {

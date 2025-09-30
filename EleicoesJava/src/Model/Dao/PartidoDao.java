@@ -25,11 +25,11 @@ public class PartidoDao {
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         try {
-            stmt = con.prepareStatement(" Insert into partidos (id, nome, numVotosPart) Values (?,?,?) ");
+            stmt = con.prepareStatement(" Insert into partidos (id, nome) Values (?,?) ");
             
-            stmt.setInt(1, p.getId());            // String - código
-            stmt.setString(2, p.getNome());              // String - nome
-            stmt.setInt(3, p.getNumVotosPart());              
+            stmt.setInt(1, p.getId());           
+            stmt.setString(2, p.getNome());            
+//            stmt.setInt(3, p.getNumVotosPart());              
                   
             stmt.executeUpdate();
             JOptionPane.showInternalMessageDialog(null, "Salvo com sucesso");

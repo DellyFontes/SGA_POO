@@ -23,7 +23,7 @@ public class CandidatoDao {
         PreparedStatement stmt = null;
         try {
             stmt = con.prepareStatement(" Insert into candidato (numCandidado, senha, partido, numVotos, "
-                    + "codigo, nome, BI, genero, Moradia, Distrito, dataNascimento) Values (?,?,?,?,?,?,?,?,?,?,?) ");
+                    + "codigo, nome, BI, genero, Distrito, dataNascimento) Values (?,?,?,?,?,?,?,?,?,?) ");
             stmt.setInt(1, c.getNumCandidato());         // int
             stmt.setString(2, c.getSenha());             // String
             stmt.setString(3, c.getPart().getNome());    // Partido -> precisa converter p/ String ou ID
@@ -32,9 +32,8 @@ public class CandidatoDao {
             stmt.setString(6, c.getNome());              // String
             stmt.setString(7, c.getBI());                // String
             stmt.setString(8, c.getGenero());            // String
-            stmt.setString(9, c.getMoradia());          // String
-            stmt.setString(10, c.getDistrito());         // String
-            stmt.setDate(11, new java.sql.Date(c.getDataNasc().getTime()));
+            stmt.setString(9, c.getDistrito());         // String
+            stmt.setDate(10, new java.sql.Date(c.getDataNasc().getTime()));
 
             stmt.executeUpdate();
             JOptionPane.showInternalMessageDialog(null, "Salvo com sucesso");

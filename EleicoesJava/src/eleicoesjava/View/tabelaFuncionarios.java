@@ -4,13 +4,9 @@
  */
 package eleicoesjava.View;
 
-import Model.Dao.CandidatoDao;
-import Model.Dao.EleitorDao;
-import eleicoesjava.Modelo.Candidato;
-import eleicoesjava.Modelo.Eleitor;
-import java.net.URL;
+import Model.Dao.FuncionarioDao;
+import eleicoesjava.Modelo.Funcionario;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -20,48 +16,46 @@ import javax.swing.table.DefaultTableModel;
 public class tabelaFuncionarios extends javax.swing.JFrame {
 
     /**
-     * Creates new form TabelaEleitor
+     * Creates new form TabelaFuncionario
      */
     public tabelaFuncionarios() {
         initComponents();
         lerTabela();
     }
-    
-     public void lerTabela() {
-        DefaultTableModel modelo = (DefaultTableModel) tbEleitor.getModel();
+
+    public void lerTabela() {
+        DefaultTableModel modelo = (DefaultTableModel) tbFuncionario.getModel();
         modelo.setNumRows(0);
-        EleitorDao dao = new EleitorDao();
-        for (Eleitor e : dao.listarTabela()) {
+        FuncionarioDao dao = new FuncionarioDao();
+        for (Funcionario f : dao.listarTabela()) {
 
             modelo.addRow(new Object[]{
-               e.getId(),
-                e.getNome(),
-                e.getBI(),
-                e.getDataNasc(),
-                e.getDistrito(),});
+                f.getId(),
+                f.getNome(),
+                f.getBI(),
+                f.getDataNasc(),
+                f.getGenero(),});
 
         }
 
     }
-    
+
     public void lerBusca(String termo) {
-        DefaultTableModel modelo = (DefaultTableModel) tbEleitor.getModel();
+        DefaultTableModel modelo = (DefaultTableModel) tbFuncionario.getModel();
         modelo.setNumRows(0);
-        EleitorDao dao = new EleitorDao ();
-        for (Eleitor e : dao.busca(termo)) {
+        FuncionarioDao dao = new FuncionarioDao();
+        for (Funcionario f : dao.busca(termo)) {
 
             modelo.addRow(new Object[]{
-            e.getId(),
-                e.getNome(),
-                e.getBI(),
-                e.getDataNasc(),
-                e.getDistrito(),});
+                f.getId(),
+                f.getNome(),
+                f.getBI(),
+                f.getDataNasc(),
+                f.getGenero(),});
 
         }
 
     }
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -74,7 +68,7 @@ public class tabelaFuncionarios extends javax.swing.JFrame {
 
         paneltbEleitor = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tbEleitor = new javax.swing.JTable();
+        tbFuncionario = new javax.swing.JTable();
         txtBusca = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         btnBusca = new javax.swing.JButton();
@@ -88,9 +82,9 @@ public class tabelaFuncionarios extends javax.swing.JFrame {
 
         paneltbEleitor.setBackground(new java.awt.Color(170, 108, 58));
 
-        tbEleitor.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
-        tbEleitor.setForeground(new java.awt.Color(0, 0, 0));
-        tbEleitor.setModel(new javax.swing.table.DefaultTableModel(
+        tbFuncionario.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
+        tbFuncionario.setForeground(new java.awt.Color(0, 0, 0));
+        tbFuncionario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -98,7 +92,7 @@ public class tabelaFuncionarios extends javax.swing.JFrame {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "Nome", "Tipo Funcionario", "B.I", "Nascimento", "Genero", "Sobrenome"
+                "ID", "Nome", "B.I", "Nascimento", "Genero", "Tipo Funcionario"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -109,7 +103,7 @@ public class tabelaFuncionarios extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(tbEleitor);
+        jScrollPane1.setViewportView(tbFuncionario);
 
         txtBusca.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
 
@@ -200,7 +194,7 @@ public class tabelaFuncionarios extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paneltbEleitorLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel3)
-                .addGap(347, 347, 347))
+                .addGap(311, 311, 311))
         );
         paneltbEleitorLayout.setVerticalGroup(
             paneltbEleitorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -245,21 +239,21 @@ public class tabelaFuncionarios extends javax.swing.JFrame {
 
     private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
         // TODO add your handling code here:
-         lerTabela();
+        lerTabela();
     }//GEN-LAST:event_btnListarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
-        if (tbEleitor.getSelectedRow() != -1) {
-            Eleitor e = new Eleitor();
-            EleitorDao dao = new EleitorDao();
-            
-            e.setId((int) tbEleitor.getValueAt(tbEleitor.getSelectedRow(), 0));
+        if (tbFuncionario.getSelectedRow() != -1) {
+            Funcionario f = new Funcionario();
+            FuncionarioDao dao = new FuncionarioDao();
 
-            dao.eliminar(e);
+            f.setId((int) tbFuncionario.getValueAt(tbFuncionario.getSelectedRow(), 0));
+
+            dao.eliminar(f);
 
             lerTabela();
-            
+
         } else {
             JOptionPane.showMessageDialog(null, "Selecione um eleitor para Excluir");
         }
@@ -269,11 +263,38 @@ public class tabelaFuncionarios extends javax.swing.JFrame {
         // TODO add your handling code here:
         lerBusca(txtBusca.getText());
     }//GEN-LAST:event_btnBuscaActionPerformed
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(JanelaPartido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(JanelaPartido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(JanelaPartido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(JanelaPartido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
 
-    /**
-     * @param args the command line arguments
-     */
-    
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new tabelaFuncionarios().setVisible(true);
+            }
+        });
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActualizar;
@@ -285,7 +306,7 @@ public class tabelaFuncionarios extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel paneltbEleitor;
-    private javax.swing.JTable tbEleitor;
+    private javax.swing.JTable tbFuncionario;
     private javax.swing.JTextField txtBusca;
     // End of variables declaration//GEN-END:variables
 }
