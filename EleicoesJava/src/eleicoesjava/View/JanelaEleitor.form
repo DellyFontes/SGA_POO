@@ -50,6 +50,11 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="349" max="-2" attributes="0"/>
+                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              </Group>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -67,34 +72,34 @@
                       </Group>
                       <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="131" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                      <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="cbDistrito1" alignment="0" min="-2" pref="281" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                              <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="cbDistrito" alignment="0" min="-2" pref="281" max="-2" attributes="0"/>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="196" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtBI" alignment="0" min="-2" pref="281" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtBI" alignment="0" min="-2" pref="281" max="-2" attributes="0"/>
+                          <Component id="txtSobrenome" alignment="1" min="-2" pref="281" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="txtSobrenome" alignment="1" min="-2" pref="281" max="-2" attributes="0"/>
+                      <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="cbDistrito" alignment="0" min="-2" pref="281" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="126" max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="349" max="-2" attributes="0"/>
-                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="187" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="186" max="-2" attributes="0"/>
                   <Component id="btnCadastrar" min="-2" pref="124" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
                   <Component id="btnListar" min="-2" pref="127" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
                   <Component id="btnVoltar" min="-2" pref="109" max="-2" attributes="0"/>
-                  <EmptySpace pref="203" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -140,13 +145,17 @@
                       <Component id="cbDistrito" min="-2" pref="37" max="-2" attributes="0"/>
                       <Component id="txtDataNascimento" min="-2" pref="34" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="91" max="32767" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="jLabel6" min="-2" pref="29" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="cbDistrito1" min="-2" pref="37" max="-2" attributes="0"/>
+                  <EmptySpace pref="50" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="btnVoltar" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                       <Component id="btnListar" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                       <Component id="btnCadastrar" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="85" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -182,7 +191,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Distrito"/>
+            <Property name="text" type="java.lang.String" value="Provincia"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">
@@ -241,22 +250,18 @@
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="15">
-                <StringItem index="0" value="Boane"/>
-                <StringItem index="1" value="Magude"/>
-                <StringItem index="2" value="Manhi&#xe7;a"/>
-                <StringItem index="3" value="Marracuene"/>
-                <StringItem index="4" value="Matola"/>
-                <StringItem index="5" value="Matutu&#xed;ne"/>
-                <StringItem index="6" value="Moamba"/>
-                <StringItem index="7" value="Namaacha"/>
-                <StringItem index="8" value="KaMpfumu"/>
-                <StringItem index="9" value="Nlhamankulu"/>
-                <StringItem index="10" value="KaMaxakeni"/>
-                <StringItem index="11" value="KaMavota"/>
-                <StringItem index="12" value="KaMubukwana"/>
-                <StringItem index="13" value="KaTembe"/>
-                <StringItem index="14" value="KaNyaka"/>
+              <StringArray count="11">
+                <StringItem index="0" value="Cabo Delgado"/>
+                <StringItem index="1" value="Gaza"/>
+                <StringItem index="2" value="Inhambane"/>
+                <StringItem index="3" value="Manica"/>
+                <StringItem index="4" value="Maputo"/>
+                <StringItem index="5" value="Maputo Cidade"/>
+                <StringItem index="6" value="Nampula"/>
+                <StringItem index="7" value="Niassa"/>
+                <StringItem index="8" value="Sofala"/>
+                <StringItem index="9" value="Tete"/>
+                <StringItem index="10" value="Zamb&#xe9;zia"/>
               </StringArray>
             </Property>
           </Properties>
@@ -400,6 +405,55 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVoltarActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel6">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI Semibold" size="16" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Distrito"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="cbDistrito1">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="99" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI Semibold" size="14" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="15">
+                <StringItem index="0" value="Boane"/>
+                <StringItem index="1" value="Magude"/>
+                <StringItem index="2" value="Manhi&#xe7;a"/>
+                <StringItem index="3" value="Marracuene"/>
+                <StringItem index="4" value="Matola"/>
+                <StringItem index="5" value="Matutu&#xed;ne"/>
+                <StringItem index="6" value="Moamba"/>
+                <StringItem index="7" value="Namaacha"/>
+                <StringItem index="8" value="KaMpfumu"/>
+                <StringItem index="9" value="Nlhamankulu"/>
+                <StringItem index="10" value="KaMaxakeni"/>
+                <StringItem index="11" value="KaMavota"/>
+                <StringItem index="12" value="KaMubukwana"/>
+                <StringItem index="13" value="KaTembe"/>
+                <StringItem index="14" value="KaNyaka"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbDistrito1ActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>
