@@ -316,7 +316,6 @@ public class JanelaEleitor extends javax.swing.JFrame {
         Eleitor e = new Eleitor();
         EleitorDao dao = new EleitorDao();
         String genero = "";
-        String codigo = "1234589";
         // Pegando o Genero Selecionado
         if(radioM.isSelected()){
             genero = "M";
