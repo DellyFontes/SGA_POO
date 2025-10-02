@@ -33,7 +33,7 @@ public class EleitorDao {
             stmt.setString(5, e.getDistrito());         // String - Distrito
             stmt.setDate(6, new java.sql.Date(e.getDataNasc().getTime())); // Date - dataNascimento
             stmt.executeUpdate();
-            JOptionPane.showInternalMessageDialog(null, "Salvo com sucesso");
+            JOptionPane.showInternalMessageDialog(null, "Salvo com sucesso o codigo do eleitor e :"+e.getCodigo());
         } catch (SQLException ex) {
             JOptionPane.showInternalMessageDialog(null, "Erro ao Salvar!!! " + ex);
             System.out.println(" ");
