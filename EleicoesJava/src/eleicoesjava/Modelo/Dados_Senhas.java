@@ -11,26 +11,31 @@ public class Dados_Senhas {
 
 
     // Gera uma senha numérica única para um cidadão
-    public static String gerarSenha(int tamanho) {
-        Random rand = new Random();
+public static String gerarSenhaEleitor() {
+    Random rand = new Random();
+    String senha;
+
+    do {
         StringBuilder sb = new StringBuilder();
-        String senha;
 
-        // Gera uma senha aleatória até que a senha não exista ainda
-        do {
-            sb.setLength(0); // limpa o StringBuilder
+        // Gera 7 dígitos
+        for (int i = 0; i < 7; i++) {
+            sb.append(rand.nextInt(10));
+        }
 
-            // Gera uma sequência aleatória de dígitos
-            while (sb.length() < tamanho) {
-                sb.append(rand.nextInt(10)); // dígitos de 0 a 9
-            }
+        // Gera 3 letras maiúsculas
+        for (int i = 0; i < 3; i++) {
+            char letra = (char) ('A' + rand.nextInt(26));
+            sb.append(letra);
+        }
 
-            senha = sb.toString(); // converte para string
+        senha = sb.toString();
 
-        } while (isSenhaCidadaoExistente(senha)); // repete se a senha já existir
+    } while (isSenhaCidadaoExistente(senha)); // repete se já existir
 
-        return senha; // retorna a senha única
-    }
+    return senha;
+}
+
 
     // Gera uma senha única para um candidato (formato: 3 letras maiúsculas + 2 dígitos)
     public static String gerarSenhaCandidato() {
