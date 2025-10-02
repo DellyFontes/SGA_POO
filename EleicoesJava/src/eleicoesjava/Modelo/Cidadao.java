@@ -19,6 +19,15 @@ public abstract class Cidadao {
         this.id = id;
     }
 
+    public Cidadao(String nome, String BI, String genero, String Distrito, Date dataNasc) {
+        this.nome = nome;
+        this.BI = BI;
+        this.genero = genero;
+        this.Distrito = Distrito;
+        this.dataNasc = dataNasc;
+    }
+    
+
     public Cidadao() {
     }
     

@@ -5,6 +5,7 @@
 package Model.Dao;
 
 import Connection.ConnectionFactory;
+import eleicoesjava.Modelo.Dados_Senhas;
 
 import eleicoesjava.Modelo.Eleitor;
 import eleicoesjava.Modelo.Partido;
@@ -34,6 +35,7 @@ public class EleitorDao {
             stmt.setDate(6, new java.sql.Date(e.getDataNasc().getTime())); // Date - dataNascimento
             stmt.executeUpdate();
             JOptionPane.showInternalMessageDialog(null, "Salvo com sucesso o codigo do eleitor e :"+e.getCodigo());
+            Dados_Senhas.eleitores.add(e);
         } catch (SQLException ex) {
             JOptionPane.showInternalMessageDialog(null, "Erro ao Salvar!!! " + ex);
             System.out.println(" ");
