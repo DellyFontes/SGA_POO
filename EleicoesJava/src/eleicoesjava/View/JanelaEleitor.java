@@ -5,8 +5,8 @@
 package eleicoesjava.View;
 
 import Model.Dao.EleitorDao;
+import eleicoesjava.Modelo.Dados_Senhas;
 import eleicoesjava.Modelo.Eleitor;
-import java.util.Date;
 
 /**
  *
@@ -331,7 +331,7 @@ public class JanelaEleitor extends javax.swing.JFrame {
         e.setDataNasc((txtDataNascimento.getDate()));
         e.setBI((txtBI.getText()));
         e.setDistrito(cbDistrito.getSelectedItem().toString());
-        e.setCodigo(codigo);
+        e.setCodigo(Dados_Senhas.gerarSenhaEleitor());
         dao.Salvar(e);
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
