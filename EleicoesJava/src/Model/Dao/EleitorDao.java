@@ -25,14 +25,16 @@ public class EleitorDao {
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         try {
-            stmt = con.prepareStatement(" Insert into eleitor (codigo,nome, BI, genero, "
-                    + "Distrito, dataNascimento) Values (?,?,?,?,?,?) ");
+            stmt = con.prepareStatement(" Insert into eleitor (codigo, nome, BI, genero,"
+                    + " Provincia, Distrito, dataNascimento,votou) Values (?,?,?,?,?,?,?,?) ");
             stmt.setString(1, e.getCodigo());            // String - código
             stmt.setString(2, e.getNome());              // String - nome
             stmt.setString(3, e.getBI());                // String - BI
-            stmt.setString(4, e.getGenero());            // String - genero
-            stmt.setString(5, e.getDistrito());         // String - Distrito
-            stmt.setDate(6, new java.sql.Date(e.getDataNasc().getTime())); // Date - dataNascimento
+            stmt.setString(4, e.getGenero());           // String - genero
+            stmt.setString(5, e.getProvincia());           // String - genero
+            stmt.setString(6, e.getDistrito());         // String - Distrito
+            stmt.setDate(7, new java.sql.Date(e.getDataNasc().getTime())); // Date - dataNascimento
+            stmt.setBoolean(8, e.isVotou());   
             stmt.executeUpdate();
             JOptionPane.showInternalMessageDialog(null, "Salvo com sucesso o codigo do eleitor e :"+e.getCodigo());
             Dados_Senhas.eleitores.add(e);
@@ -83,13 +85,17 @@ public class EleitorDao {
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         try {
-            stmt = con.prepareStatement("Update eleitores set , nome = ?, BI = ? , dataNAscimento = ?, Distrito = ?  Where id = ? ");
+            stmt = con.prepareStatement("UPDATE eleitor SET codigo=?, nome=?, BI=?, genero=?, "
+                    + "provincia=?, distrito=?, dataNascimento=?, votou=? WHERE id=? ");
 
-            stmt.setInt(1, e.getId());                   // int
-            stmt.setString(2, e.getNome());              // String
-            stmt.setString(3, e.getBI());                // String
-            stmt.setDate(4, (Date) e.getDataNasc());
-            stmt.setString(5, e.getDistrito());
+           stmt.setString(1, e.getCodigo());            // String - código
+            stmt.setString(2, e.getNome());              // String - nome
+            stmt.setString(3, e.getBI());                // String - BI
+            stmt.setString(4, e.getGenero());           // String - genero
+            stmt.setString(5, e.getProvincia());           // String - genero
+            stmt.setString(6, e.getDistrito());         // String - Distrito
+            stmt.setDate(7, new java.sql.Date(e.getDataNasc().getTime())); // Date - dataNascimento
+            stmt.setBoolean(8, e.isVotou());   
             stmt.executeUpdate();
             JOptionPane.showInternalMessageDialog(null, "Atualizado com sucesso");
         } catch (SQLException ex) {

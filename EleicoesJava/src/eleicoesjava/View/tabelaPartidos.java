@@ -22,6 +22,7 @@ public void lerTabela() {
             modelo.addRow(new Object[]{
                 p.getId(),
                 p.getNome(),
+                p.getSigla(),
                 p.getCan().getNome(),
                 });
 
@@ -38,6 +39,7 @@ public void lerBusca(String nome) {
             modelo.addRow(new Object[]{
                 p.getId(),
                 p.getNome(),
+                p.getSigla(),
                 p.getCan().getNome(),
                 });
 
@@ -86,11 +88,11 @@ public void lerBusca(String nome) {
 
             },
             new String [] {
-                "ID", "Nome", "Candidato"
+                "ID", "Nome", "SIGLA", "Candidato"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -98,6 +100,9 @@ public void lerBusca(String nome) {
             }
         });
         jScrollPane1.setViewportView(tbPartidos);
+        if (tbPartidos.getColumnModel().getColumnCount() > 0) {
+            tbPartidos.getColumnModel().getColumn(2).setResizable(false);
+        }
 
         btnActualizar.setBackground(javax.swing.UIManager.getDefaults().getColor("OptionPane.warningDialog.titlePane.shadow"));
         btnActualizar.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N

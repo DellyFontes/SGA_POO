@@ -10,13 +10,15 @@ public class Candidato   extends Eleitor {
     private Partido part;
     private Integer numVotosCand;
 
-    public Candidato(int numCandidato, String senha, Partido part, Integer numVotosCand, String codigo, int id, String nome, String BI, String genero, String Distrito, Date dataNasc) {
-        super(codigo, id, nome, BI, genero, Distrito, dataNasc);
+    public Candidato(int numCandidato, String senha, Partido part, Integer numVotosCand, String codigo, boolean votou, int id, String nome, String BI, String genero, String provincia, String Distrito, Date dataNasc) {
+        super(codigo, votou, id, nome, BI, genero, provincia, Distrito, dataNasc);
         this.numCandidato = numCandidato;
         this.senha = senha;
         this.part = part;
         this.numVotosCand = numVotosCand;
     }
+
+    
 
     public Candidato() {
         super();

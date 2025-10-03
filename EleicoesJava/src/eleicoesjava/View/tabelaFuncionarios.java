@@ -36,7 +36,8 @@ public class tabelaFuncionarios extends javax.swing.JFrame {
                 f.getNome(),
                 f.getBI(),
                 f.getDataNasc(),
-                f.getGenero(),});
+                f.getGenero(),
+                f.getTipoFuncionario(),});
 
         }
 
