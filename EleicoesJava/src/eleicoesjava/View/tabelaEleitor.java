@@ -8,7 +8,6 @@ import Model.Dao.CandidatoDao;
 import Model.Dao.EleitorDao;
 import eleicoesjava.Modelo.Candidato;
 import eleicoesjava.Modelo.Eleitor;
-import java.awt.CardLayout;
 import java.net.URL;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -27,7 +26,6 @@ public class tabelaEleitor extends javax.swing.JFrame {
         initComponents();
         lerTabela();
     }
-   
     
      public void lerTabela() {
         DefaultTableModel modelo = (DefaultTableModel) tbEleitor.getModel();
@@ -75,7 +73,6 @@ public class tabelaEleitor extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        MAIN = new javax.swing.JPanel();
         paneltbEleitor = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbEleitor = new javax.swing.JTable();
@@ -89,8 +86,6 @@ public class tabelaEleitor extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        MAIN.setLayout(new java.awt.CardLayout());
 
         paneltbEleitor.setBackground(new java.awt.Color(170, 108, 58));
 
@@ -178,46 +173,49 @@ public class tabelaEleitor extends javax.swing.JFrame {
         paneltbEleitorLayout.setHorizontalGroup(
             paneltbEleitorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(paneltbEleitorLayout.createSequentialGroup()
-                .addContainerGap(13, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(paneltbEleitorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paneltbEleitorLayout.createSequentialGroup()
-                        .addComponent(btnListar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(16, 16, 16)
-                        .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(161, 161, 161))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paneltbEleitorLayout.createSequentialGroup()
-                        .addGroup(paneltbEleitorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addGroup(paneltbEleitorLayout.createSequentialGroup()
-                                .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paneltbEleitorLayout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 908, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
                     .addGroup(paneltbEleitorLayout.createSequentialGroup()
-                        .addGap(318, 318, 318)
-                        .addComponent(jLabel3)
-                        .addContainerGap())))
+                        .addComponent(jScrollPane1)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paneltbEleitorLayout.createSequentialGroup()
+                        .addGap(0, 148, Short.MAX_VALUE)
+                        .addGroup(paneltbEleitorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paneltbEleitorLayout.createSequentialGroup()
+                                .addComponent(btnListar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(16, 16, 16)
+                                .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(161, 161, 161))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paneltbEleitorLayout.createSequentialGroup()
+                                .addGroup(paneltbEleitorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1)
+                                    .addGroup(paneltbEleitorLayout.createSequentialGroup()
+                                        .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addContainerGap())))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paneltbEleitorLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addGap(347, 347, 347))
         );
         paneltbEleitorLayout.setVerticalGroup(
             paneltbEleitorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paneltbEleitorLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
+                .addGap(11, 11, 11)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel1)
                 .addGap(0, 0, 0)
                 .addGroup(paneltbEleitorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBusca))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 406, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 417, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(paneltbEleitorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -227,22 +225,15 @@ public class tabelaEleitor extends javax.swing.JFrame {
                 .addGap(17, 17, 17))
         );
 
-        MAIN.add(paneltbEleitor, "CardTbEleitor");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(MAIN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(paneltbEleitor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(MAIN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(0, 0, 0))
+            .addComponent(paneltbEleitor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -251,12 +242,6 @@ public class tabelaEleitor extends javax.swing.JFrame {
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         // TODO add your handling code here:
-         if (menuPrincipal != null) {
-            menuPrincipal.mostrarTela("CardEleitores"); // Volta para o menu principal
-        } else {
-            this.dispose(); // Se não houver menuPrincipal, fecha a janela
-        }
-        
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
@@ -317,18 +302,8 @@ public static void main(String args[]) {
         });
     }
     
-public JPanel getContentPanel() {
-        return MAIN; // Retorna o JPanel que contém o CardLayout
-    }
 
-    public void setMenuPrincipal(MenuPrincipal menuPrincipal) {
-        this.menuPrincipal = menuPrincipal;
-    }
-
-  private CardLayout cardLayout;
-    private MenuPrincipal menuPrincipal;
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel MAIN;
     private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnBusca;
     private javax.swing.JButton btnEliminar;

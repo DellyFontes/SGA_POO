@@ -22,8 +22,8 @@ public class CandidatoDao {
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         try {
-            stmt = con.prepareStatement(" Insert into candidato  (numCandidado, senha, partido, numVotos, "
-                    + "codigo, nome, BI, genero, provincia, Distrito, dataNascimento) Values (?,?,?,?,?,?,?,?,?,?,?) ");
+            stmt = con.prepareStatement(" Insert into candidato (numCandidado, senha, partido, numVotos, "
+                    + "codigo, nome, BI, genero, Distrito, dataNascimento) Values (?,?,?,?,?,?,?,?,?,?) ");
             stmt.setInt(1, c.getNumCandidato());         // int
             stmt.setString(2, c.getSenha());             // String
             stmt.setString(3, c.getPart().getNome());    // Partido -> precisa converter p/ String ou ID
@@ -32,9 +32,8 @@ public class CandidatoDao {
             stmt.setString(6, c.getNome());              // String
             stmt.setString(7, c.getBI());                // String
             stmt.setString(8, c.getGenero());            // String
-            stmt.setString(9, c.getProvincia());            // String
-            stmt.setString(10, c.getDistrito());         // String
-            stmt.setDate(11, new java.sql.Date(c.getDataNasc().getTime()));
+            stmt.setString(9, c.getDistrito());         // String
+            stmt.setDate(10, new java.sql.Date(c.getDataNasc().getTime()));
 
             stmt.executeUpdate();
             JOptionPane.showInternalMessageDialog(null, "Salvo com sucesso");
@@ -86,21 +85,13 @@ public class CandidatoDao {
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         try {
-            stmt = con.prepareStatement("UPDATE candidato SET numCandidato=?, senha=?, partido=?,"
-                    + " numVotos=?, codigo=?, nome=?, BI=?, genero=?, provincia=?, distrito=?, dataNascimento=? WHERE id=?");
+            stmt = con.prepareStatement("Update candidato set partido = ? , nome = ?, BI = ? , genero = ?  Where id = ? ");
 
-            stmt.setInt(1, c.getNumCandidato());         // int
-            stmt.setString(2, c.getSenha());             // String
-            stmt.setString(3, c.getPart().getNome());    // Partido -> precisa converter p/ String ou ID
-            stmt.setInt(4, c.getNumVotosCand());         // Integer
-            stmt.setString(5, c.getCodigo());            // String
-            stmt.setString(6, c.getNome());              // String
-            stmt.setString(7, c.getBI());                // String
-            stmt.setString(8, c.getGenero());            // String
-            stmt.setString(9, c.getProvincia());            // String
-            stmt.setString(10, c.getDistrito());         // String
-            stmt.setDate(11, new java.sql.Date(c.getDataNasc().getTime()));
-            // String
+            stmt.setString(1, c.getPart().getNome());    // Partido -> precisa converter p/ String ou ID
+            stmt.setInt(2, c.getId());                   // int
+            stmt.setString(2, c.getNome());              // String
+            stmt.setString(3, c.getBI());                // String
+            stmt.setString(4, c.getGenero());            // String
             stmt.executeUpdate();
             JOptionPane.showInternalMessageDialog(null, "Atualizado com sucesso");
         } catch (SQLException ex) {
@@ -168,5 +159,40 @@ public class CandidatoDao {
         return candidatos;
     }
 
-  
+    public List<Candidato> buscaBi(String BI) {
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        List<Candidato> candidatos = new ArrayList<>();
+
+        try {
+            stmt = con.prepareStatement(" Select * from candidato where bi Like ?");
+            stmt.setString(8," %"+BI+"%");
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+
+                 Partido p = new Partido();
+                Candidato c = new Candidato();
+                c.setId(rs.getInt("id"));
+                c.setNome(rs.getString("nome"));
+                c.setGenero(rs.getString("genero"));
+                p.setNome(rs.getString("Partido"));  
+                c.setBI(rs.getString("BI"));
+                c.setPart(p);
+                candidatos.add(c);
+
+            }
+            System.out.println("Listado com sucesso");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao listar " + ex);
+        } finally {
+
+            ConnectionFactory.closeConnection(con, stmt, rs);
+        }
+
+        return candidatos;
+    }
+
 }

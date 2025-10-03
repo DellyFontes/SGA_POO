@@ -20,17 +20,15 @@ public class FuncionarioDao {
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         try {
-            stmt = con.prepareStatement(" Insert into funcionario (codigoFuncionario, celular, nome, BI, genero, "
-                    + "provincia,Distrito, dataNascimento,Tipofuncionario) Values (?,?,?,?,?,?,?,?,?) ");
+            stmt = con.prepareStatement(" Insert into funcionario (codigoFuncionario, celular, nome, BI,"
+                    + " genero, Distrito, dataNascimento) Values (?,?,?,?,?,?) ");
             stmt.setString(1, f.getCodigoFuncionario());            // String - código
             stmt.setInt(2, f.getCelular());              // String - nome
             stmt.setString(3, f.getNome());                // String - BI
             stmt.setString(4, f.getBI());                // String - BI
             stmt.setString(5, f.getGenero());            // String - genero
-            stmt.setString(6, f.getProvincia());            // String - genero
-            stmt.setString(7, f.getDistrito());         // String - Distrito
-            stmt.setDate(8, new java.sql.Date(f.getDataNasc().getTime())); // Date - dataNascimento
-            stmt.setString(9, f.getTipoFuncionario());  
+            stmt.setString(6, f.getDistrito());         // String - Distrito
+            stmt.setDate(7, new java.sql.Date(f.getDataNasc().getTime())); // Date - dataNascimento
             stmt.executeUpdate();
             JOptionPane.showInternalMessageDialog(null, "Salvo com sucesso");
         } catch (SQLException ex) {
@@ -50,7 +48,7 @@ public class FuncionarioDao {
         List<Funcionario> eleitores = new ArrayList<>();
 
         try {
-            stmt = con.prepareStatement(" Select id, nome, bi, dataNascimento, genero,Tipofuncionario  from funcionario");
+            stmt = con.prepareStatement(" Select id, nome, bi, dataNascimento, genero  from funcionario");
             rs = stmt.executeQuery();
 
             while (rs.next()) {
@@ -60,7 +58,6 @@ public class FuncionarioDao {
                 f.setBI(rs.getString("BI"));
                 f.setDataNasc(rs.getDate("dataNascimento"));
                 f.setGenero(rs.getString("Genero"));
-                f.setTipoFuncionario(rs.getString("Tipofuncionario"));
                 eleitores.add(f);
 
             }
@@ -80,17 +77,13 @@ public class FuncionarioDao {
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         try {
-            stmt = con.prepareStatement("UPDATE funcionario SET codigoFuncionario=?, celular=?, nome=?, BI=?, "
-                    + "genero=?, provincia=?, distrito=?, dataNascimento=?, tipoFuncionario=? WHERE id=?");
-         stmt.setString(1, f.getCodigoFuncionario());            // String - código
-            stmt.setInt(2, f.getCelular());              // String - nome
-            stmt.setString(3, f.getNome());                // String - BI
-            stmt.setString(4, f.getBI());                // String - BI
-            stmt.setString(5, f.getGenero());            // String - genero
-            stmt.setString(6, f.getProvincia());            // String - genero
-            stmt.setString(7, f.getDistrito());         // String - Distrito
-            stmt.setDate(8, new java.sql.Date(f.getDataNasc().getTime())); // Date - dataNascimento
-            stmt.setString(9, f.getTipoFuncionario());  
+            stmt = con.prepareStatement("Update funcionario set , nome = ?, BI = ? , dataNAscimento = ?, Distrito = ?  Where id = ? ");
+
+            stmt.setInt(1, f.getId());                   // int
+            stmt.setString(2, f.getNome());              // String
+            stmt.setString(3, f.getBI());                // String
+            stmt.setDate(4, (Date) f.getDataNasc());
+            stmt.setString(5, f.getDistrito());
             stmt.executeUpdate();
             JOptionPane.showInternalMessageDialog(null, "Atualizado com sucesso");
         } catch (SQLException ex) {

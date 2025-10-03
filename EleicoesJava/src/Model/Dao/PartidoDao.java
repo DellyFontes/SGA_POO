@@ -25,13 +25,11 @@ public class PartidoDao {
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         try {
-            stmt = con.prepareStatement(" Insert into partidos  (nome, candidato,numVotosPart,sigla) Values (?,?,?,?) ");
+            stmt = con.prepareStatement(" Insert into partidos (id, nome) Values (?,?) ");
             
-            stmt.setString(1, p.getNome());           
-            stmt.setString(2, p.getCan().getNome());            
-            stmt.setInt(3, p.getNumVotosPart());            
-            stmt.setString(4, p.getSigla());   
-            
+            stmt.setInt(1, p.getId());           
+            stmt.setString(2, p.getNome());            
+//            stmt.setInt(3, p.getNumVotosPart());              
                   
             stmt.executeUpdate();
             JOptionPane.showInternalMessageDialog(null, "Salvo com sucesso");
@@ -52,14 +50,13 @@ public class PartidoDao {
         List<Partido> partidos = new ArrayList<>();
 
         try {
-            stmt = con.prepareStatement(" Select id, sigla, candidato,nome  from partidos");
+            stmt = con.prepareStatement(" Select id, nome, candidato  from partidos");
             rs = stmt.executeQuery();
 
             while (rs.next()) {
                 Partido p = new Partido();
                 Candidato c = new Candidato();
                 p.setId(rs.getInt("id"));
-                p.setSigla(rs.getString("sigla"));
                 p.setNome(rs.getString("nome"));
                 c.setNome(rs.getString("candidato"));
                 p.setCan(c);
@@ -83,11 +80,10 @@ public class PartidoDao {
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         try {
-            stmt = con.prepareStatement("Update partidos set nome = ?,  sigla = ? , candidato=? Where id = ? ");
+            stmt = con.prepareStatement("Update partidos set , nome = ?, numVotosPart = ?  Where id = ? ");
 
-            stmt.setString(1, p.getNome());                   // int
-            stmt.setString(2, p.getSigla());                   // int
-            stmt.setString(3, p.getCan().getNome());              // String
+            stmt.setInt(2, p.getId());                   // int
+            stmt.setString(3, p.getNome());              // String
             stmt.executeUpdate();
             JOptionPane.showInternalMessageDialog(null, "Atualizado com sucesso");
         } catch (SQLException ex) {
@@ -126,17 +122,16 @@ public class PartidoDao {
         List<Partido> partidos = new ArrayList<>();
 
         try {
-            stmt = con.prepareStatement(" Select * from partidos where Sigla Like ?");
+            stmt = con.prepareStatement(" Select * from partidos where nome Like ?");
             stmt.setString(1, nome);
             //      stmt.setString(1," %"+desc+"%");
             rs = stmt.executeQuery();
 
             while (rs.next()) {
 
-                  Partido p = new Partido();
+                Partido p = new Partido();
                 Candidato c = new Candidato();
                 p.setId(rs.getInt("id"));
-                p.setSigla(rs.getString("sigla"));
                 p.setNome(rs.getString("nome"));
                 c.setNome(rs.getString("candidato"));
                 p.setCan(c);

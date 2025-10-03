@@ -7,30 +7,20 @@ package eleicoesjava.Modelo;
 public class Partido {
 
     private int id;
-    private String nome, sigla;
+    private String nome;
     private Candidato can;
     private int numVotosPart;
 
-    public Partido(int id, String nome, String sigla, Candidato can, int numVotosPart) {
+   public Partido(int id, String nome, Candidato can, int numVotosPart) {
         this.id = id;
         this.nome = nome;
-        this.sigla = sigla;
         this.can = can;
         this.numVotosPart = numVotosPart;
     }
-
-    public Partido() {
-
-    }
-
-    public String getSigla() {
-        return sigla;
-    }
-
-    public void setSigla(String sigla) {
-        this.sigla = sigla;
-    }
-
+   
+   public Partido(){
+       
+   }
     public String getNome() {
         return nome;
     }
