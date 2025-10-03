@@ -9,20 +9,31 @@ import java.util.Random;
 
 public class Eleitor  extends  Cidadao{
     private String codigo;
+    private boolean votou;
 
-    public Eleitor(String codigo, int id, String nome, String BI, String genero, String Distrito, Date dataNasc) {
-        super(id, nome, BI, genero, Distrito, dataNasc);
+    public Eleitor(String codigo, boolean votou, int id, String nome, String BI, String genero, String provincia, String Distrito, Date dataNasc) {
+        super(id, nome, BI, genero, provincia, Distrito, dataNasc);
         this.codigo = codigo;
+        this.votou = votou;
     }
 
-    public Eleitor(String codigo) {
+    public Eleitor(String codigo, boolean votou) {
         this.codigo = codigo;
+        this.votou = votou;
     }
 
-    
+   
 
     public Eleitor() {
         super();
+    }
+
+    public boolean isVotou() {
+        return votou;
+    }
+
+    public void setVotou(boolean votou) {
+        this.votou = votou;
     }
 
     

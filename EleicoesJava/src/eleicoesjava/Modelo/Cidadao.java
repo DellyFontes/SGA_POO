@@ -6,18 +6,21 @@ import java.util.Date;
 
 public abstract class Cidadao {
     private int id; 
-    private String nome , BI,genero,Distrito;
+    private String nome , BI,genero,provincia,Distrito;
     private  Date dataNasc;
-    
 
-    public Cidadao(int id, String nome, String BI, String genero, String Distrito, Date dataNasc) {
+    public Cidadao(int id, String nome, String BI, String genero, String provincia, String Distrito, Date dataNasc) {
+        this.id = id;
         this.nome = nome;
         this.BI = BI;
         this.genero = genero;
+        this.provincia = provincia;
         this.Distrito = Distrito;
         this.dataNasc = dataNasc;
-        this.id = id;
     }
+    
+
+    
 
     public Cidadao() {
     }
@@ -60,8 +63,9 @@ public abstract class Cidadao {
 
     @Override
     public String toString() {
-        return "Cidadao{" + "nome=" + nome + ", BI=" + BI + ", genero=" + genero + ", dataNasc=" + dataNasc + ", Distrito=" + Distrito + '}';
+        return "Cidadao{" + "id=" + id + ", nome=" + nome + ", BI=" + BI + ", genero=" + genero + ", provincia=" + provincia + ", Distrito=" + Distrito + ", dataNasc=" + dataNasc + '}';
     }
+
 
     public Date  getDataNasc() {
         return dataNasc;
@@ -77,6 +81,14 @@ public abstract class Cidadao {
 
     public void setDistrito(String Distrito) {
         this.Distrito = Distrito;
+    }
+
+    public String getProvincia() {
+        return provincia;
+    }
+
+    public void setProvincia(String provincia) {
+        this.provincia = provincia;
     }
     
 

@@ -6,7 +6,9 @@ package eleicoesjava.View;
 
 import Model.Dao.FuncionarioDao;
 import eleicoesjava.Modelo.Funcionario;
+import java.awt.CardLayout;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -34,7 +36,8 @@ public class tabelaFuncionarios extends javax.swing.JFrame {
                 f.getNome(),
                 f.getBI(),
                 f.getDataNasc(),
-                f.getGenero(),});
+                f.getGenero(),
+                f.getTipoFuncionario(),});
 
         }
 
@@ -66,6 +69,7 @@ public class tabelaFuncionarios extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        MAIN = new javax.swing.JPanel();
         paneltbEleitor = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbFuncionario = new javax.swing.JTable();
@@ -79,6 +83,9 @@ public class tabelaFuncionarios extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        MAIN.setBackground(new java.awt.Color(170, 108, 58));
+        MAIN.setLayout(new java.awt.CardLayout());
 
         paneltbEleitor.setBackground(new java.awt.Color(170, 108, 58));
 
@@ -208,7 +215,7 @@ public class tabelaFuncionarios extends javax.swing.JFrame {
                     .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBusca))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 411, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 417, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(paneltbEleitorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -218,15 +225,23 @@ public class tabelaFuncionarios extends javax.swing.JFrame {
                 .addGap(17, 17, 17))
         );
 
+        MAIN.add(paneltbEleitor, "CardTbFuncionario");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(paneltbEleitor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addComponent(MAIN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(paneltbEleitor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addComponent(MAIN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, 0))
         );
 
         pack();
@@ -235,6 +250,11 @@ public class tabelaFuncionarios extends javax.swing.JFrame {
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         // TODO add your handling code here:
+         if (menuPrincipal != null) {
+            menuPrincipal.mostrarTela("CardJanelaFuncionario"); // Volta para o menu principal
+        } else {
+            this.dispose(); // Se não houver menuPrincipal, fecha a janela
+        }
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
@@ -295,8 +315,19 @@ public class tabelaFuncionarios extends javax.swing.JFrame {
         });
     }
 
+    public JPanel getContentPanel() {
+        return MAIN; // Retorna o JPanel que contém o CardLayout
+    }
+
+    public void setMenuPrincipal(MenuPrincipal menuPrincipal) {
+        this.menuPrincipal = menuPrincipal;
+    }
+
+  private CardLayout cardLayout;
+    private MenuPrincipal menuPrincipal;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel MAIN;
     private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnBusca;
     private javax.swing.JButton btnEliminar;
