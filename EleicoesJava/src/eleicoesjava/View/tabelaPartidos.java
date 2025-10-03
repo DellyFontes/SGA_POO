@@ -54,7 +54,6 @@ public void lerBusca(String nome) {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        paneltbPartidos1 = new javax.swing.JPanel();
         paneltbPartidos = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -69,9 +68,6 @@ public void lerBusca(String nome) {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Tabela  Partidos");
-
-        paneltbPartidos1.setBackground(new java.awt.Color(170, 108, 58));
-        paneltbPartidos1.setLayout(new java.awt.CardLayout());
 
         paneltbPartidos.setBackground(new java.awt.Color(170, 108, 58));
 
@@ -151,7 +147,7 @@ public void lerBusca(String nome) {
         paneltbPartidosLayout.setHorizontalGroup(
             paneltbPartidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(paneltbPartidosLayout.createSequentialGroup()
-                .addContainerGap(154, Short.MAX_VALUE)
+                .addContainerGap(158, Short.MAX_VALUE)
                 .addGroup(paneltbPartidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paneltbPartidosLayout.createSequentialGroup()
                         .addComponent(jLabel3)
@@ -185,7 +181,7 @@ public void lerBusca(String nome) {
             .addGroup(paneltbPartidosLayout.createSequentialGroup()
                 .addGap(12, 12, 12)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(0, 0, 0)
                 .addGroup(paneltbPartidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -205,17 +201,15 @@ public void lerBusca(String nome) {
                     .addContainerGap(93, Short.MAX_VALUE)))
         );
 
-        paneltbPartidos1.add(paneltbPartidos, "CardTbPartidos");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(paneltbPartidos1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(paneltbPartidos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(paneltbPartidos1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
+            .addComponent(paneltbPartidos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -288,7 +282,6 @@ public void lerBusca(String nome) {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel paneltbPartidos;
-    private javax.swing.JPanel paneltbPartidos1;
     private javax.swing.JTable tbPartidos;
     private javax.swing.JTextField txtBusca;
     // End of variables declaration//GEN-END:variables
