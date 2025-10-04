@@ -18,13 +18,6 @@ public class Funcionario  extends Eleitor  {
         this.codigoFuncionario = codigoFuncionario;
         this.celular = celular;
     }
-
-    public Funcionario(String codigoFuncionario, int celular, String codigo, String nome, String BI, String genero, String Distrito, Date dataNasc) {
-        super(codigo, nome, BI, genero, Distrito, dataNasc);
-        this.codigoFuncionario = codigoFuncionario;
-        this.celular = celular;
-    }
-    
     
 
     public Funcionario() {

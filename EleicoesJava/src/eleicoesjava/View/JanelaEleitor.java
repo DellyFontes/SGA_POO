@@ -45,7 +45,7 @@ public class JanelaEleitor extends javax.swing.JFrame {
         txtSobrenome = new javax.swing.JTextField();
         radioM = new javax.swing.JRadioButton();
         radioF = new javax.swing.JRadioButton();
-        dataNasc = new com.toedter.calendar.JDateChooser();
+        txtDataNascimento = new com.toedter.calendar.JDateChooser();
         btnCadastrar = new javax.swing.JButton();
         btnListar = new javax.swing.JButton();
         btnVoltar = new javax.swing.JButton();
@@ -134,8 +134,8 @@ public class JanelaEleitor extends javax.swing.JFrame {
         radioF.setFont(new java.awt.Font("Georgia", 2, 15)); // NOI18N
         radioF.setText("Femenino");
 
-        dataNasc.setBackground(new java.awt.Color(255, 255, 255));
-        dataNasc.setForeground(new java.awt.Color(0, 0, 0));
+        txtDataNascimento.setBackground(new java.awt.Color(255, 255, 255));
+        txtDataNascimento.setForeground(new java.awt.Color(0, 0, 0));
 
         btnCadastrar.setBackground(javax.swing.UIManager.getDefaults().getColor("OptionPane.warningDialog.titlePane.shadow"));
         btnCadastrar.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
@@ -201,7 +201,7 @@ public class JanelaEleitor extends javax.swing.JFrame {
                         .addComponent(jLabel5)
                         .addComponent(jLabel2)
                         .addComponent(txtNome, javax.swing.GroupLayout.DEFAULT_SIZE, 304, Short.MAX_VALUE)
-                        .addComponent(dataNasc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(txtDataNascimento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(jLabel7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 131, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -260,7 +260,7 @@ public class JanelaEleitor extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(cbDistrito, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(dataNasc, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -327,7 +327,7 @@ public class JanelaEleitor extends javax.swing.JFrame {
         e.setNome( txtNome.getText() +" "+ txtSobrenome.getText());
         e.setBI((txtBI.getText()));
         e.setGenero(genero);
-        e.setDataNasc((dataNasc.getDate()));
+        e.setDataNasc((txtDataNascimento.getDate()));
         e.setBI((txtBI.getText()));
         e.setDistrito(cbDistrito.getSelectedItem().toString());
         e.setCodigo(Dados_Senhas.gerarSenhaEleitor());
@@ -388,7 +388,6 @@ public class JanelaEleitor extends javax.swing.JFrame {
     private javax.swing.JButton btnVoltar;
     private javax.swing.JComboBox<String> cbDistrito;
     private javax.swing.JComboBox<String> cbDistrito1;
-    private com.toedter.calendar.JDateChooser dataNasc;
     private javax.swing.ButtonGroup grupoGenero;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -402,6 +401,7 @@ public class JanelaEleitor extends javax.swing.JFrame {
     private javax.swing.JRadioButton radioF;
     private javax.swing.JRadioButton radioM;
     private javax.swing.JTextField txtBI;
+    private com.toedter.calendar.JDateChooser txtDataNascimento;
     private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtSobrenome;
     // End of variables declaration//GEN-END:variables

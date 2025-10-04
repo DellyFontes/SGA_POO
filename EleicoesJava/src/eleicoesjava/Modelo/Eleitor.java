@@ -15,11 +15,6 @@ public class Eleitor  extends  Cidadao{
         this.codigo = codigo;
     }
 
-    public Eleitor(String codigo, String nome, String BI, String genero, String Distrito, Date dataNasc) {
-        super(nome, BI, genero, Distrito, dataNasc);
-        this.codigo = codigo;
-    }
-
     public Eleitor(String codigo) {
         this.codigo = codigo;
     }
@@ -31,7 +26,16 @@ public class Eleitor  extends  Cidadao{
     }
 
     
-
+     private String gerarCodigo(){
+         Random random=  new Random();
+         int numeros = 100000+ random.nextInt(900000);
+         char letra1 = (char)('A'+random.nextInt(26));
+         char letra2 =(char)('A'+random.nextInt(26));
+         String  codigoAleatorio= numeros + ""+letra1+letra2;
+         
+         
+         return codigoAleatorio;
+     }
 
     public String getCodigo() {
         return codigo;
