@@ -53,7 +53,6 @@ public class JanelaEleitor extends javax.swing.JFrame {
         cbDistrito1 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setEnabled(false);
 
         jPanel1.setBackground(new java.awt.Color(170, 108, 58));
 
