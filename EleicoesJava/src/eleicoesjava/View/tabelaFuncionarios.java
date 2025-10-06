@@ -106,6 +106,7 @@ public class tabelaFuncionarios extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tbFuncionario);
 
         txtBusca.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
+        txtBusca.setCaretColor(new java.awt.Color(255, 102, 0));
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setFont(new java.awt.Font("Swis721 BT", 1, 16)); // NOI18N

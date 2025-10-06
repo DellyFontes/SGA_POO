@@ -7,6 +7,7 @@ package eleicoesjava.View;
 import com.formdev.flatlaf.FlatLightLaf;
 import com.formdev.flatlaf.intellijthemes.FlatArcOrangeIJTheme;
 import java.awt.Color;
+import java.awt.Font;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 
@@ -21,7 +22,43 @@ public class JanelaLogin extends javax.swing.JFrame {
      */
     public JanelaLogin() {
         initComponents();
+        configurarCorDigitacaoTextoTodosCampos();
+    }private void configurarCorDigitacaoTextoTodosCampos() {
+    configurarCorRecursivo(getContentPane());
+}
+
+private void configurarCorRecursivo(java.awt.Container container) {
+    for (java.awt.Component c : container.getComponents()) {
+        if (c instanceof javax.swing.JTextField txt) {
+
+            javax.swing.Timer t = new javax.swing.Timer(800, e -> {
+                txt.setForeground(Color.BLACK);
+                txt.setFont(new Font("Segoe UI Semibold",Font.PLAIN,15));// volta à cor normal ao parar
+            });
+            t.setRepeats(false);
+
+            txt.getDocument().addDocumentListener(new javax.swing.event.DocumentListener() {
+                @Override
+                public void insertUpdate(javax.swing.event.DocumentEvent e) { aoDigitar(); }
+                @Override
+                public void removeUpdate(javax.swing.event.DocumentEvent e) { aoDigitar(); }
+                @Override
+                public void changedUpdate(javax.swing.event.DocumentEvent e) { aoDigitar(); }
+
+                private void aoDigitar() {
+                    txt.setForeground(new Color(24,100,90)); // cor do texto enquanto digita
+                    txt.setFont(new Font("Rockwell",Font.PLAIN,15));
+                    t.restart();
+                }
+            });
+
+        } else if (c instanceof java.awt.Container childContainer) {
+            // percorre dentro dos paineis e layouts
+            configurarCorRecursivo(childContainer);
+        }
     }
+}
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -42,7 +79,8 @@ public class JanelaLogin extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         btnVoltar = new javax.swing.JButton();
         btnVoltar1 = new javax.swing.JButton();
-        lblAviso = new javax.swing.JLabel();
+        lblSenha = new javax.swing.JLabel();
+        lblNome = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
@@ -60,6 +98,9 @@ public class JanelaLogin extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 txtUsuarioMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                txtUsuarioMouseEntered(evt);
+            }
         });
         txtUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -67,6 +108,9 @@ public class JanelaLogin extends javax.swing.JFrame {
             }
         });
         txtUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtUsuarioKeyPressed(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtUsuarioKeyTyped(evt);
             }
@@ -75,20 +119,25 @@ public class JanelaLogin extends javax.swing.JFrame {
         txtSenha.setBackground(new java.awt.Color(255, 255, 153));
         txtSenha.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
         txtSenha.setForeground(new java.awt.Color(0, 0, 0));
+        txtSenha.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                txtSenhaMouseEntered(evt);
+            }
+        });
 
         jLabel1.setBackground(java.awt.Color.white);
-        jLabel1.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Segoe UI Semibold", 1, 17)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 153));
         jLabel1.setText("Usuario");
 
         jLabel2.setBackground(java.awt.Color.white);
-        jLabel2.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setFont(new java.awt.Font("Segoe UI Semibold", 1, 17)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 153));
         jLabel2.setText("Senha");
 
         mostrarSenha.setBackground(new java.awt.Color(170, 108, 58));
         mostrarSenha.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
-        mostrarSenha.setForeground(new java.awt.Color(255, 255, 255));
+        mostrarSenha.setForeground(new java.awt.Color(255, 255, 153));
         mostrarSenha.setText("Mostrar Senha");
         mostrarSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -97,7 +146,7 @@ public class JanelaLogin extends javax.swing.JFrame {
         });
 
         jLabel4.setFont(new java.awt.Font("Segoe UI Semibold", 1, 36)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setForeground(new java.awt.Color(255, 255, 153));
         jLabel4.setText("LOGIN");
 
         btnVoltar.setBackground(javax.swing.UIManager.getDefaults().getColor("OptionPane.warningDialog.titlePane.shadow"));
@@ -120,7 +169,9 @@ public class JanelaLogin extends javax.swing.JFrame {
             }
         });
 
-        lblAviso.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        lblSenha.setFont(new java.awt.Font("Cambria", 2, 17)); // NOI18N
+
+        lblNome.setFont(new java.awt.Font("Cambria", 2, 17)); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -130,7 +181,10 @@ public class JanelaLogin extends javax.swing.JFrame {
                 .addContainerGap(81, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(lblAviso, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblNome, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(lblSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -159,14 +213,16 @@ public class JanelaLogin extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
+                .addGap(18, 18, 18)
+                .addComponent(lblNome, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(4, 4, 4)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(mostrarSenha)
                 .addGap(22, 22, 22)
-                .addComponent(lblAviso, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(87, 87, 87))
@@ -180,7 +236,7 @@ public class JanelaLogin extends javax.swing.JFrame {
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Fundo.png"))); // NOI18N
 
         jLabel3.setFont(new java.awt.Font("Segoe UI Semibold", 1, 70)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setForeground(new java.awt.Color(255, 255, 153));
         jLabel3.setText("S.G.E");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -190,12 +246,12 @@ public class JanelaLogin extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(83, 83, 83)
-                        .addComponent(jLabel5))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(184, 184, 184)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 106, Short.MAX_VALUE)
+                        .addGap(123, 123, 123)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(45, 45, 45)
+                        .addComponent(jLabel5)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 144, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -204,9 +260,9 @@ public class JanelaLogin extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(59, 59, 59)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(52, 52, 52)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(71, 71, 71))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -230,7 +286,7 @@ public class JanelaLogin extends javax.swing.JFrame {
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         // TODO add your handling code here:
-        int resposta =JOptionPane.showConfirmDialog(this, "Deseja realmente sair do sistema? ");
+        int resposta =JOptionPane.showConfirmDialog(this, "Deseja realmente sair do sistema? ","Fechar o sistema ",1);
         if (resposta ==JOptionPane.YES_OPTION) {
             System.exit(0);
             
@@ -242,23 +298,53 @@ public class JanelaLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_txtUsuarioActionPerformed
 
     private void mostrarSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarSenhaActionPerformed
-               mostrarSenha.addActionListener(e -> txtSenha.setEchoChar(mostrarSenha.isSelected() ? (char) 0 : '•'));
+               txtSenha.setEchoChar(mostrarSenha.isSelected() ? (char) 0 : '•');
 
     }//GEN-LAST:event_mostrarSenhaActionPerformed
 
     private void txtUsuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyTyped
         // TODO add your handling code here:
-        String nome= txtUsuario.getText().trim();
-            if (rootPaneCheckingEnabled) {
-            
-        }
+           char c = evt.getKeyChar();
+    
+    // Só permite letras e espaços
+    if (!Character.isLetter(c) && c != ' ') {
+        // Cancela a digitação do caractere inválido
+        evt.consume();
+        
+        // Exibe mensagem de aviso no JLabel
+        lblNome.setForeground(Color.red);
+        lblNome.setText("Caractere inválido! .");
+        
+        // Limpa o aviso depois de 2 segundos
+        new javax.swing.Timer(2000, e -> lblNome.setText("")).start();
+    }
+     
     }//GEN-LAST:event_txtUsuarioKeyTyped
 
     private void txtUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtUsuarioMouseClicked
         // TODO add your handling code here:
-        lblAviso.setForeground(Color.green);
-        lblAviso.setText("Digite o  nome correcto do usuario");
     }//GEN-LAST:event_txtUsuarioMouseClicked
+
+    private void txtUsuarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyPressed
+        // TODO add your handling code here:
+       
+    }//GEN-LAST:event_txtUsuarioKeyPressed
+
+    private void txtUsuarioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtUsuarioMouseEntered
+        // TODO add your handling code here:
+        lblNome.setForeground(Color.green);
+                lblNome.setText("Nome do usuario");
+                   new javax.swing.Timer(2000, e -> lblNome.setText("")).start();
+
+    }//GEN-LAST:event_txtUsuarioMouseEntered
+
+    private void txtSenhaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtSenhaMouseEntered
+        // TODO add your handling code here:
+                lblSenha.setForeground(Color.green);
+                lblSenha.setText("Senha do usuario");
+                   new javax.swing.Timer(2000, e -> lblSenha.setText("")).start();
+
+    }//GEN-LAST:event_txtSenhaMouseEntered
 
     /**
      * @param args the command line arguments
@@ -295,7 +381,8 @@ public class JanelaLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JLabel lblAviso;
+    private javax.swing.JLabel lblNome;
+    private javax.swing.JLabel lblSenha;
     private javax.swing.JCheckBox mostrarSenha;
     private javax.swing.JPasswordField txtSenha;
     private javax.swing.JTextField txtUsuario;

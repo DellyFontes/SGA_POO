@@ -5,7 +5,13 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.JOptionPane;
 import eleicoesjava.Modelo.Partido;
 import Model.Dao.PartidoDao;
+import com.formdev.flatlaf.intellijthemes.FlatArcOrangeIJTheme;
+import java.awt.Color;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JPanel;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
 public class tabelaPartidos extends javax.swing.JFrame {
 
@@ -126,6 +132,12 @@ public void lerBusca(String nome) {
         btnVoltar.setText("Voltar");
 
         txtBusca.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
+        txtBusca.setCaretColor(new java.awt.Color(255, 102, 0));
+        txtBusca.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtBuscaFocusGained(evt);
+            }
+        });
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setFont(new java.awt.Font("Swis721 BT", 1, 16)); // NOI18N
@@ -256,12 +268,26 @@ public void lerBusca(String nome) {
             //        }
     }//GEN-LAST:event_btnBuscarActionPerformed
 
+    private void txtBuscaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtBuscaFocusGained
+        // TODO add your handling code here:
+        txtBusca.setForeground(new Color (255,102,0));
+    }//GEN-LAST:event_txtBuscaFocusGained
+
     /**
      * @param args the command line arguments
      */
+            
+    
+
+
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                try {
+                    UIManager.setLookAndFeel( new FlatArcOrangeIJTheme());
+                } catch (UnsupportedLookAndFeelException ex) {
+                    Logger.getLogger(tabelaPartidos.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 new tabelaPartidos().setVisible(true);
             }
         });

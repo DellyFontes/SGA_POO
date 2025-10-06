@@ -6,11 +6,13 @@ package eleicoesjava.View;
 
 import Model.Dao.CandidatoDao;
 import Model.Dao.EleitorDao;
+import com.formdev.flatlaf.intellijthemes.FlatArcOrangeIJTheme;
 import eleicoesjava.Modelo.Candidato;
 import eleicoesjava.Modelo.Eleitor;
 import java.net.URL;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -113,6 +115,7 @@ public class tabelaEleitor extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tbEleitor);
 
         txtBusca.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
+        txtBusca.setCaretColor(new java.awt.Color(255, 102, 0));
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setFont(new java.awt.Font("Swis721 BT", 1, 16)); // NOI18N
@@ -275,23 +278,11 @@ public static void main(String args[]) {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JanelaPartido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JanelaPartido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JanelaPartido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JanelaPartido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
+         */        try {
+            UIManager.setLookAndFeel( new FlatArcOrangeIJTheme());
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Look and feel nao encontrado","Look and fell",1);
+        } 
         //</editor-fold>
 
         /* Create and display the form */

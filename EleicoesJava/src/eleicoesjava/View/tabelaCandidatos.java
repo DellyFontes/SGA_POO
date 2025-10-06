@@ -5,9 +5,11 @@
 package eleicoesjava.View;
 
 import Model.Dao.CandidatoDao;
+import com.formdev.flatlaf.intellijthemes.FlatArcOrangeIJTheme;
 import eleicoesjava.Modelo.Candidato;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 
@@ -285,21 +287,10 @@ public class tabelaCandidatos extends javax.swing.JFrame {
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(tabelaCandidatos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(tabelaCandidatos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(tabelaCandidatos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(tabelaCandidatos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
+            UIManager.setLookAndFeel( new FlatArcOrangeIJTheme());
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Look and feel nao encontrado","Look and fell",1);
+        } 
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>

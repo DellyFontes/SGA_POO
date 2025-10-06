@@ -4,6 +4,15 @@
  */
 package eleicoesjava.View;
 
+import Model.Dao.EleitorDao;
+import com.formdev.flatlaf.intellijthemes.FlatArcOrangeIJTheme;
+import eleicoesjava.Modelo.Dados_Senhas;
+import eleicoesjava.Modelo.Eleitor;
+import java.awt.Color;
+import java.awt.Font;
+import javax.swing.JOptionPane;
+import javax.swing.UIManager;
+
 /**
  *
  * @author Admin
@@ -11,11 +20,51 @@ package eleicoesjava.View;
 public class JanelaFuncionario extends javax.swing.JFrame {
 
     /**
-     * Creates new form JanelaFuncionario
+     * Creates new form JanelaEleitor
      */
     public JanelaFuncionario() {
         initComponents();
+        configurarCorDigitacaoTextoTodosCampos();
     }
+    
+private void configurarCorDigitacaoTextoTodosCampos() {
+    configurarCorRecursivo(getContentPane());
+}
+
+private void configurarCorRecursivo(java.awt.Container container) {
+    for (java.awt.Component c : container.getComponents()) {
+        if (c instanceof javax.swing.JTextField txt) {
+
+            javax.swing.Timer t = new javax.swing.Timer(800, e -> {
+                txt.setForeground(Color.BLACK);
+                txt.setFont(new Font("Segoe UI Semibold",Font.PLAIN,15));// volta à cor normal ao parar
+            });
+            t.setRepeats(false);
+
+            txt.getDocument().addDocumentListener(new javax.swing.event.DocumentListener() {
+                @Override
+                public void insertUpdate(javax.swing.event.DocumentEvent e) { aoDigitar(); }
+                @Override
+                public void removeUpdate(javax.swing.event.DocumentEvent e) { aoDigitar(); }
+                @Override
+                public void changedUpdate(javax.swing.event.DocumentEvent e) { aoDigitar(); }
+
+                private void aoDigitar() {
+                    txt.setForeground(new Color(24,100,90)); // cor do texto enquanto digita
+                    txt.setFont(new Font("Rockwell",Font.PLAIN,15));
+                    t.restart();
+                }
+            });
+
+        } else if (c instanceof java.awt.Container childContainer) {
+            // percorre dentro dos paineis e layouts
+            configurarCorRecursivo(childContainer);
+        }
+    }
+}
+
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -26,7 +75,7 @@ public class JanelaFuncionario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        radioGenero2 = new javax.swing.ButtonGroup();
+        grupoGenero = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -35,128 +84,160 @@ public class JanelaFuncionario extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jcDistrito = new javax.swing.JComboBox<>();
+        cbFuncionarios = new javax.swing.JComboBox<>();
         txtNome = new javax.swing.JTextField();
         txtBI = new javax.swing.JTextField();
         txtSobrenome = new javax.swing.JTextField();
         radioM = new javax.swing.JRadioButton();
         radioF = new javax.swing.JRadioButton();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
-        btnVoltar = new javax.swing.JButton();
-        btnListar = new javax.swing.JButton();
+        dataNasc = new com.toedter.calendar.JDateChooser();
         btnCadastrar = new javax.swing.JButton();
+        btnListar = new javax.swing.JButton();
+        btnVoltar = new javax.swing.JButton();
+        lblNome = new javax.swing.JLabel();
+        lblSobrenome = new javax.swing.JLabel();
+        lblGenero = new javax.swing.JLabel();
+        lblBI = new javax.swing.JLabel();
+        lblData = new javax.swing.JLabel();
+        lblCombo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(170, 108, 58));
 
-        jLabel1.setBackground(new java.awt.Color(204, 204, 204));
         jLabel1.setFont(new java.awt.Font("Segoe UI Semibold", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Cadastro de Funcionarios");
 
-        jLabel2.setBackground(new java.awt.Color(204, 204, 204));
-        jLabel2.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setFont(new java.awt.Font("Segoe UI Semibold", 1, 17)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Nome");
 
-        jLabel3.setBackground(new java.awt.Color(204, 204, 204));
-        jLabel3.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("Tipo de Funcionario");
+        jLabel3.setFont(new java.awt.Font("Segoe UI Semibold", 1, 17)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Tipo de Funcionarios");
 
-        jLabel4.setBackground(new java.awt.Color(204, 204, 204));
-        jLabel4.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel4.setFont(new java.awt.Font("Segoe UI Semibold", 1, 17)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("B.I");
 
-        jLabel5.setBackground(new java.awt.Color(204, 204, 204));
-        jLabel5.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel5.setFont(new java.awt.Font("Segoe UI Semibold", 1, 17)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Data de nascimento");
 
-        jLabel7.setBackground(new java.awt.Color(204, 204, 204));
-        jLabel7.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel7.setFont(new java.awt.Font("Segoe UI Semibold", 1, 17)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Genero");
 
-        jLabel8.setBackground(new java.awt.Color(204, 204, 204));
-        jLabel8.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel8.setFont(new java.awt.Font("Segoe UI Semibold", 1, 17)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Sobrenome");
 
-        jcDistrito.setBackground(new java.awt.Color(255, 255, 153));
-        jcDistrito.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
-        jcDistrito.setForeground(new java.awt.Color(0, 0, 0));
-        jcDistrito.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jcDistrito.addActionListener(new java.awt.event.ActionListener() {
+        cbFuncionarios.setBackground(new java.awt.Color(255, 255, 153));
+        cbFuncionarios.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
+        cbFuncionarios.setForeground(new java.awt.Color(0, 0, 0));
+        cbFuncionarios.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Funcionario1", "Funcionario2", "Funcionario3", " " }));
+        cbFuncionarios.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                cbFuncionariosMouseEntered(evt);
+            }
+        });
+        cbFuncionarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jcDistritoActionPerformed(evt);
+                cbFuncionariosActionPerformed(evt);
             }
         });
 
         txtNome.setBackground(new java.awt.Color(255, 255, 153));
         txtNome.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
-        txtNome.setForeground(new java.awt.Color(0, 0, 0));
-        txtNome.setCaretColor(new java.awt.Color(255, 102, 102));
+        txtNome.setForeground(new java.awt.Color(255, 255, 255));
+        txtNome.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                txtNomeMouseEntered(evt);
+            }
+        });
         txtNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNomeActionPerformed(evt);
+            }
+        });
+        txtNome.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNomeKeyTyped(evt);
             }
         });
 
         txtBI.setBackground(new java.awt.Color(255, 255, 153));
         txtBI.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
         txtBI.setForeground(new java.awt.Color(0, 0, 0));
-        txtBI.setCaretColor(new java.awt.Color(255, 102, 102));
+        txtBI.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                txtBIMouseEntered(evt);
+            }
+        });
         txtBI.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtBIActionPerformed(evt);
+            }
+        });
+        txtBI.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtBIKeyTyped(evt);
             }
         });
 
         txtSobrenome.setBackground(new java.awt.Color(255, 255, 153));
         txtSobrenome.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
         txtSobrenome.setForeground(new java.awt.Color(0, 0, 0));
-        txtSobrenome.setCaretColor(new java.awt.Color(255, 102, 102));
+        txtSobrenome.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                txtSobrenomeMouseEntered(evt);
+            }
+        });
         txtSobrenome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtSobrenomeActionPerformed(evt);
             }
         });
+        txtSobrenome.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtSobrenomeKeyTyped(evt);
+            }
+        });
 
-        radioGenero2.add(radioM);
+        grupoGenero.add(radioM);
         radioM.setFont(new java.awt.Font("Georgia", 2, 15)); // NOI18N
         radioM.setText("Masculino");
+        radioM.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                radioMMouseEntered(evt);
+            }
+        });
         radioM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioMActionPerformed(evt);
             }
         });
 
-        radioGenero2.add(radioF);
+        grupoGenero.add(radioF);
         radioF.setFont(new java.awt.Font("Georgia", 2, 15)); // NOI18N
         radioF.setText("Femenino");
-
-        jDateChooser1.setBackground(java.awt.Color.white);
-
-        btnVoltar.setBackground(javax.swing.UIManager.getDefaults().getColor("OptionPane.warningDialog.titlePane.shadow"));
-        btnVoltar.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
-        btnVoltar.setForeground(new java.awt.Color(255, 255, 255));
-        btnVoltar.setText("Voltar");
-        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVoltarActionPerformed(evt);
+        radioF.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                radioFMouseEntered(evt);
             }
         });
 
-        btnListar.setBackground(javax.swing.UIManager.getDefaults().getColor("OptionPane.warningDialog.titlePane.shadow"));
-        btnListar.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
-        btnListar.setForeground(new java.awt.Color(255, 255, 255));
-        btnListar.setText("Listar");
-        btnListar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnListarActionPerformed(evt);
+        dataNasc.setBackground(new java.awt.Color(255, 255, 255));
+        dataNasc.setForeground(new java.awt.Color(0, 0, 0));
+        dataNasc.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                dataNascMouseEntered(evt);
+            }
+        });
+        dataNasc.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                dataNascPropertyChange(evt);
             }
         });
 
@@ -170,71 +251,124 @@ public class JanelaFuncionario extends javax.swing.JFrame {
             }
         });
 
+        btnListar.setBackground(javax.swing.UIManager.getDefaults().getColor("OptionPane.warningDialog.titlePane.shadow"));
+        btnListar.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
+        btnListar.setForeground(new java.awt.Color(255, 255, 255));
+        btnListar.setText("Listar");
+        btnListar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnListarActionPerformed(evt);
+            }
+        });
+
+        btnVoltar.setBackground(javax.swing.UIManager.getDefaults().getColor("OptionPane.warningDialog.titlePane.shadow"));
+        btnVoltar.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
+        btnVoltar.setForeground(new java.awt.Color(255, 255, 255));
+        btnVoltar.setText("Voltar");
+        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltarActionPerformed(evt);
+            }
+        });
+
+        lblNome.setFont(new java.awt.Font("Cambria", 2, 17)); // NOI18N
+        lblNome.setForeground(new java.awt.Color(51, 255, 0));
+
+        lblSobrenome.setFont(new java.awt.Font("Cambria", 2, 17)); // NOI18N
+        lblSobrenome.setForeground(new java.awt.Color(51, 255, 0));
+
+        lblGenero.setFont(new java.awt.Font("Cambria", 2, 17)); // NOI18N
+        lblGenero.setForeground(new java.awt.Color(51, 255, 0));
+
+        lblBI.setFont(new java.awt.Font("Cambria", 2, 17)); // NOI18N
+        lblBI.setForeground(new java.awt.Color(51, 255, 0));
+
+        lblData.setFont(new java.awt.Font("Cambria", 2, 17)); // NOI18N
+        lblData.setForeground(new java.awt.Color(51, 255, 0));
+
+        lblCombo.setFont(new java.awt.Font("Cambria", 2, 17)); // NOI18N
+        lblCombo.setForeground(new java.awt.Color(102, 255, 0));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(73, 73, 73)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel2)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(4, 4, 4)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel7)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(radioM, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(60, 60, 60)
-                                        .addComponent(radioF))))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 131, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel3)
-                                .addComponent(jLabel8)
-                                .addComponent(jcDistrito, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtSobrenome, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel4)
-                            .addComponent(txtBI, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(126, 126, 126))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(349, 349, 349)
                 .addComponent(jLabel1)
-                .addGap(285, 285, 285))
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(159, 159, 159)
+                .addGap(186, 186, 186)
                 .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(88, 88, 88)
                 .addComponent(btnListar, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(77, 77, 77)
                 .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addGap(83, 83, 83)
+                        .addComponent(lblGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(73, 73, 73)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblNome, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addGap(10, 10, 10)
+                                    .addComponent(radioM, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(radioF, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jLabel5)
+                                .addComponent(jLabel2)
+                                .addComponent(txtNome, javax.swing.GroupLayout.DEFAULT_SIZE, 304, Short.MAX_VALUE)
+                                .addComponent(dataNasc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel7)
+                                .addComponent(lblData, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 124, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel8)
+                                    .addGap(196, 196, 196))
+                                .addComponent(jLabel4)
+                                .addComponent(txtBI, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtSobrenome, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblSobrenome, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel3)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbFuncionarios, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(lblBI, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(126, 126, 126))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addComponent(jLabel1)
+                .addGap(28, 28, 28)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblNome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblSobrenome, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(jLabel1)
-                        .addGap(56, 56, 56)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(113, 113, 113)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtSobrenome, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtSobrenome, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
+                    .addComponent(lblGenero)
+                    .addComponent(lblBI))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -249,15 +383,22 @@ public class JanelaFuncionario extends javax.swing.JFrame {
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jcDistrito, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
-                    .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 102, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(cbFuncionarios, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dataNasc, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(lblData, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(lblCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnListar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(74, 74, 74))
+                .addGap(41, 41, 41))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -277,9 +418,9 @@ public class JanelaFuncionario extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jcDistritoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcDistritoActionPerformed
+    private void cbFuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbFuncionariosActionPerformed
 
-    }//GEN-LAST:event_jcDistritoActionPerformed
+    }//GEN-LAST:event_cbFuncionariosActionPerformed
 
     private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
         // TODO add your handling code here:
@@ -287,6 +428,12 @@ public class JanelaFuncionario extends javax.swing.JFrame {
 
     private void txtBIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBIActionPerformed
         // TODO add your handling code here:
+        String bi = txtBI.getText().trim();
+              if (!bi.matches("\\d{12}[A-Z]")) {
+            JOptionPane.showMessageDialog(this, "O BI deve ter 12 dígitos seguidos de 1 letra maiúscula. Ex: 123456789012X");
+
+            return;
+        }
     }//GEN-LAST:event_txtBIActionPerformed
 
     private void txtSobrenomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSobrenomeActionPerformed
@@ -297,18 +444,176 @@ public class JanelaFuncionario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_radioMActionPerformed
 
+    private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
+        // TODO add your handling code here:
+        
+        Eleitor e = new Eleitor();
+        EleitorDao dao = new EleitorDao();
+        String genero = "";
+        // Pegando o Genero Selecionado
+        if(radioM.isSelected()){
+            genero = "M";
+        } else if(radioF.isSelected()){
+            genero ="F";
+        }
+        
+        
+        e.setNome( txtNome.getText() +" "+ txtSobrenome.getText());
+        e.setBI((txtBI.getText()));
+        e.setGenero(genero);
+        e.setDataNasc((dataNasc.getDate()));
+        e.setBI((txtBI.getText()));
+        e.setDistrito(cbFuncionarios.getSelectedItem().toString());
+        e.setCodigo(Dados_Senhas.gerarSenhaEleitor());
+        dao.Salvar(e);
+    }//GEN-LAST:event_btnCadastrarActionPerformed
+
+    private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
+        // TODO add your handling code here:
+        new tabelaPartidos().setVisible(true);
+    }//GEN-LAST:event_btnListarActionPerformed
+
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnVoltarActionPerformed
 
-    private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
+    private void txtNomeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNomeKeyTyped
         // TODO add your handling code here:
-        new tabelaFuncionarios().setVisible(true);
-    }//GEN-LAST:event_btnListarActionPerformed
+         char c = evt.getKeyChar();
+    
+    // Só permite letras e espaços
+    if (!Character.isLetter(c) && c != ' ') {
+        // Cancela a digitação do caractere inválido
+        evt.consume();
+        
+        // Exibe mensagem de aviso no JLabel
+        lblNome.setForeground(Color.red);
+        lblNome.setText("Caractere inválido! .");
+        
+        // Limpa o aviso depois de 2 segundos
+        new javax.swing.Timer(2000, e -> lblNome.setText("")).start();
+    }
+    }//GEN-LAST:event_txtNomeKeyTyped
 
-    private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
+    private void txtSobrenomeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSobrenomeKeyTyped
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnCadastrarActionPerformed
+         char c = evt.getKeyChar();
+    
+    // Só permite letras e espaços
+    if (!Character.isLetter(c) && c != ' ') {
+        // Cancela a digitação do caractere inválido
+        evt.consume();
+        
+        // Exibe mensagem de aviso no JLabel
+       lblSobrenome .setForeground(Color.red);
+        lblSobrenome.setText("Caractere inválido! .");
+        
+        // Limpa o aviso depois de 2 segundos
+        new javax.swing.Timer(2000, e -> lblSobrenome.setText("")).start();
+    }
+    }//GEN-LAST:event_txtSobrenomeKeyTyped
+
+    private void txtNomeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNomeMouseEntered
+        // TODO add your handling code here:
+        lblNome.setText("Nome do Funcionario");
+                new javax.swing.Timer(2000, e -> lblNome.setText("")).start();
+
+        
+    }//GEN-LAST:event_txtNomeMouseEntered
+
+    private void txtSobrenomeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtSobrenomeMouseEntered
+        // TODO add your handling code here:
+             lblSobrenome.setText("Sobrenome do  Funcionario");
+                new javax.swing.Timer(2000, e -> lblSobrenome.setText("")).start();
+
+    }//GEN-LAST:event_txtSobrenomeMouseEntered
+
+    private void txtBIKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBIKeyTyped
+        // TODO add your handling code here:
+          char c = evt.getKeyChar();
+    
+    // Só permite letras e números
+    if (!Character.isLetterOrDigit(c)) {
+        // Cancela a digitação do caractere inválido
+        evt.consume();
+        
+        // Exibe mensagem de aviso no JLabel
+        lblBI.setForeground(Color.red);
+        lblBI.setText("Caractere inválido! ");
+        
+        // Limpa o aviso depois de 2 segundos
+        new javax.swing.Timer(2000, e -> lblBI.setText("")).start();
+    }
+    }//GEN-LAST:event_txtBIKeyTyped
+
+    private void txtBIMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtBIMouseEntered
+        // TODO add your handling code here:
+                lblBI.setText("BI do Funcionario! ");
+                        new javax.swing.Timer(2000, e -> lblBI.setText("")).start();
+
+
+        
+                
+                
+    }//GEN-LAST:event_txtBIMouseEntered
+
+    private void radioMMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_radioMMouseEntered
+        // TODO add your handling code here:
+        lblGenero.setText("Genero Masculino");
+                                new javax.swing.Timer(2000, e -> lblGenero.setText("")).start();
+
+    }//GEN-LAST:event_radioMMouseEntered
+
+    private void radioFMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_radioFMouseEntered
+        // TODO add your handling code here:
+            lblGenero.setText("Genero Femenino");
+                                new javax.swing.Timer(2000, e -> lblGenero.setText("")).start();
+
+    }//GEN-LAST:event_radioFMouseEntered
+
+    private void dataNascMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dataNascMouseEntered
+        // TODO add your handling code here:
+        lblData.setText("Data de nascimento do  Funcionario");
+                                        new javax.swing.Timer(2000, e -> lblData.setText("")).start();
+
+    }//GEN-LAST:event_dataNascMouseEntered
+
+    private void cbFuncionariosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cbFuncionariosMouseEntered
+        // TODO add your handling code here:
+             lblCombo.setText("Escolha o funcionario");
+                                        new javax.swing.Timer(2000, e -> lblCombo.setText("")).start();
+    }//GEN-LAST:event_cbFuncionariosMouseEntered
+
+    private void dataNascPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_dataNascPropertyChange
+        // TODO add your handling code here:
+      if ("date".equals(evt.getPropertyName())) {
+        java.util.Date dataNascimento = dataNasc.getDate();
+        
+        if (dataNascimento != null) {
+            java.time.LocalDate nascimento = dataNascimento.toInstant()
+                    .atZone(java.time.ZoneId.systemDefault())
+                    .toLocalDate();
+            java.time.LocalDate hoje = java.time.LocalDate.now();
+            
+            int idade = java.time.Period.between(nascimento, hoje).getYears();
+            
+            if (idade < 18) {
+                // Limpa a data imediatamente
+                dataNasc.setDate(null);
+                
+                // Mostra mensagem de aviso
+                lblData.setForeground(Color.red);
+                lblData.setText("O   funcionario deve ter pelo menos 18 anos!");
+
+                // Limpa a mensagem após 3 segundos
+                new javax.swing.Timer(3000, e -> lblData.setText("")).start();
+            } else {
+                lblData.setText(""); // limpa aviso se idade ok
+            }
+        }
+    }
+
+    }//GEN-LAST:event_dataNascPropertyChange
 
     /**
      * @param args the command line arguments
@@ -320,21 +625,10 @@ public class JanelaFuncionario extends javax.swing.JFrame {
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JanelaFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JanelaFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JanelaFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JanelaFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
+            UIManager.setLookAndFeel( new FlatArcOrangeIJTheme());
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Look and feel nao encontrado","Look and fell",1);
+        } 
         //</editor-fold>
 
         /* Create and display the form */
@@ -349,7 +643,9 @@ public class JanelaFuncionario extends javax.swing.JFrame {
     private javax.swing.JButton btnCadastrar;
     private javax.swing.JButton btnListar;
     private javax.swing.JButton btnVoltar;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private javax.swing.JComboBox<String> cbFuncionarios;
+    private com.toedter.calendar.JDateChooser dataNasc;
+    private javax.swing.ButtonGroup grupoGenero;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -358,12 +654,17 @@ public class JanelaFuncionario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JComboBox<String> jcDistrito;
+    private javax.swing.JLabel lblBI;
+    private javax.swing.JLabel lblCombo;
+    private javax.swing.JLabel lblData;
+    private javax.swing.JLabel lblGenero;
+    private javax.swing.JLabel lblNome;
+    private javax.swing.JLabel lblSobrenome;
     private javax.swing.JRadioButton radioF;
-    private javax.swing.ButtonGroup radioGenero2;
     private javax.swing.JRadioButton radioM;
     private javax.swing.JTextField txtBI;
     private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtSobrenome;
     // End of variables declaration//GEN-END:variables
 }
+

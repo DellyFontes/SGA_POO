@@ -1,5 +1,11 @@
 package eleicoesjava.View;
 
+import com.formdev.flatlaf.intellijthemes.FlatArcOrangeIJTheme;
+import java.awt.Color;
+import java.awt.Font;
+import javax.swing.JOptionPane;
+import javax.swing.UIManager;
+
 /**
  *
  * @author Admin
@@ -11,7 +17,44 @@ public class JanelaCandidato extends javax.swing.JFrame {
      */
     public JanelaCandidato() {
         initComponents();
+        configurarCorDigitacaoTextoTodosCampos();
     }
+        
+private void configurarCorDigitacaoTextoTodosCampos() {
+    configurarCorRecursivo(getContentPane());
+}
+
+private void configurarCorRecursivo(java.awt.Container container) {
+    for (java.awt.Component c : container.getComponents()) {
+        if (c instanceof javax.swing.JTextField txt) {
+
+            javax.swing.Timer t = new javax.swing.Timer(800, e -> {
+                txt.setForeground(Color.BLACK);
+                txt.setFont(new Font("Segoe UI Semibold",Font.PLAIN,15));// volta à cor normal ao parar
+            });
+            t.setRepeats(false);
+
+            txt.getDocument().addDocumentListener(new javax.swing.event.DocumentListener() {
+                @Override
+                public void insertUpdate(javax.swing.event.DocumentEvent e) { aoDigitar(); }
+                @Override
+                public void removeUpdate(javax.swing.event.DocumentEvent e) { aoDigitar(); }
+                @Override
+                public void changedUpdate(javax.swing.event.DocumentEvent e) { aoDigitar(); }
+
+                private void aoDigitar() {
+                    txt.setForeground(new Color(24,100,90)); // cor do texto enquanto digita
+                    txt.setFont(new Font("Rockwell",Font.PLAIN,15));
+                    t.restart();
+                }
+            });
+
+        } else if (c instanceof java.awt.Container childContainer) {
+            // percorre dentro dos paineis e layouts
+            configurarCorRecursivo(childContainer);
+        }
+    }
+}
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -28,6 +71,9 @@ public class JanelaCandidato extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
+        lblBI = new javax.swing.JLabel();
+        lblNome = new javax.swing.JLabel();
+        lblPartido = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -56,18 +102,38 @@ public class JanelaCandidato extends javax.swing.JFrame {
         txtBI.setBackground(new java.awt.Color(255, 255, 153));
         txtBI.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
         txtBI.setForeground(new java.awt.Color(0, 0, 0));
+        txtBI.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                txtBIMouseEntered(evt);
+            }
+        });
         txtBI.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtBIActionPerformed(evt);
+            }
+        });
+        txtBI.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtBIKeyTyped(evt);
             }
         });
 
         txtNome.setBackground(new java.awt.Color(255, 255, 153));
         txtNome.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
         txtNome.setForeground(new java.awt.Color(0, 0, 0));
+        txtNome.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                txtNomeMouseEntered(evt);
+            }
+        });
         txtNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNomeActionPerformed(evt);
+            }
+        });
+        txtNome.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNomeKeyTyped(evt);
             }
         });
 
@@ -83,6 +149,14 @@ public class JanelaCandidato extends javax.swing.JFrame {
         jcSigla.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
         jcSigla.setForeground(new java.awt.Color(0, 0, 0));
         jcSigla.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jcSigla.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jcSiglaMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jcSiglaMouseEntered(evt);
+            }
+        });
         jcSigla.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcSiglaActionPerformed(evt);
@@ -107,6 +181,15 @@ public class JanelaCandidato extends javax.swing.JFrame {
             }
         });
 
+        lblBI.setFont(new java.awt.Font("Cambria", 2, 17)); // NOI18N
+        lblBI.setForeground(new java.awt.Color(102, 255, 0));
+
+        lblNome.setFont(new java.awt.Font("Cambria", 2, 17)); // NOI18N
+        lblNome.setForeground(new java.awt.Color(102, 255, 0));
+
+        lblPartido.setFont(new java.awt.Font("Cambria", 2, 17)); // NOI18N
+        lblPartido.setForeground(new java.awt.Color(102, 255, 0));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -117,23 +200,27 @@ public class JanelaCandidato extends javax.swing.JFrame {
                 .addGap(115, 115, 115)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel7)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblPartido, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtBI, javax.swing.GroupLayout.DEFAULT_SIZE, 327, Short.MAX_VALUE)
-                            .addComponent(txtNome)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(94, 94, 94)
-                                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jLabel8))
+                                .addComponent(jLabel6)
+                                .addGap(71, 71, 71)
+                                .addComponent(lblNome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(txtBI, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 327, Short.MAX_VALUE)
+                            .addComponent(txtNome, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jcSigla, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addGap(94, 94, 94)
+                                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jcSigla, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel8)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblBI, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(103, 103, 103)
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(88, 88, 88))))
@@ -148,18 +235,27 @@ public class JanelaCandidato extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addComponent(jLabel5)
                 .addGap(52, 52, 52)
-                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblBI, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(txtBI, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(lblNome, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblPartido, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jcSigla, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 119, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -206,6 +302,71 @@ public class JanelaCandidato extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jcSiglaActionPerformed
 
+    private void txtBIKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBIKeyTyped
+        // TODO add your handling code here:
+                  char c = evt.getKeyChar();
+    
+    // Só permite letras e números
+    if (!Character.isLetterOrDigit(c)) {
+        // Cancela a digitação do caractere inválido
+        evt.consume();
+        
+        // Exibe mensagem de aviso no JLabel
+        lblBI.setForeground(Color.red);
+        lblBI.setText("Caractere inválido! ");
+        
+        // Limpa o aviso depois de 2 segundos
+        new javax.swing.Timer(2000, e -> lblBI.setText("")).start();
+    }
+    }//GEN-LAST:event_txtBIKeyTyped
+
+    private void txtBIMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtBIMouseEntered
+        // TODO add your handling code here:
+        lblBI.setText("BI do  candidato");
+                new javax.swing.Timer(2000, e -> lblBI.setText("")).start();
+
+    }//GEN-LAST:event_txtBIMouseEntered
+
+    private void txtNomeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNomeMouseEntered
+        // TODO add your handling code here:
+        lblNome.setText("Nome do Candidato");
+                        new javax.swing.Timer(2000, e -> lblNome.setText("")).start();
+
+    }//GEN-LAST:event_txtNomeMouseEntered
+
+    private void txtNomeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNomeKeyTyped
+        // TODO add your handling code here:
+              // TODO add your handling code here:
+         char c = evt.getKeyChar();
+    
+    // Só permite letras e espaços
+    if (!Character.isLetter(c) && c != ' ') {
+        // Cancela a digitação do caractere inválido
+        evt.consume();
+        
+        // Exibe mensagem de aviso no JLabel
+        lblNome.setForeground(Color.red);
+        lblNome.setText("Caractere inválido! .");
+        
+        // Limpa o aviso depois de 2 segundos
+        new javax.swing.Timer(2000, e -> lblNome.setText("")).start();
+    }
+    }//GEN-LAST:event_txtNomeKeyTyped
+
+    private void jcSiglaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jcSiglaMouseClicked
+        // TODO add your handling code here:
+        lblPartido.setText("Escolha o partido representante");
+                new javax.swing.Timer(3000, e -> lblPartido.setText("")).start();
+
+    }//GEN-LAST:event_jcSiglaMouseClicked
+
+    private void jcSiglaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jcSiglaMouseEntered
+        // TODO add your handling code here:
+         lblPartido.setText("Escolha o partido representante");
+                new javax.swing.Timer(3000, e -> lblPartido.setText("")).start();
+
+    }//GEN-LAST:event_jcSiglaMouseEntered
+
     /**
      * @param args the command line arguments
      */
@@ -216,21 +377,10 @@ public class JanelaCandidato extends javax.swing.JFrame {
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JanelaCandidato.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JanelaCandidato.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JanelaCandidato.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JanelaCandidato.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
+            UIManager.setLookAndFeel( new FlatArcOrangeIJTheme());
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Look and feel nao encontrado","Look and fell",1);
+        } 
         //</editor-fold>
 
         /* Create and display the form */
@@ -251,6 +401,9 @@ public class JanelaCandidato extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JComboBox<String> jcSigla;
+    private javax.swing.JLabel lblBI;
+    private javax.swing.JLabel lblNome;
+    private javax.swing.JLabel lblPartido;
     private javax.swing.JTextField txtBI;
     private javax.swing.JTextField txtNome;
     // End of variables declaration//GEN-END:variables
