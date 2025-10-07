@@ -130,6 +130,11 @@ public void lerBusca(String nome) {
         btnVoltar.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
         btnVoltar.setForeground(new java.awt.Color(255, 255, 255));
         btnVoltar.setText("Voltar");
+        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltarActionPerformed(evt);
+            }
+        });
 
         txtBusca.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
         txtBusca.setCaretColor(new java.awt.Color(255, 102, 0));
@@ -272,6 +277,12 @@ public void lerBusca(String nome) {
         // TODO add your handling code here:
         txtBusca.setForeground(new Color (255,102,0));
     }//GEN-LAST:event_txtBuscaFocusGained
+
+    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
+        JanelaPartido tela = new JanelaPartido();
+        
+        tela.setVisible(true);dispose();
+    }//GEN-LAST:event_btnVoltarActionPerformed
 
     /**
      * @param args the command line arguments

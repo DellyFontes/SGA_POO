@@ -235,7 +235,10 @@ public class tabelaFuncionarios extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-        // TODO add your handling code here:
+        JanelaFuncionario tela = new JanelaFuncionario();
+        
+        tela.setVisible(true);dispose();
+        
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed

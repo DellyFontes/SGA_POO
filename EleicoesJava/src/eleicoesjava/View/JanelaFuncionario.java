@@ -1,4 +1,4 @@
-/*
+  /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
@@ -90,7 +90,6 @@ private void configurarCorRecursivo(java.awt.Container container) {
         txtSobrenome = new javax.swing.JTextField();
         radioM = new javax.swing.JRadioButton();
         radioF = new javax.swing.JRadioButton();
-        dataNasc = new com.toedter.calendar.JDateChooser();
         btnCadastrar = new javax.swing.JButton();
         btnListar = new javax.swing.JButton();
         btnVoltar = new javax.swing.JButton();
@@ -100,6 +99,7 @@ private void configurarCorRecursivo(java.awt.Container container) {
         lblBI = new javax.swing.JLabel();
         lblData = new javax.swing.JLabel();
         lblCombo = new javax.swing.JLabel();
+        dataNasc = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -228,19 +228,6 @@ private void configurarCorRecursivo(java.awt.Container container) {
             }
         });
 
-        dataNasc.setBackground(new java.awt.Color(255, 255, 255));
-        dataNasc.setForeground(new java.awt.Color(0, 0, 0));
-        dataNasc.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                dataNascMouseEntered(evt);
-            }
-        });
-        dataNasc.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                dataNascPropertyChange(evt);
-            }
-        });
-
         btnCadastrar.setBackground(javax.swing.UIManager.getDefaults().getColor("OptionPane.warningDialog.titlePane.shadow"));
         btnCadastrar.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
         btnCadastrar.setForeground(new java.awt.Color(255, 255, 255));
@@ -289,6 +276,19 @@ private void configurarCorRecursivo(java.awt.Container container) {
         lblCombo.setFont(new java.awt.Font("Cambria", 2, 17)); // NOI18N
         lblCombo.setForeground(new java.awt.Color(102, 255, 0));
 
+        dataNasc.setBackground(new java.awt.Color(255, 255, 255));
+        dataNasc.setForeground(new java.awt.Color(0, 0, 0));
+        dataNasc.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                dataNascMouseEntered(evt);
+            }
+        });
+        dataNasc.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                dataNascPropertyChange(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -323,9 +323,9 @@ private void configurarCorRecursivo(java.awt.Container container) {
                                 .addComponent(jLabel5)
                                 .addComponent(jLabel2)
                                 .addComponent(txtNome, javax.swing.GroupLayout.DEFAULT_SIZE, 304, Short.MAX_VALUE)
-                                .addComponent(dataNasc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel7)
-                                .addComponent(lblData, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                                .addComponent(lblData, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(dataNasc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 124, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -383,9 +383,9 @@ private void configurarCorRecursivo(java.awt.Container container) {
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(cbFuncionarios, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(dataNasc, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(cbFuncionarios, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
+                    .addComponent(dataNasc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
@@ -470,11 +470,13 @@ private void configurarCorRecursivo(java.awt.Container container) {
 
     private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
         // TODO add your handling code here:
-        new tabelaPartidos().setVisible(true);
+        new tabelaPartidos().setVisible(true);dispose();
     }//GEN-LAST:event_btnListarActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-        // TODO add your handling code here:
+       MenuPrincipal tela = new MenuPrincipal();
+       tela.setVisible(true);
+       dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void txtNomeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNomeKeyTyped
@@ -573,9 +575,8 @@ private void configurarCorRecursivo(java.awt.Container container) {
 
     private void dataNascMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dataNascMouseEntered
         // TODO add your handling code here:
-        lblData.setText("Data de nascimento do  Funcionario");
-                                        new javax.swing.Timer(2000, e -> lblData.setText("")).start();
-
+        lblData.setText("Data de nascimento do eleitor");
+        new javax.swing.Timer(2000, e -> lblData.setText("")).start();
     }//GEN-LAST:event_dataNascMouseEntered
 
     private void cbFuncionariosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cbFuncionariosMouseEntered
@@ -586,33 +587,32 @@ private void configurarCorRecursivo(java.awt.Container container) {
 
     private void dataNascPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_dataNascPropertyChange
         // TODO add your handling code here:
-      if ("date".equals(evt.getPropertyName())) {
-        java.util.Date dataNascimento = dataNasc.getDate();
-        
-        if (dataNascimento != null) {
-            java.time.LocalDate nascimento = dataNascimento.toInstant()
-                    .atZone(java.time.ZoneId.systemDefault())
-                    .toLocalDate();
-            java.time.LocalDate hoje = java.time.LocalDate.now();
-            
-            int idade = java.time.Period.between(nascimento, hoje).getYears();
-            
-            if (idade < 18) {
-                // Limpa a data imediatamente
-                dataNasc.setDate(null);
-                
-                // Mostra mensagem de aviso
-                lblData.setForeground(Color.red);
-                lblData.setText("O   funcionario deve ter pelo menos 18 anos!");
+        if ("date".equals(evt.getPropertyName())) {
+            java.util.Date dataNascimento = dataNasc.getDate();
 
-                // Limpa a mensagem após 3 segundos
-                new javax.swing.Timer(3000, e -> lblData.setText("")).start();
-            } else {
-                lblData.setText(""); // limpa aviso se idade ok
+            if (dataNascimento != null) {
+                java.time.LocalDate nascimento = dataNascimento.toInstant()
+                .atZone(java.time.ZoneId.systemDefault())
+                .toLocalDate();
+                java.time.LocalDate hoje = java.time.LocalDate.now();
+
+                int idade = java.time.Period.between(nascimento, hoje).getYears();
+
+                if (idade < 18) {
+                    // Limpa a data imediatamente
+                    dataNasc.setDate(null);
+
+                    // Mostra mensagem de aviso
+                    lblData.setForeground(Color.red);
+                    lblData.setText("O eleitor deve ter pelo menos 18 anos!");
+
+                    // Limpa a mensagem após 3 segundos
+                    new javax.swing.Timer(3000, e -> lblData.setText("")).start();
+                } else {
+                    lblData.setText(""); // limpa aviso se idade ok
+                }
             }
         }
-    }
-
     }//GEN-LAST:event_dataNascPropertyChange
 
     /**

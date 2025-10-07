@@ -280,10 +280,13 @@ private void configurarCorRecursivo(java.awt.Container container) {
 
     private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
 
+        MenuPrincipal tela=new MenuPrincipal();
+        tela.setVisible(true);dispose();
     }//GEN-LAST:event_btVoltarActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-       
+       tabelaCandidatos tela = new tabelaCandidatos();
+       tela.setVisible(true);dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed

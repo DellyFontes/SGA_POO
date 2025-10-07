@@ -4,10 +4,13 @@
  */
 package eleicoesjava.View;
 
+import eleicoesjava.Control.AutenticacaoController;
+import eleicoesjava.Modelo.Funcionario;
 import java.awt.CardLayout;
 import java.net.URL;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -18,8 +21,34 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     public MenuPrincipal() {
         initComponents();
+        configurarAcessos();
 //        configurarBotoes();
     }
+    
+    private void configurarAcessos() {
+    Funcionario usuario = AutenticacaoController.getUsuarioLogado();
+    if (usuario == null) {
+        JOptionPane.showMessageDialog(this, "Usuário não autenticado!", "Erro", JOptionPane.ERROR_MESSAGE);
+        this.dispose();
+        new JanelaLogin().setVisible(true);
+        return;
+    }
+    
+    int nivel = usuario.getNivelAcesso();
+    String nomeUsuario = usuario.getNome();
+    
+    btnPartidos.setEnabled(nivel >= 2);
+    btnCandidatos.setEnabled(nivel >= 2);
+    btnVotacoes.setEnabled(nivel >= 3);
+    btnRelatorios.setEnabled(nivel >= 4);
+    
+    this.setTitle("Menu Principal - " + nomeUsuario + " (Nível " + nivel + ")");
+    
+    btnPartidos.setToolTipText(nivel >= 2 ? "Cadastrar Partidos" : "Acesso negado - Nível 2 ou superior requerido");
+    btnCandidatos.setToolTipText(nivel >= 2 ? "Cadastrar Candidatos" : "Acesso negado - Nível 2 ou superior requerido");
+    btnVotacoes.setToolTipText(nivel >= 3 ? "Gerenciar Votações" : "Acesso negado - Nível 3 ou superior requerido");
+    btnRelatorios.setToolTipText(nivel >= 4 ? "Gerar Relatórios" : "Acesso negado - Nível 4 ou superior requerido");
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -246,12 +275,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void btnCandidatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCandidatosActionPerformed
         // TODO add your handling code here:
-        new tabelaCandidatos().setVisible(true);
+        new JanelaCandidato().setVisible(true);dispose();
     }//GEN-LAST:event_btnCandidatosActionPerformed
 
     private void btnEleitoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEleitoresActionPerformed
         // TODO add your handling code here:
-        new tabelaEleitor().setVisible(true);
+        new JanelaEleitor().setVisible(true);dispose();
     }//GEN-LAST:event_btnEleitoresActionPerformed
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
@@ -260,7 +289,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSairActionPerformed
 
     private void btnRelatoriosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRelatoriosActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_btnRelatoriosActionPerformed
 
     private void btnVotacoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVotacoesActionPerformed
@@ -268,7 +297,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVotacoesActionPerformed
 
     private void btnPartidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPartidosActionPerformed
-new tabelaEleitor().setVisible(0==0);        // TODO add your handling code here:
+    new JanelaPartido().setVisible(0==0);      dispose();
     }//GEN-LAST:event_btnPartidosActionPerformed
 
     /**

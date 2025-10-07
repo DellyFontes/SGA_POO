@@ -166,6 +166,11 @@ public class tabelaCandidatos extends javax.swing.JFrame {
         btnVoltar.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
         btnVoltar.setForeground(new java.awt.Color(255, 255, 255));
         btnVoltar.setText("Voltar");
+        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout paneltbEleitorLayout = new javax.swing.GroupLayout(paneltbEleitor);
         paneltbEleitor.setLayout(paneltbEleitorLayout);
@@ -276,6 +281,10 @@ public class tabelaCandidatos extends javax.swing.JFrame {
             //        }
 
     }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
+        new JanelaCandidato();setVisible(true);dispose();
+    }//GEN-LAST:event_btnVoltarActionPerformed
 
     /**
      * @param args the command line arguments

@@ -284,10 +284,12 @@ private void configurarCorRecursivo(java.awt.Container container) {
     }//GEN-LAST:event_btnListarActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-        // TODO add your handling code here:
+      tabelaPartidos tela = new tabelaPartidos();
+        setVisible(true);dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
+       new MenuPrincipal();setVisible(true);dispose();
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCadastrarActionPerformed
 

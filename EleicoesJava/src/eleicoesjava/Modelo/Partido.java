@@ -10,12 +10,14 @@ public class Partido {
     private String nome;
     private Candidato can;
     private int numVotosPart;
+    private String sigla;
 
-   public Partido(int id, String nome, Candidato can, int numVotosPart) {
+   public Partido(int id, String nome, Candidato can, int numVotosPart,String sigla) {
         this.id = id;
         this.nome = nome;
         this.can = can;
         this.numVotosPart = numVotosPart;
+        this.sigla=this.sigla;
     }
    
    public Partido(){
@@ -51,6 +53,14 @@ public class Partido {
 
     public void setNumVotosPart(int numVotosPart) {
         this.numVotosPart = numVotosPart;
+    }
+
+    public String getSigla() {
+        return sigla;
+    }
+
+    public void setSigla(String sigla) {
+        this.sigla = sigla;
     }
 
 }

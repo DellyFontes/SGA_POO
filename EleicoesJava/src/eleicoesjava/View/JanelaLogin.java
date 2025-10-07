@@ -1,11 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package eleicoesjava.View;
 
 import com.formdev.flatlaf.FlatLightLaf;
 import com.formdev.flatlaf.intellijthemes.FlatArcOrangeIJTheme;
+import eleicoesjava.Control.AutenticacaoController;
+import eleicoesjava.Modelo.Funcionario;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JOptionPane;
@@ -78,7 +76,7 @@ private void configurarCorRecursivo(java.awt.Container container) {
         mostrarSenha = new javax.swing.JCheckBox();
         jLabel4 = new javax.swing.JLabel();
         btnVoltar = new javax.swing.JButton();
-        btnVoltar1 = new javax.swing.JButton();
+        btnEntrar = new javax.swing.JButton();
         lblSenha = new javax.swing.JLabel();
         lblNome = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -159,13 +157,13 @@ private void configurarCorRecursivo(java.awt.Container container) {
             }
         });
 
-        btnVoltar1.setBackground(javax.swing.UIManager.getDefaults().getColor("OptionPane.warningDialog.titlePane.shadow"));
-        btnVoltar1.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
-        btnVoltar1.setForeground(new java.awt.Color(255, 255, 255));
-        btnVoltar1.setText("Entrar");
-        btnVoltar1.addActionListener(new java.awt.event.ActionListener() {
+        btnEntrar.setBackground(javax.swing.UIManager.getDefaults().getColor("OptionPane.warningDialog.titlePane.shadow"));
+        btnEntrar.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
+        btnEntrar.setForeground(new java.awt.Color(255, 255, 255));
+        btnEntrar.setText("Entrar");
+        btnEntrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVoltar1ActionPerformed(evt);
+                btnEntrarActionPerformed(evt);
             }
         });
 
@@ -201,7 +199,7 @@ private void configurarCorRecursivo(java.awt.Container container) {
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addGap(91, 91, 91)
-                    .addComponent(btnVoltar1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(222, Short.MAX_VALUE)))
         );
         jPanel2Layout.setVerticalGroup(
@@ -229,7 +227,7 @@ private void configurarCorRecursivo(java.awt.Container container) {
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                     .addContainerGap(475, Short.MAX_VALUE)
-                    .addComponent(btnVoltar1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(87, 87, 87)))
         );
 
@@ -280,9 +278,30 @@ private void configurarCorRecursivo(java.awt.Container container) {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnVoltar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltar1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnVoltar1ActionPerformed
+    private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
+      String usuario = txtUsuario.getText().trim();
+    String senha = new String(txtSenha.getPassword());
+    
+    if (usuario.isEmpty() || senha.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Preencha todos os campos!", "Erro", JOptionPane.ERROR_MESSAGE);
+        return;
+    }
+    
+    // Tentar autenticar usando código do funcionário como usuário
+    if (AutenticacaoController.autenticar(usuario, senha)) {
+        Funcionario user = AutenticacaoController.getUsuarioLogado();
+        JOptionPane.showMessageDialog(this, 
+            "Login realizado com sucesso!\nBem-vindo, " + user.getNome() + 
+            "\nNível de acesso: " + user.getNivelAcesso(), 
+            "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+        new MenuPrincipal().setVisible(true);
+        this.dispose();
+    } else {
+        JOptionPane.showMessageDialog(this, "Código de funcionário ou BI inválidos!", "Erro", JOptionPane.ERROR_MESSAGE);
+        txtSenha.setText("");
+        txtUsuario.requestFocus();
+    }
+    }//GEN-LAST:event_btnEntrarActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         // TODO add your handling code here:
@@ -372,8 +391,8 @@ private void configurarCorRecursivo(java.awt.Container container) {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnEntrar;
     private javax.swing.JButton btnVoltar;
-    private javax.swing.JButton btnVoltar1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
