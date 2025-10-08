@@ -4,10 +4,11 @@
  */
 package eleicoesjava.View;
 
-import Model.Dao.EleitorDao;
+import Model.Dao.FuncionarioDao;
 import com.formdev.flatlaf.intellijthemes.FlatArcOrangeIJTheme;
 import eleicoesjava.Modelo.Dados_Senhas;
-import eleicoesjava.Modelo.Eleitor;
+import eleicoesjava.Modelo.Funcionario;
+import eleicoesjava.Modelo.Funcionario;
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Font;
@@ -22,11 +23,12 @@ import javax.swing.UIManager;
 public class JanelaFuncionario extends javax.swing.JFrame {
 
     /**
-     * Creates new form JanelaEleitor
+     * Creates new form JanelaFuncionario
      */
     public JanelaFuncionario() {
         initComponents();
         configurarCorDigitacaoTextoTodosCampos();
+        cardLayout = (CardLayout) MAIN.getLayout(); 
     }
     
     
@@ -89,7 +91,7 @@ private void configurarCorRecursivo(java.awt.Container container) {
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        cbFuncionarios = new javax.swing.JComboBox<>();
+        cbTipoFuncionarios = new javax.swing.JComboBox<>();
         txtNome = new javax.swing.JTextField();
         txtBI = new javax.swing.JTextField();
         txtSobrenome = new javax.swing.JTextField();
@@ -105,6 +107,10 @@ private void configurarCorRecursivo(java.awt.Container container) {
         lblData = new javax.swing.JLabel();
         lblCombo = new javax.swing.JLabel();
         dataNasc = new com.toedter.calendar.JDateChooser();
+        txtCelular = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        cbDistrito = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -141,18 +147,18 @@ private void configurarCorRecursivo(java.awt.Container container) {
         jLabel8.setForeground(new java.awt.Color(255, 255, 153));
         jLabel8.setText("Sobrenome");
 
-        cbFuncionarios.setBackground(new java.awt.Color(255, 255, 153));
-        cbFuncionarios.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
-        cbFuncionarios.setForeground(new java.awt.Color(0, 0, 0));
-        cbFuncionarios.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Funcionario1", "Funcionario2", "Funcionario3", " " }));
-        cbFuncionarios.addMouseListener(new java.awt.event.MouseAdapter() {
+        cbTipoFuncionarios.setBackground(new java.awt.Color(255, 255, 153));
+        cbTipoFuncionarios.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
+        cbTipoFuncionarios.setForeground(new java.awt.Color(0, 0, 0));
+        cbTipoFuncionarios.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3" }));
+        cbTipoFuncionarios.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                cbFuncionariosMouseEntered(evt);
+                cbTipoFuncionariosMouseEntered(evt);
             }
         });
-        cbFuncionarios.addActionListener(new java.awt.event.ActionListener() {
+        cbTipoFuncionarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbFuncionariosActionPerformed(evt);
+                cbTipoFuncionariosActionPerformed(evt);
             }
         });
 
@@ -214,7 +220,7 @@ private void configurarCorRecursivo(java.awt.Container container) {
         });
 
         grupoGenero.add(radioM);
-        radioM.setFont(new java.awt.Font("Georgia", 2, 15)); // NOI18N
+        radioM.setFont(new java.awt.Font("Georgia", 2, 18)); // NOI18N
         radioM.setText("Masculino");
         radioM.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -228,7 +234,7 @@ private void configurarCorRecursivo(java.awt.Container container) {
         });
 
         grupoGenero.add(radioF);
-        radioF.setFont(new java.awt.Font("Georgia", 2, 15)); // NOI18N
+        radioF.setFont(new java.awt.Font("Georgia", 2, 18)); // NOI18N
         radioF.setText("Femenino");
         radioF.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -297,121 +303,171 @@ private void configurarCorRecursivo(java.awt.Container container) {
             }
         });
 
+        txtCelular.setBackground(new java.awt.Color(255, 255, 153));
+        txtCelular.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
+        txtCelular.setForeground(new java.awt.Color(255, 255, 255));
+        txtCelular.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                txtCelularMouseEntered(evt);
+            }
+        });
+        txtCelular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCelularActionPerformed(evt);
+            }
+        });
+        txtCelular.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCelularKeyTyped(evt);
+            }
+        });
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI Semibold", 1, 17)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 153));
+        jLabel9.setText("Celular");
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI Semibold", 1, 17)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 153));
+        jLabel6.setText("Distrito");
+
+        cbDistrito.setBackground(new java.awt.Color(255, 255, 153));
+        cbDistrito.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
+        cbDistrito.setForeground(new java.awt.Color(0, 0, 0));
+        cbDistrito.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Boane", "Magude", "Manhiça", "Marracuene", "Matola", "Matutuíne", "Moamba", "Namaacha", "KaMpfumu", "Nlhamankulu", "KaMaxakeni", "KaMavota", "KaMubukwana", "KaTembe", "KaNyaka" }));
+        cbDistrito.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                cbDistritoMouseEntered(evt);
+            }
+        });
+        cbDistrito.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbDistritoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout CadastroFuncionariosLayout = new javax.swing.GroupLayout(CadastroFuncionarios);
         CadastroFuncionarios.setLayout(CadastroFuncionariosLayout);
         CadastroFuncionariosLayout.setHorizontalGroup(
             CadastroFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CadastroFuncionariosLayout.createSequentialGroup()
-                .addGroup(CadastroFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, CadastroFuncionariosLayout.createSequentialGroup()
-                        .addGap(83, 83, 83)
-                        .addComponent(lblGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(CadastroFuncionariosLayout.createSequentialGroup()
-                        .addGap(73, 73, 73)
-                        .addGroup(CadastroFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblNome, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(CadastroFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(CadastroFuncionariosLayout.createSequentialGroup()
-                                    .addGap(10, 10, 10)
-                                    .addComponent(radioM, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(radioF, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(jLabel5)
-                                .addComponent(jLabel2)
-                                .addComponent(txtNome, javax.swing.GroupLayout.DEFAULT_SIZE, 304, Short.MAX_VALUE)
-                                .addComponent(jLabel7)
-                                .addComponent(lblData, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(dataNasc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 139, Short.MAX_VALUE)
-                .addGroup(CadastroFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CadastroFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(CadastroFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblSobrenome, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CadastroFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtSobrenome, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(CadastroFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CadastroFuncionariosLayout.createSequentialGroup()
-                                        .addComponent(jLabel8)
-                                        .addGap(196, 196, 196))
-                                    .addComponent(jLabel4)
-                                    .addComponent(txtBI, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addComponent(jLabel3)
-                        .addGroup(CadastroFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cbFuncionarios, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(lblBI, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(126, 126, 126))
             .addGroup(CadastroFuncionariosLayout.createSequentialGroup()
                 .addGroup(CadastroFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(CadastroFuncionariosLayout.createSequentialGroup()
-                        .addGap(292, 292, 292)
-                        .addComponent(jLabel1))
+                        .addGap(73, 73, 73)
+                        .addGroup(CadastroFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addGroup(CadastroFuncionariosLayout.createSequentialGroup()
+                                .addGroup(CadastroFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtNome, javax.swing.GroupLayout.DEFAULT_SIZE, 285, Short.MAX_VALUE)
+                                    .addGroup(CadastroFuncionariosLayout.createSequentialGroup()
+                                        .addGap(10, 10, 10)
+                                        .addComponent(radioM, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(radioF, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel7)
+                                    .addGroup(CadastroFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(dataNasc, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lblGenero, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 282, Short.MAX_VALUE))
+                                    .addComponent(lblData, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel9)
+                                    .addComponent(txtCelular, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel5)
+                                    .addComponent(lblNome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(163, 163, 163)
+                                .addGroup(CadastroFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel6)
+                                    .addComponent(cbDistrito, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(CadastroFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txtBI, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CadastroFuncionariosLayout.createSequentialGroup()
+                                            .addComponent(jLabel4)
+                                            .addGap(262, 262, 262))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CadastroFuncionariosLayout.createSequentialGroup()
+                                            .addComponent(lblCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(12, 12, 12)))
+                                    .addComponent(jLabel8)
+                                    .addComponent(txtSobrenome, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblSobrenome, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel3)
+                                    .addComponent(cbTipoFuncionarios, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblBI, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(CadastroFuncionariosLayout.createSequentialGroup()
                         .addGap(176, 176, 176)
                         .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(88, 88, 88)
+                        .addGap(82, 82, 82)
                         .addComponent(btnListar, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(77, 77, 77)
+                        .addGap(83, 83, 83)
                         .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 121, Short.MAX_VALUE))
+            .addGroup(CadastroFuncionariosLayout.createSequentialGroup()
+                .addGap(300, 300, 300)
+                .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         CadastroFuncionariosLayout.setVerticalGroup(
             CadastroFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(CadastroFuncionariosLayout.createSequentialGroup()
-                .addGap(27, 27, 27)
+                .addGap(22, 22, 22)
                 .addComponent(jLabel1)
-                .addGap(32, 32, 32)
-                .addGroup(CadastroFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lblNome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblSobrenome, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE))
+                .addGap(39, 39, 39)
+                .addGroup(CadastroFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(CadastroFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtSobrenome, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, 0)
+                .addGroup(CadastroFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblNome, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblSobrenome, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(CadastroFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(CadastroFuncionariosLayout.createSequentialGroup()
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtSobrenome, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CadastroFuncionariosLayout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(CadastroFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(radioM, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(radioF))
+                        .addGap(0, 0, 0)
+                        .addComponent(lblGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(CadastroFuncionariosLayout.createSequentialGroup()
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtBI, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(lblBI, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(CadastroFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(CadastroFuncionariosLayout.createSequentialGroup()
+                        .addGap(9, 9, 9)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cbTipoFuncionarios, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(lblCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(CadastroFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblGenero)
-                    .addComponent(lblBI))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(CadastroFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(CadastroFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(CadastroFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(radioM)
-                        .addComponent(radioF))
-                    .addComponent(txtBI, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(CadastroFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(CadastroFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(cbFuncionarios, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
-                    .addComponent(dataNasc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGroup(CadastroFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(CadastroFuncionariosLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(lblData, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(CadastroFuncionariosLayout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(lblCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(55, 55, 55)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(3, 3, 3)
+                        .addComponent(dataNasc, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(lblData, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(CadastroFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtCelular, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbDistrito, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(63, 63, 63)
                 .addGroup(CadastroFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnListar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
-        MAIN.add(CadastroFuncionarios, "card2");
+        MAIN.add(CadastroFuncionarios, "CardFuncionario");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -433,175 +489,27 @@ private void configurarCorRecursivo(java.awt.Container container) {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cbFuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbFuncionariosActionPerformed
-
-    }//GEN-LAST:event_cbFuncionariosActionPerformed
-
-    private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
+    private void cbDistritoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbDistritoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNomeActionPerformed
+    }//GEN-LAST:event_cbDistritoActionPerformed
 
-    private void txtBIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBIActionPerformed
+    private void cbDistritoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cbDistritoMouseEntered
         // TODO add your handling code here:
-        String bi = txtBI.getText().trim();
-              if (!bi.matches("\\d{12}[A-Z]")) {
-            JOptionPane.showMessageDialog(this, "O BI deve ter 12 dígitos seguidos de 1 letra maiúscula. Ex: 123456789012X");
+        lblCombo.setText("Distrito");
+        new javax.swing.Timer(2000, e -> lblCombo.setText("")).start();
+    }//GEN-LAST:event_cbDistritoMouseEntered
 
-            return;
-        }
-    }//GEN-LAST:event_txtBIActionPerformed
-
-    private void txtSobrenomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSobrenomeActionPerformed
+    private void txtCelularKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCelularKeyTyped
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtSobrenomeActionPerformed
+    }//GEN-LAST:event_txtCelularKeyTyped
 
-    private void radioMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioMActionPerformed
+    private void txtCelularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCelularActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_radioMActionPerformed
+    }//GEN-LAST:event_txtCelularActionPerformed
 
-    private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
+    private void txtCelularMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCelularMouseEntered
         // TODO add your handling code here:
-        
-        Eleitor e = new Eleitor();
-        EleitorDao dao = new EleitorDao();
-        String genero = "";
-        // Pegando o Genero Selecionado
-        if(radioM.isSelected()){
-            genero = "M";
-        } else if(radioF.isSelected()){
-            genero ="F";
-        }
-        
-        
-        e.setNome( txtNome.getText() +" "+ txtSobrenome.getText());
-        e.setBI((txtBI.getText()));
-        e.setGenero(genero);
-        e.setDataNasc((dataNasc.getDate()));
-        e.setBI((txtBI.getText()));
-        e.setDistrito(cbFuncionarios.getSelectedItem().toString());
-        e.setCodigo(Dados_Senhas.gerarSenhaEleitor());
-        dao.Salvar(e);
-    }//GEN-LAST:event_btnCadastrarActionPerformed
-
-    private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
-        // TODO add your handling code here:
-//        new tabelaPartidos().setVisible(true);dispose();
-  if (menuPrincipal != null) {
-            menuPrincipal.mostrarTela("CardTbFuncionario");
-        }
-    }//GEN-LAST:event_btnListarActionPerformed
-
-    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-        if (menuPrincipal != null) {
-            menuPrincipal.mostrarTela("CardMain");
-        }
-    }//GEN-LAST:event_btnVoltarActionPerformed
-
-    private void txtNomeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNomeKeyTyped
-        // TODO add your handling code here:
-         char c = evt.getKeyChar();
-    
-    // Só permite letras e espaços
-    if (!Character.isLetter(c) && c != ' ') {
-        // Cancela a digitação do caractere inválido
-        evt.consume();
-        
-        // Exibe mensagem de aviso no JLabel
-        lblNome.setForeground(Color.red);
-        lblNome.setText("Caractere inválido! .");
-        
-        // Limpa o aviso depois de 2 segundos
-        new javax.swing.Timer(2000, e -> lblNome.setText("")).start();
-    }
-    }//GEN-LAST:event_txtNomeKeyTyped
-
-    private void txtSobrenomeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSobrenomeKeyTyped
-        // TODO add your handling code here:
-         char c = evt.getKeyChar();
-    
-    // Só permite letras e espaços
-    if (!Character.isLetter(c) && c != ' ') {
-        // Cancela a digitação do caractere inválido
-        evt.consume();
-        
-        // Exibe mensagem de aviso no JLabel
-       lblSobrenome .setForeground(Color.red);
-        lblSobrenome.setText("Caractere inválido! .");
-        
-        // Limpa o aviso depois de 2 segundos
-        new javax.swing.Timer(2000, e -> lblSobrenome.setText("")).start();
-    }
-    }//GEN-LAST:event_txtSobrenomeKeyTyped
-
-    private void txtNomeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNomeMouseEntered
-        // TODO add your handling code here:
-        lblNome.setText("Nome do Funcionario");
-                new javax.swing.Timer(2000, e -> lblNome.setText("")).start();
-
-        
-    }//GEN-LAST:event_txtNomeMouseEntered
-
-    private void txtSobrenomeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtSobrenomeMouseEntered
-        // TODO add your handling code here:
-             lblSobrenome.setText("Sobrenome do  Funcionario");
-                new javax.swing.Timer(2000, e -> lblSobrenome.setText("")).start();
-
-    }//GEN-LAST:event_txtSobrenomeMouseEntered
-
-    private void txtBIKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBIKeyTyped
-        // TODO add your handling code here:
-          char c = evt.getKeyChar();
-    
-    // Só permite letras e números
-    if (!Character.isLetterOrDigit(c)) {
-        // Cancela a digitação do caractere inválido
-        evt.consume();
-        
-        // Exibe mensagem de aviso no JLabel
-        lblBI.setForeground(Color.red);
-        lblBI.setText("Caractere inválido! ");
-        
-        // Limpa o aviso depois de 2 segundos
-        new javax.swing.Timer(2000, e -> lblBI.setText("")).start();
-    }
-    }//GEN-LAST:event_txtBIKeyTyped
-
-    private void txtBIMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtBIMouseEntered
-        // TODO add your handling code here:
-                lblBI.setText("BI do Funcionario! ");
-                        new javax.swing.Timer(2000, e -> lblBI.setText("")).start();
-
-
-        
-                
-                
-    }//GEN-LAST:event_txtBIMouseEntered
-
-    private void radioMMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_radioMMouseEntered
-        // TODO add your handling code here:
-        lblGenero.setText("Genero Masculino");
-                                new javax.swing.Timer(2000, e -> lblGenero.setText("")).start();
-
-    }//GEN-LAST:event_radioMMouseEntered
-
-    private void radioFMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_radioFMouseEntered
-        // TODO add your handling code here:
-            lblGenero.setText("Genero Femenino");
-                                new javax.swing.Timer(2000, e -> lblGenero.setText("")).start();
-
-    }//GEN-LAST:event_radioFMouseEntered
-
-    private void dataNascMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dataNascMouseEntered
-        // TODO add your handling code here:
-        lblData.setText("Data de nascimento do eleitor");
-        new javax.swing.Timer(2000, e -> lblData.setText("")).start();
-    }//GEN-LAST:event_dataNascMouseEntered
-
-    private void cbFuncionariosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cbFuncionariosMouseEntered
-        // TODO add your handling code here:
-             lblCombo.setText("Escolha o funcionario");
-                                        new javax.swing.Timer(2000, e -> lblCombo.setText("")).start();
-    }//GEN-LAST:event_cbFuncionariosMouseEntered
+    }//GEN-LAST:event_txtCelularMouseEntered
 
     private void dataNascPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_dataNascPropertyChange
         // TODO add your handling code here:
@@ -632,6 +540,168 @@ private void configurarCorRecursivo(java.awt.Container container) {
             }
         }
     }//GEN-LAST:event_dataNascPropertyChange
+
+    private void dataNascMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dataNascMouseEntered
+        // TODO add your handling code here:
+        lblData.setText("Data de nascimento do eleitor");
+        new javax.swing.Timer(2000, e -> lblData.setText("")).start();
+    }//GEN-LAST:event_dataNascMouseEntered
+
+    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
+        if (menuPrincipal != null) {
+            menuPrincipal.mostrarTela("CardMain");
+        }
+    }//GEN-LAST:event_btnVoltarActionPerformed
+
+    private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
+        // TODO add your handling code here:
+        new tabelaFuncionarios().setVisible(true);dispose();
+        if (menuPrincipal != null) {
+            menuPrincipal.mostrarTela("CardTbFuncionarios");
+        }
+    }//GEN-LAST:event_btnListarActionPerformed
+
+    private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
+        // TODO add your handling code here:
+
+        Funcionario f = new Funcionario();
+        FuncionarioDao dao = new FuncionarioDao();
+        String genero = "";
+        // Pegando o Genero Selecionado
+        if(radioM.isSelected()){
+            genero = "M";
+        } else if(radioF.isSelected()){
+            genero ="F";
+        }
+        ////        ( celular,Tipofuncionario)
+        f.setNome( txtNome.getText() +" "+ txtSobrenome.getText());
+        f.setBI((txtBI.getText()));
+        f.setGenero(genero);
+        f.setDataNasc((dataNasc.getDate()));
+        f.setCelular((Integer.parseInt(txtCelular.getText())));
+        f.setTipoFuncionario(Integer.parseInt(cbTipoFuncionarios.getSelectedItem().toString()));
+        f.setDistrito(cbDistrito.getSelectedItem().toString());
+        f.setCodigoFuncionario(Dados_Senhas.gerarSenhaCandidato());
+        dao.Salvar(f);
+    }//GEN-LAST:event_btnCadastrarActionPerformed
+
+    private void radioFMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_radioFMouseEntered
+        // TODO add your handling code here:
+        lblGenero.setText("Genero Femenino");
+        new javax.swing.Timer(2000, e -> lblGenero.setText("")).start();
+    }//GEN-LAST:event_radioFMouseEntered
+
+    private void radioMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioMActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_radioMActionPerformed
+
+    private void radioMMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_radioMMouseEntered
+        // TODO add your handling code here:
+        lblGenero.setText("Genero Masculino");
+        new javax.swing.Timer(2000, e -> lblGenero.setText("")).start();
+    }//GEN-LAST:event_radioMMouseEntered
+
+    private void txtSobrenomeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSobrenomeKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+
+        // Só permite letras e espaços
+        if (!Character.isLetter(c) && c != ' ') {
+            // Cancela a digitação do caractere inválido
+            evt.consume();
+
+            // Exibe mensagem de aviso no JLabel
+            lblSobrenome .setForeground(Color.red);
+            lblSobrenome.setText("Caractere inválido! .");
+
+            // Limpa o aviso depois de 2 segundos
+            new javax.swing.Timer(2000, e -> lblSobrenome.setText("")).start();
+        }
+    }//GEN-LAST:event_txtSobrenomeKeyTyped
+
+    private void txtSobrenomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSobrenomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSobrenomeActionPerformed
+
+    private void txtSobrenomeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtSobrenomeMouseEntered
+        // TODO add your handling code here:
+        lblSobrenome.setText("Sobrenome do  Funcionario");
+        new javax.swing.Timer(2000, e -> lblSobrenome.setText("")).start();
+    }//GEN-LAST:event_txtSobrenomeMouseEntered
+
+    private void txtBIKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBIKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+
+        // Só permite letras e números
+        if (!Character.isLetterOrDigit(c)) {
+            // Cancela a digitação do caractere inválido
+            evt.consume();
+
+            // Exibe mensagem de aviso no JLabel
+            lblBI.setForeground(Color.red);
+            lblBI.setText("Caractere inválido! ");
+
+            // Limpa o aviso depois de 2 segundos
+            new javax.swing.Timer(2000, e -> lblBI.setText("")).start();
+        }
+    }//GEN-LAST:event_txtBIKeyTyped
+
+    private void txtBIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBIActionPerformed
+        // TODO add your handling code here:
+        String bi = txtBI.getText().trim();
+        if (!bi.matches("\\d{12}[A-Z]")) {
+            JOptionPane.showMessageDialog(this, "O BI deve ter 12 dígitos seguidos de 1 letra maiúscula. Ex: 123456789012X");
+
+            return;
+        }
+    }//GEN-LAST:event_txtBIActionPerformed
+
+    private void txtBIMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtBIMouseEntered
+        // TODO add your handling code here:
+        lblBI.setText("BI do Funcionario! ");
+        new javax.swing.Timer(2000, e -> lblBI.setText("")).start();
+
+    }//GEN-LAST:event_txtBIMouseEntered
+
+    private void txtNomeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNomeKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+
+        // Só permite letras e espaços
+        if (!Character.isLetter(c) && c != ' ') {
+            // Cancela a digitação do caractere inválido
+            evt.consume();
+
+            // Exibe mensagem de aviso no JLabel
+            lblNome.setForeground(Color.red);
+            lblNome.setText("Caractere inválido! .");
+
+            // Limpa o aviso depois de 2 segundos
+            new javax.swing.Timer(2000, e -> lblNome.setText("")).start();
+        }
+    }//GEN-LAST:event_txtNomeKeyTyped
+
+    private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNomeActionPerformed
+
+    private void txtNomeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNomeMouseEntered
+        // TODO add your handling code here:
+        lblNome.setText("Nome do Funcionario");
+        new javax.swing.Timer(2000, e -> lblNome.setText("")).start();
+
+    }//GEN-LAST:event_txtNomeMouseEntered
+
+    private void cbTipoFuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbTipoFuncionariosActionPerformed
+
+    }//GEN-LAST:event_cbTipoFuncionariosActionPerformed
+
+    private void cbTipoFuncionariosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cbTipoFuncionariosMouseEntered
+        // TODO add your handling code here:
+        lblCombo.setText("Escolha o funcionario");
+        new javax.swing.Timer(2000, e -> lblCombo.setText("")).start();
+    }//GEN-LAST:event_cbTipoFuncionariosMouseEntered
 
     /**
      * @param args the command line arguments
@@ -686,7 +756,8 @@ private void configurarCorRecursivo(java.awt.Container container) {
     private javax.swing.JButton btnCadastrar;
     private javax.swing.JButton btnListar;
     private javax.swing.JButton btnVoltar;
-    private javax.swing.JComboBox<String> cbFuncionarios;
+    private javax.swing.JComboBox<String> cbDistrito;
+    private javax.swing.JComboBox<String> cbTipoFuncionarios;
     private com.toedter.calendar.JDateChooser dataNasc;
     private javax.swing.ButtonGroup grupoGenero;
     private javax.swing.JLabel jLabel1;
@@ -694,8 +765,10 @@ private void configurarCorRecursivo(java.awt.Container container) {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel lblBI;
     private javax.swing.JLabel lblCombo;
     private javax.swing.JLabel lblData;
@@ -705,6 +778,7 @@ private void configurarCorRecursivo(java.awt.Container container) {
     private javax.swing.JRadioButton radioF;
     private javax.swing.JRadioButton radioM;
     private javax.swing.JTextField txtBI;
+    private javax.swing.JTextField txtCelular;
     private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtSobrenome;
     // End of variables declaration//GEN-END:variables

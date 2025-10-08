@@ -59,7 +59,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-              <CardConstraints cardName="card2"/>
+              <CardConstraints cardName="CardTbCandidatos"/>
             </Constraint>
           </Constraints>
 
@@ -139,6 +139,9 @@
               <SubComponents>
                 <Component class="javax.swing.JTable" name="tbCandidatos">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="b0" green="be" red="cc" type="rgb"/>
+                    </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Times New Roman" size="14" style="3"/>
                     </Property>
@@ -148,7 +151,7 @@
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="5" rowCount="0">
                         <Column editable="true" title="ID" type="java.lang.Object"/>
-                        <Column editable="true" title="Nome" type="java.lang.Object"/>
+                        <Column editable="true" title="Nome dos Candidatos" type="java.lang.Object"/>
                         <Column editable="true" title="Genero" type="java.lang.Object"/>
                         <Column editable="true" title="Partido" type="java.lang.Object"/>
                         <Column editable="true" title="BI" type="java.lang.Object"/>
@@ -217,8 +220,17 @@
             </Component>
             <Component class="javax.swing.JTextField" name="txtBusca">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="99" green="ff" red="ff" type="rgb"/>
+                </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI Semibold" size="14" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="0" green="66" red="ff" type="rgb"/>
+                </Property>
+                <Property name="disabledTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="0" green="66" red="ff" type="rgb"/>
                 </Property>
               </Properties>
             </Component>

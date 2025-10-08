@@ -28,12 +28,14 @@ public class tabelaEleitor extends javax.swing.JFrame {
     public tabelaEleitor() {
         initComponents();
         lerTabela();
+        cardLayout = (CardLayout) MAIN.getLayout(); 
     }
     
      public void lerTabela() {
         DefaultTableModel modelo = (DefaultTableModel) tbEleitor.getModel();
         modelo.setNumRows(0);
         EleitorDao dao = new EleitorDao();
+       
         for (Eleitor e : dao.listarTabela()) {
 
             modelo.addRow(new Object[]{
@@ -52,14 +54,16 @@ public class tabelaEleitor extends javax.swing.JFrame {
         DefaultTableModel modelo = (DefaultTableModel) tbEleitor.getModel();
         modelo.setNumRows(0);
         EleitorDao dao = new EleitorDao ();
+        
         for (Eleitor e : dao.busca(termo)) {
 
             modelo.addRow(new Object[]{
-            e.getId(),
+          e.getId(),
                 e.getNome(),
                 e.getBI(),
                 e.getDataNasc(),
-                e.getDistrito(),});
+                e.getDistrito(),
+                e.getGenero(),});
 
         }
 
@@ -96,8 +100,10 @@ public class tabelaEleitor extends javax.swing.JFrame {
 
         paneltbEleitor.setBackground(new java.awt.Color(170, 108, 58));
 
+        tbEleitor.setAutoCreateRowSorter(true);
+        tbEleitor.setBackground(new java.awt.Color(204, 190, 176));
         tbEleitor.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
-        tbEleitor.setForeground(new java.awt.Color(0, 0, 0));
+        tbEleitor.setForeground(new java.awt.Color(153, 102, 0));
         tbEleitor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
@@ -119,7 +125,9 @@ public class tabelaEleitor extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tbEleitor);
 
+        txtBusca.setBackground(new java.awt.Color(255, 255, 153));
         txtBusca.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
+        txtBusca.setForeground(new java.awt.Color(255, 102, 0));
         txtBusca.setCaretColor(new java.awt.Color(255, 102, 0));
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
@@ -233,7 +241,7 @@ public class tabelaEleitor extends javax.swing.JFrame {
                 .addGap(17, 17, 17))
         );
 
-        MAIN.add(paneltbEleitor, "card2");
+        MAIN.add(paneltbEleitor, "CardTbEleitor");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -257,9 +265,10 @@ public class tabelaEleitor extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-    
-        JanelaEleitor tela = new JanelaEleitor();
-        tela.setVisible(true);
+//    
+//        JanelaEleitor tela = new JanelaEleitor();
+//        tela.setVisible(true);
+menuPrincipal.mostrarTela("CardEleitores");
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
@@ -309,13 +318,25 @@ public static void main(String args[]) {
     }
     
     
-public JPanel getContentPanel() {
+
+     public JPanel getContentPanel() {
         return MAIN; // Retorna o JPanel que contém o CardLayout
     }
-
-    public void setMenuPrincipal(MenuPrincipal menuPrincipal) {
+        
+        public void setMenuPrincipal(MenuPrincipal menuPrincipal) {
         this.menuPrincipal = menuPrincipal;
     }
+        
+
+    public void setTabelaEleitor(tabelaEleitor TabelaEleitor) {
+        this.TabelaEleitor = TabelaEleitor;
+    }
+
+
+     public void mostrarTela(String nomeTela) {
+        cardLayout.show(MAIN, nomeTela);
+    }
+     tabelaEleitor TabelaEleitor;
 
   private CardLayout cardLayout;
     private MenuPrincipal menuPrincipal;

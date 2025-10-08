@@ -4,9 +4,11 @@ import com.formdev.flatlaf.FlatLightLaf;
 import com.formdev.flatlaf.intellijthemes.FlatArcOrangeIJTheme;
 import eleicoesjava.Control.AutenticacaoController;
 import eleicoesjava.Modelo.Funcionario;
+import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.UIManager;
 
 /**
@@ -23,6 +25,7 @@ public class JanelaLogin extends javax.swing.JFrame {
         configurarCorDigitacaoTextoTodosCampos();
     }private void configurarCorDigitacaoTextoTodosCampos() {
     configurarCorRecursivo(getContentPane());
+    cardLayout = (CardLayout) MAIN.getLayout(); 
 }
 
 private void configurarCorRecursivo(java.awt.Container container) {
@@ -267,7 +270,7 @@ private void configurarCorRecursivo(java.awt.Container container) {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        MAIN.add(Login, "card2");
+        MAIN.add(Login, "CardLogin");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -296,6 +299,8 @@ private void configurarCorRecursivo(java.awt.Container container) {
     if (usuario.isEmpty() || senha.isEmpty()) {
         JOptionPane.showMessageDialog(this, "Preencha todos os campos!", "Erro", JOptionPane.ERROR_MESSAGE);
         return;
+        
+        
     }
     
     // Tentar autenticar usando código do funcionário como usuário
@@ -303,15 +308,18 @@ private void configurarCorRecursivo(java.awt.Container container) {
         Funcionario user = AutenticacaoController.getUsuarioLogado();
         JOptionPane.showMessageDialog(this, 
             "Login realizado com sucesso!\nBem-vindo, " + user.getNome() + 
-            "\nNível de acesso: " + user.getNivelAcesso(), 
+            "\nNível de acesso: " + user.getTipoFuncionario(), 
             "Sucesso", JOptionPane.INFORMATION_MESSAGE);
-        new MenuPrincipal().setVisible(true);
+//        new MenuPrincipal().setVisible(true);
+         menuPrincipal.mostrarTela("CardLogin");
         this.dispose();
     } else {
         JOptionPane.showMessageDialog(this, "Código de funcionário ou BI inválidos!", "Erro", JOptionPane.ERROR_MESSAGE);
         txtSenha.setText("");
         txtUsuario.requestFocus();
     }
+    
+    menuPrincipal.mostrarTela("CardMain");
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
@@ -400,6 +408,28 @@ private void configurarCorRecursivo(java.awt.Container container) {
             }
         });
     }
+    
+    
+     public JPanel getContentPanel() {
+        return MAIN; // Retorna o JPanel que contém o CardLayout
+    }
+        
+        public void setMenuPrincipal(MenuPrincipal menuPrincipal) {
+        this.menuPrincipal = menuPrincipal;
+    }
+        
+        public void setJanelaEleitor(JanelaLogin janelaLogin) {
+        this.janelaLogin = janelaLogin;
+    }
+
+
+     public void mostrarTela(String nomeTela) {
+        cardLayout.show(MAIN, nomeTela);
+    }
+
+        private CardLayout cardLayout;
+     private   MenuPrincipal menuPrincipal;
+     JanelaLogin janelaLogin;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Login;

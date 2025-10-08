@@ -21,8 +21,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     public MenuPrincipal() {
         initComponents();
-        configurarAcessos();
+//        configurarAcessos();
           configurarCardLayout();
+          cardLayout = (CardLayout) MAIN.getLayout(); 
 //        configurarBotoes();
     }
     
@@ -31,11 +32,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
     if (usuario == null) {
         JOptionPane.showMessageDialog(this, "Usuário não autenticado!", "Erro", JOptionPane.ERROR_MESSAGE);
         this.dispose();
-        new JanelaLogin().setVisible(true);
+//        new JanelaLogin().setVisible(true);
         return;
     }
     
-    int nivel = usuario.getNivelAcesso();
+    int nivel = usuario.getTipoFuncionario();
     String nomeUsuario = usuario.getNome();
     
     btnPartidos.setEnabled(nivel >= 2);
@@ -65,22 +66,42 @@ public class MenuPrincipal extends javax.swing.JFrame {
         cardLayout = (CardLayout) MAIN.getLayout();
 
         // Criar e adicionar os painéis ao CardLayout
+        
+        MenuPrincipal menu = this;
         JanelaEleitor janelaEleitor = new JanelaEleitor();
-        tabelaEleitor tbEleitor = new tabelaEleitor();
         JanelaFuncionario janelaFuncionario = new JanelaFuncionario();
-        // JanelaCandidato janelaCandidato = new JanelaCandidato();
+         JanelaCandidato janelaCandidato = new JanelaCandidato();
+         JanelaPartido janelaPartido = new JanelaPartido();
+          tabelaEleitor tbEleitor = new tabelaEleitor();
+          tabelaCandidatos tbCandidatos = new tabelaCandidatos();
+          tabelaPartidos tbPartidos = new tabelaPartidos();
+          tabelaFuncionarios tbFuncionarios = new tabelaFuncionarios();
+          JanelaLogin janelaLogin = new JanelaLogin();
+         
 
         // JanelaPartido janelaPartido = new JanelaPartido();
         // Adicionar o painel de eleitores ao MAIN
+        MAIN.add(menu.getContentPanel(), "CardMain");
         MAIN.add(janelaEleitor.getContentPanel(), "CardEleitores");
-        MAIN.add(tbEleitor.getContentPanel(), "CardTbEleitor");
-        MAIN.add(janelaFuncionario.getContentPanel(), "CardJanelaFuncionario");
-        //  MAIN.add(janelaCandidato.getContentPanel(), "CardEleitores");
+        MAIN.add(janelaFuncionario.getContentPanel(), "CardFuncionario");
+        MAIN.add(janelaCandidato.getContentPanel(), "CardCandidatos");
+//        MAIN.add(janelaCandidato.getContentPanel(), "CardCandidatos");
+         MAIN.add(tbEleitor.getContentPanel(), "CardTbEleitor");
+         MAIN.add(tbCandidatos.getContentPanel(), "CardTbCandidatos");
+         MAIN.add(tbPartidos.getContentPanel(), "CardTbPartidos");
+         MAIN.add(tbFuncionarios.getContentPanel(), "CardTbFuncionarios");
+         MAIN.add(janelaLogin.getContentPanel(), "CardLogin");
 
 //        MAIN.add(JanelaPartido.getContentPanel(), "CardEleitores");
+        menu.setMenuPrincipal(this);
         janelaEleitor.setMenuPrincipal(this);
         janelaFuncionario.setMenuPrincipal(this);
+        janelaCandidato.setMenuPrincipal(this);
         tbEleitor.setMenuPrincipal(this);
+        tbCandidatos.setMenuPrincipal(this);
+        tbPartidos.setMenuPrincipal(this);
+        tbFuncionarios.setMenuPrincipal(this);
+        janelaLogin.setMenuPrincipal(this);
 
     }
     /**
@@ -223,17 +244,16 @@ public class MenuPrincipal extends javax.swing.JFrame {
             MENU_PRINCIPALLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MENU_PRINCIPALLayout.createSequentialGroup()
                 .addGroup(MENU_PRINCIPALLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(MENU_PRINCIPALLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(MENU_PRINCIPALLayout.createSequentialGroup()
-                            .addGap(92, 92, 92)
-                            .addComponent(jLabel9))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MENU_PRINCIPALLayout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(btnVotacoes2, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(MENU_PRINCIPALLayout.createSequentialGroup()
+                        .addGap(92, 92, 92)
+                        .addComponent(jLabel9))
                     .addGroup(MENU_PRINCIPALLayout.createSequentialGroup()
                         .addGap(48, 48, 48)
-                        .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 102, Short.MAX_VALUE)
+                        .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(MENU_PRINCIPALLayout.createSequentialGroup()
+                        .addGap(59, 59, 59)
+                        .addComponent(btnVotacoes2, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
                 .addGroup(MENU_PRINCIPALLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(MENU_PRINCIPALLayout.createSequentialGroup()
                         .addGroup(MENU_PRINCIPALLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -295,14 +315,15 @@ public class MenuPrincipal extends javax.swing.JFrame {
                     .addComponent(btnVotacoes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnRelatorios, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(MENU_PRINCIPALLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(MENU_PRINCIPALLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(MENU_PRINCIPALLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(12, 12, 12))
         );
 
-        MAIN.add(MENU_PRINCIPAL, "card2");
+        MAIN.add(MENU_PRINCIPAL, "CardMain");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -328,7 +349,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void btnCandidatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCandidatosActionPerformed
         // TODO add your handling code here:
 //        new JanelaCandidato().setVisible(true);dispose();
- mostrarTela("CardCadastroEleitor");
+ mostrarTela("CardCandidatos");
     }//GEN-LAST:event_btnCandidatosActionPerformed
 
     private void btnEleitoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEleitoresActionPerformed
@@ -351,11 +372,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVotacoesActionPerformed
 
     private void btnPartidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPartidosActionPerformed
-    new JanelaPartido().setVisible(0==0);      dispose();
+//    new JanelaPartido().setVisible(0==0);      dispose();
     }//GEN-LAST:event_btnPartidosActionPerformed
 
     private void btnVotacoes2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVotacoes2ActionPerformed
         // TODO add your handling code here:
+        mostrarTela("CardFuncionario");
     }//GEN-LAST:event_btnVotacoes2ActionPerformed
 
     /**
@@ -392,6 +414,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 new MenuPrincipal().setVisible(true);
             }
         });
+    }
+    
+    public JPanel getContentPanel() {
+        return MAIN; // Retorna o JPanel que contém o CardLayout
     }
 
     private CardLayout cardLayout;

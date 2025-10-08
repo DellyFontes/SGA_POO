@@ -6,6 +6,7 @@ import javax.swing.JOptionPane;
 import eleicoesjava.Modelo.Partido;
 import Model.Dao.PartidoDao;
 import com.formdev.flatlaf.intellijthemes.FlatArcOrangeIJTheme;
+import java.awt.CardLayout;
 import java.awt.Color;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -18,6 +19,7 @@ public class tabelaPartidos extends javax.swing.JFrame {
     public tabelaPartidos() {
         initComponents();
 lerTabela();
+cardLayout = (CardLayout) MAIN.getLayout(); 
     }
 public void lerTabela() {
         DefaultTableModel modelo = (DefaultTableModel) tbPartidos.getModel();
@@ -29,22 +31,24 @@ public void lerTabela() {
                 p.getId(),
                 p.getNome(),
                 p.getCan().getNome(),
+                p.getSigla(),
                 });
 
         }
 
     }
 
-public void lerBusca(String nome) {
+public void lerBusca(String sigla) {
         DefaultTableModel modelo = (DefaultTableModel) tbPartidos.getModel();
       modelo.setNumRows(0);
         PartidoDao dao = new PartidoDao();
-        for (Partido p : dao.busca(nome)) {
+        for (Partido p : dao.busca(sigla)) {
 
             modelo.addRow(new Object[]{
                 p.getId(),
                 p.getNome(),
                 p.getCan().getNome(),
+                p.getSigla(),
                 });
 
         
@@ -85,18 +89,22 @@ public void lerBusca(String nome) {
         jLabel3.setForeground(new java.awt.Color(255, 255, 153));
         jLabel3.setText("Tabela de Partidos");
 
+        tbPartidos.setBackground(new java.awt.Color(204, 190, 176));
         tbPartidos.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
         tbPartidos.setForeground(new java.awt.Color(0, 0, 0));
         tbPartidos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "ID", "Nome", "Candidato"
+                "ID", "Nome dos Partidos", "Candidato", "SIGLA"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -104,6 +112,12 @@ public void lerBusca(String nome) {
             }
         });
         jScrollPane1.setViewportView(tbPartidos);
+        if (tbPartidos.getColumnModel().getColumnCount() > 0) {
+            tbPartidos.getColumnModel().getColumn(0).setMaxWidth(40);
+            tbPartidos.getColumnModel().getColumn(1).setMaxWidth(950);
+            tbPartidos.getColumnModel().getColumn(2).setMaxWidth(350);
+            tbPartidos.getColumnModel().getColumn(3).setMaxWidth(150);
+        }
 
         btnActualizar.setBackground(javax.swing.UIManager.getDefaults().getColor("OptionPane.warningDialog.titlePane.shadow"));
         btnActualizar.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
@@ -140,7 +154,9 @@ public void lerBusca(String nome) {
             }
         });
 
+        txtBusca.setBackground(new java.awt.Color(255, 255, 153));
         txtBusca.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
+        txtBusca.setForeground(new java.awt.Color(255, 102, 0));
         txtBusca.setCaretColor(new java.awt.Color(255, 102, 0));
         txtBusca.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -222,7 +238,7 @@ public void lerBusca(String nome) {
                     .addContainerGap(93, Short.MAX_VALUE)))
         );
 
-        MAIN.add(paneltbPartidos, "card2");
+        MAIN.add(paneltbPartidos, "CardTbPartidos");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -289,9 +305,10 @@ public void lerBusca(String nome) {
     }//GEN-LAST:event_txtBuscaFocusGained
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-        JanelaPartido tela = new JanelaPartido();
-        
-        tela.setVisible(true);dispose();
+//        JanelaPartido tela = new JanelaPartido();
+//        
+//        tela.setVisible(true);dispose();
+menuPrincipal.mostrarTela("CardTbEleitor");
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     /**
@@ -318,6 +335,27 @@ public void lerBusca(String nome) {
         return paneltbPartidos;
     }
     
+    
+     public JPanel getContentPanel() {
+        return MAIN; // Retorna o JPanel que contém o CardLayout
+    }
+        
+        public void setMenuPrincipal(MenuPrincipal menuPrincipal) {
+        this.menuPrincipal = menuPrincipal;
+    }
+
+    public void setTabelaPartidos(tabelaPartidos TabelaPartidos) {
+        this.TabelaPartidos = TabelaPartidos;
+    }
+        
+
+     public void mostrarTela(String nomeTela) {
+        cardLayout.show(MAIN, nomeTela);
+    }
+
+        private CardLayout cardLayout;
+     private   MenuPrincipal menuPrincipal;
+     tabelaPartidos TabelaPartidos;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel MAIN;

@@ -33,7 +33,7 @@ public class EleitorDao {
             stmt.setString(5, e.getDistrito());         // String - Distrito
             stmt.setDate(6, new java.sql.Date(e.getDataNasc().getTime())); // Date - dataNascimento
             stmt.executeUpdate();
-            JOptionPane.showInternalMessageDialog(null, "Salvo com sucesso o codigo do eleitor e :"+e.getCodigo());
+            JOptionPane.showInternalMessageDialog(null, "Salvo com sucesso o codigo do eleitor e :" + e.getCodigo());
         } catch (SQLException ex) {
             JOptionPane.showInternalMessageDialog(null, "Erro ao Salvar!!! " + ex);
             System.out.println(" ");
@@ -122,11 +122,16 @@ public class EleitorDao {
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        String filtro = " %"+termo+"%";
+        String filtro = "%" + termo + "%";
         List<Eleitor> eleitores = new ArrayList<>();
 
         try {
-            stmt = con.prepareStatement(" Select * from eleitor where nome Like ? or BI like?");
+
+            System.out.println("Executando busca por: '" + termo + "'");
+            System.out.println("Filtro SQL: '" + filtro + "'");
+
+            stmt = con.prepareStatement(" SELECT id, nome, BI, dataNascimento, genero, "
+                    + "Distrito FROM eleitor WHERE nome LIKE ? OR BI LIKE ?");
             stmt.setString(1, filtro);
             stmt.setString(2, filtro);
             rs = stmt.executeQuery();
@@ -137,7 +142,7 @@ public class EleitorDao {
                 e.setId(rs.getInt("id"));
                 e.setNome(rs.getString("nome"));
                 e.setBI(rs.getString("BI"));
-                e.setGenero(rs.getString("dataNascimento"));
+                e.setDataNasc(rs.getDate("dataNascimento"));
                 e.setDistrito(rs.getString("Distrito"));
                 eleitores.add(e);
 
@@ -145,12 +150,43 @@ public class EleitorDao {
             System.out.println("Listado com sucesso");
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao listar " + ex);
+            ex.printStackTrace();
         } finally {
 
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
 
+//        System.out.println("Termo de busca: " + termo);
+//        System.out.println("Número de resultados: " + eleitores.size());
+//        for (Eleitor eleitor : eleitores) {
+//            System.out.println("Encontrado: " + eleitor.getNome() + " - " + eleitor.getBI());
+//        }
+
         return eleitores;
     }
 
+//    public void verificarDados() {
+//        Connection con = ConnectionFactory.getConnection();
+//        PreparedStatement stmt = null;
+//        ResultSet rs = null;
+//
+//        try {
+//            stmt = con.prepareStatement("SELECT id, nome, BI, genero, Distrito FROM eleitor LIMIT 5");
+//            rs = stmt.executeQuery();
+//
+//            System.out.println("=== DADOS EXISTENTES NO BANCO ===");
+//            while (rs.next()) {
+//                System.out.println("ID: " + rs.getInt("id")
+//                        + " | Nome: " + rs.getString("nome")
+//                        + " | BI: " + rs.getString("BI")
+//                        + " | Gênero: " + rs.getString("genero")
+//                        + " | Distrito: " + rs.getString("Distrito"));
+//            }
+//            System.out.println("=================================");
+//        } catch (SQLException ex) {
+//            JOptionPane.showMessageDialog(null, "Erro ao verificar dados: " + ex);
+//        } finally {
+//            ConnectionFactory.closeConnection(con, stmt, rs);
+//        }
+//    }
 }

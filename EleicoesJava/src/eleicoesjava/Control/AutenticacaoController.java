@@ -107,22 +107,22 @@ public class AutenticacaoController {
     
     // Métodos de validação de acesso
     public static boolean temAcessoRecenciamento() {
-        return usuarioLogado != null && usuarioLogado.getNivelAcesso() >= 1;
+        return usuarioLogado != null && usuarioLogado.getTipoFuncionario()>= 1;
     }
     
     public static boolean temAcessoCadastros() {
-        return usuarioLogado != null && usuarioLogado.getNivelAcesso() >= 2;
+        return usuarioLogado != null && usuarioLogado.getTipoFuncionario() >= 2;
     }
     
     public static boolean temAcessoVotacoes() {
-        return usuarioLogado != null && usuarioLogado.getNivelAcesso() >= 3;
+        return usuarioLogado != null && usuarioLogado.getTipoFuncionario() >= 3;
     }
     
     public static boolean temAcessoRelatorios() {
-        return usuarioLogado != null && usuarioLogado.getNivelAcesso() >= 4;
+        return usuarioLogado != null && usuarioLogado.getTipoFuncionario() >= 4;
     }
     
     public static boolean temAcessoTotal() {
-        return usuarioLogado != null && usuarioLogado.getNivelAcesso() == 5;
+        return usuarioLogado != null && usuarioLogado.getTipoFuncionario() == 5;
     }
 }

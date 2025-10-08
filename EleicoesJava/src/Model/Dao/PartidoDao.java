@@ -50,18 +50,20 @@ public class PartidoDao {
         List<Partido> partidos = new ArrayList<>();
 
         try {
-            stmt = con.prepareStatement(" Select id, nome, candidato  from partidos");
+            stmt = con.prepareStatement(" Select id, nome, candidato, sigla  from partidos");
             rs = stmt.executeQuery();
 
             while (rs.next()) {
-                Partido p = new Partido();
+               Partido p = new Partido();
                 Candidato c = new Candidato();
                 p.setId(rs.getInt("id"));
                 p.setNome(rs.getString("nome"));
+                p.setSigla(rs.getString("sigla"));
                 c.setNome(rs.getString("candidato"));
                 p.setCan(c);
                 c.setPart(p);
                 partidos.add(p);
+
 
             }
             System.out.println("Listado com sucesso");
@@ -114,7 +116,7 @@ public class PartidoDao {
         }
     }
 
-    public List<Partido> busca(String nome) {
+    public List<Partido> busca(String sigla) {
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -122,8 +124,8 @@ public class PartidoDao {
         List<Partido> partidos = new ArrayList<>();
 
         try {
-            stmt = con.prepareStatement(" Select * from partidos where nome Like ?");
-            stmt.setString(1, nome);
+            stmt = con.prepareStatement(" Select id, nome, candidato, sigla from partidos where sigla Like ?");
+            stmt.setString(1, sigla);
             //      stmt.setString(1," %"+desc+"%");
             rs = stmt.executeQuery();
 
@@ -133,6 +135,7 @@ public class PartidoDao {
                 Candidato c = new Candidato();
                 p.setId(rs.getInt("id"));
                 p.setNome(rs.getString("nome"));
+                p.setSigla(rs.getString("sigla"));
                 c.setNome(rs.getString("candidato"));
                 p.setCan(c);
                 c.setPart(p);

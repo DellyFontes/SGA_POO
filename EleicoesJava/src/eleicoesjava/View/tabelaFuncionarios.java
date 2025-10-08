@@ -5,8 +5,12 @@
 package eleicoesjava.View;
 
 import Model.Dao.FuncionarioDao;
+import Model.Dao.FuncionarioDao;
 import eleicoesjava.Modelo.Funcionario;
+import eleicoesjava.Modelo.Funcionario;
+import java.awt.CardLayout;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -21,6 +25,7 @@ public class tabelaFuncionarios extends javax.swing.JFrame {
     public tabelaFuncionarios() {
         initComponents();
         lerTabela();
+        cardLayout = (CardLayout) MAIN.getLayout(); 
     }
 
     public void lerTabela () {
@@ -30,11 +35,13 @@ public class tabelaFuncionarios extends javax.swing.JFrame {
         for (Funcionario f : dao.listarTabela()) {
 
             modelo.addRow(new Object[]{
-                f.getId(),
+               f.getId(),
                 f.getNome(),
                 f.getBI(),
                 f.getDataNasc(),
-                f.getGenero(),});
+                f.getGenero(),
+                f.getTipoFuncionario(),});
+
 
         }
 
@@ -51,7 +58,8 @@ public class tabelaFuncionarios extends javax.swing.JFrame {
                 f.getNome(),
                 f.getBI(),
                 f.getDataNasc(),
-                f.getGenero(),});
+                f.getGenero(),
+                f.getTipoFuncionario(),});
 
         }
 
@@ -70,7 +78,7 @@ public class tabelaFuncionarios extends javax.swing.JFrame {
         paneltbEleitor1 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tbFuncionario = new javax.swing.JTable();
-        txtBusca1 = new javax.swing.JTextField();
+        txtBusca = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         btnBusca1 = new javax.swing.JButton();
         btnVoltar1 = new javax.swing.JButton();
@@ -86,8 +94,8 @@ public class tabelaFuncionarios extends javax.swing.JFrame {
 
         paneltbEleitor1.setBackground(new java.awt.Color(170, 108, 58));
 
+        tbFuncionario.setBackground(new java.awt.Color(204, 190, 176));
         tbFuncionario.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
-        tbFuncionario.setForeground(new java.awt.Color(0, 0, 0));
         tbFuncionario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
@@ -109,8 +117,9 @@ public class tabelaFuncionarios extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(tbFuncionario);
 
-        txtBusca1.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
-        txtBusca1.setCaretColor(new java.awt.Color(255, 102, 0));
+        txtBusca.setBackground(new java.awt.Color(255, 255, 153));
+        txtBusca.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
+        txtBusca.setCaretColor(new java.awt.Color(255, 102, 0));
 
         jLabel2.setBackground(new java.awt.Color(0, 0, 0));
         jLabel2.setFont(new java.awt.Font("Swis721 BT", 1, 16)); // NOI18N
@@ -192,7 +201,7 @@ public class tabelaFuncionarios extends javax.swing.JFrame {
                                 .addGroup(paneltbEleitor1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel2)
                                     .addGroup(paneltbEleitor1Layout.createSequentialGroup()
-                                        .addComponent(txtBusca1, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(btnBusca1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addContainerGap())))))
@@ -210,7 +219,7 @@ public class tabelaFuncionarios extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addGap(0, 0, 0)
                 .addGroup(paneltbEleitor1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtBusca1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBusca1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 411, Short.MAX_VALUE)
@@ -223,7 +232,7 @@ public class tabelaFuncionarios extends javax.swing.JFrame {
                 .addGap(17, 17, 17))
         );
 
-        MAIN.add(paneltbEleitor1, "card2");
+        MAIN.add(paneltbEleitor1, "CardTbFuncionarios");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -242,18 +251,34 @@ public class tabelaFuncionarios extends javax.swing.JFrame {
 
     private void btnBusca1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBusca1ActionPerformed
         // TODO add your handling code here:
+        lerBusca(txtBusca.getText());
     }//GEN-LAST:event_btnBusca1ActionPerformed
 
     private void btnVoltar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltar1ActionPerformed
         // TODO add your handling code here:
+        menuPrincipal.mostrarTela("CardFuncionario");
     }//GEN-LAST:event_btnVoltar1ActionPerformed
 
     private void btnEliminar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminar1ActionPerformed
         // TODO add your handling code here:
+          if (tbFuncionario.getSelectedRow() != -1) {
+            Funcionario f = new Funcionario();
+            FuncionarioDao dao = new FuncionarioDao();
+            
+            f.setId((int) tbFuncionario.getValueAt(tbFuncionario.getSelectedRow(), 0));
+
+            dao.eliminar(f);
+
+            lerTabela();
+            
+        } else {
+            JOptionPane.showMessageDialog(null, "Selecione um eleitor para Excluir");
+        }
     }//GEN-LAST:event_btnEliminar1ActionPerformed
 
     private void btnListar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListar1ActionPerformed
         // TODO add your handling code here:
+        lerTabela();
     }//GEN-LAST:event_btnListar1ActionPerformed
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -287,6 +312,26 @@ public class tabelaFuncionarios extends javax.swing.JFrame {
         });
     }
 
+     public JPanel getContentPanel() {
+        return MAIN; // Retorna o JPanel que contém o CardLayout
+    }
+        
+        public void setMenuPrincipal(MenuPrincipal menuPrincipal) {
+        this.menuPrincipal = menuPrincipal;
+    }
+        
+        public void setTabelaFuncionarios(tabelaFuncionarios TabelaFuncionarios) {
+        this.TabelaFuncionarios = TabelaFuncionarios;
+    }
+
+
+     public void mostrarTela(String nomeTela) {
+        cardLayout.show(MAIN, nomeTela);
+    }
+
+        private CardLayout cardLayout;
+     private   MenuPrincipal menuPrincipal;
+     tabelaFuncionarios TabelaFuncionarios;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel MAIN;
@@ -300,6 +345,6 @@ public class tabelaFuncionarios extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JPanel paneltbEleitor1;
     private javax.swing.JTable tbFuncionario;
-    private javax.swing.JTextField txtBusca1;
+    private javax.swing.JTextField txtBusca;
     // End of variables declaration//GEN-END:variables
 }

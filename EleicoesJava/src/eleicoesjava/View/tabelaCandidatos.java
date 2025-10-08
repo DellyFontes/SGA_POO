@@ -7,6 +7,7 @@ package eleicoesjava.View;
 import Model.Dao.CandidatoDao;
 import com.formdev.flatlaf.intellijthemes.FlatArcOrangeIJTheme;
 import eleicoesjava.Modelo.Candidato;
+import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
@@ -41,7 +42,7 @@ public class tabelaCandidatos extends javax.swing.JFrame {
         // Atualiza a interface
         paneltbCandidatos.revalidate();
         paneltbCandidatos.repaint();
-
+       cardLayout = (CardLayout) MAIN.getLayout(); 
     }
 
     public void lerTabela() {
@@ -108,6 +109,7 @@ public class tabelaCandidatos extends javax.swing.JFrame {
 
         paneltbCandidatos.setBackground(new java.awt.Color(170, 108, 58));
 
+        tbCandidatos.setBackground(new java.awt.Color(204, 190, 176));
         tbCandidatos.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
         tbCandidatos.setForeground(new java.awt.Color(0, 0, 0));
         tbCandidatos.setModel(new javax.swing.table.DefaultTableModel(
@@ -115,7 +117,7 @@ public class tabelaCandidatos extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Nome", "Genero", "Partido", "BI"
+                "ID", "Nome dos Candidatos", "Genero", "Partido", "BI"
             }
         ));
         jScrollPane1.setViewportView(tbCandidatos);
@@ -129,7 +131,10 @@ public class tabelaCandidatos extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 153));
         jLabel1.setText("Pesquisar (Nome/B.I)");
 
+        txtBusca.setBackground(new java.awt.Color(255, 255, 153));
         txtBusca.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
+        txtBusca.setForeground(new java.awt.Color(255, 102, 0));
+        txtBusca.setDisabledTextColor(new java.awt.Color(255, 102, 0));
 
         btnBuscar.setBackground(javax.swing.UIManager.getDefaults().getColor("OptionPane.warningDialog.titlePane.shadow"));
         btnBuscar.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
@@ -230,7 +235,7 @@ public class tabelaCandidatos extends javax.swing.JFrame {
                 .addGap(0, 10, Short.MAX_VALUE))
         );
 
-        MAIN.add(paneltbCandidatos, "card2");
+        MAIN.add(paneltbCandidatos, "CardTbCandidatos");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -295,7 +300,8 @@ public class tabelaCandidatos extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-        new JanelaCandidato();setVisible(true);dispose();
+//        new JanelaCandidato();setVisible(true);dispose();
+menuPrincipal.mostrarTela("CardCandidatos");
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     /**
@@ -329,6 +335,28 @@ public class tabelaCandidatos extends javax.swing.JFrame {
         });
     }
 
+    
+     public JPanel getContentPanel() {
+        return MAIN; // Retorna o JPanel que contém o CardLayout
+    }
+        
+        public void setMenuPrincipal(MenuPrincipal menuPrincipal) {
+        this.menuPrincipal = menuPrincipal;
+    }
+        
+        public void setJanelaEleitor(tabelaCandidatos TabelaCandidatos) {
+        this.TabelaCandidatos = TabelaCandidatos;
+    }
+
+
+     public void mostrarTela(String nomeTela) {
+        cardLayout.show(MAIN, nomeTela);
+    }
+
+        private CardLayout cardLayout;
+     private   MenuPrincipal menuPrincipal;
+    tabelaCandidatos TabelaCandidatos  ;
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel MAIN;
     private javax.swing.JButton btnActualizar;

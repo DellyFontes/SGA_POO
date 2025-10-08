@@ -8,6 +8,7 @@ public class Dados_Senhas {
     public static ArrayList<Eleitor> eleitores = new ArrayList<>();
     public static ArrayList<Partido> partidos = new ArrayList<>();
     public static ArrayList<Candidato> candidatos = new ArrayList<>();
+    public static ArrayList<Funcionario> funcionario = new ArrayList<>();
 
 
     // Gera uma senha numérica única para um cidadão

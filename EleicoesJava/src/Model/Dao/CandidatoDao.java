@@ -130,7 +130,7 @@ public class CandidatoDao {
         List<Candidato> candidatos = new ArrayList<>();
 
         try {
-            stmt = con.prepareStatement(" Select * from candidato where nome Like ? or bi Like?");
+            stmt = con.prepareStatement(" Select id,nome, genero, BI, Partido from candidato where nome Like ? or bi Like?");
            
             stmt.setString(1,  filtro);
             stmt.setString(2,  filtro);
@@ -143,8 +143,8 @@ public class CandidatoDao {
                 c.setId(rs.getInt("id"));
                 c.setNome(rs.getString("nome"));
                 c.setGenero(rs.getString("genero"));
-                p.setNome(rs.getString("Partido"));  
                 c.setBI(rs.getString("BI"));
+                p.setNome(rs.getString("Partido"));  
                 c.setPart(p);
                 candidatos.add(c);
             }

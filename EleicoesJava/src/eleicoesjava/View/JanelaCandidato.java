@@ -1,9 +1,11 @@
 package eleicoesjava.View;
 
 import com.formdev.flatlaf.intellijthemes.FlatArcOrangeIJTheme;
+import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.UIManager;
 
 /**
@@ -18,6 +20,7 @@ public class JanelaCandidato extends javax.swing.JFrame {
     public JanelaCandidato() {
         initComponents();
         configurarCorDigitacaoTextoTodosCampos();
+        cardLayout = (CardLayout) MAIN.getLayout(); 
     }
         
 private void configurarCorDigitacaoTextoTodosCampos() {
@@ -198,76 +201,72 @@ private void configurarCorRecursivo(java.awt.Container container) {
         CadastroEleitor.setLayout(CadastroEleitorLayout);
         CadastroEleitorLayout.setHorizontalGroup(
             CadastroEleitorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CadastroEleitorLayout.createSequentialGroup()
-                .addGap(74, 74, 74)
-                .addComponent(btVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(115, 115, 115)
-                .addGroup(CadastroEleitorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(CadastroEleitorLayout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblPartido, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CadastroEleitorLayout.createSequentialGroup()
-                        .addGroup(CadastroEleitorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(CadastroEleitorLayout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addGap(71, 71, 71)
-                                .addComponent(lblNome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(txtBI, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 347, Short.MAX_VALUE)
-                            .addComponent(txtNome, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jcSigla, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, CadastroEleitorLayout.createSequentialGroup()
-                                .addGap(94, 94, 94)
-                                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, CadastroEleitorLayout.createSequentialGroup()
-                                .addComponent(jLabel8)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblBI, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(103, 103, 103)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(88, 88, 88))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CadastroEleitorLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel5)
                 .addGap(338, 338, 338))
+            .addGroup(CadastroEleitorLayout.createSequentialGroup()
+                .addGap(305, 305, 305)
+                .addGroup(CadastroEleitorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(CadastroEleitorLayout.createSequentialGroup()
+                        .addGroup(CadastroEleitorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtBI, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtNome, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jcSigla, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, CadastroEleitorLayout.createSequentialGroup()
+                                .addGroup(CadastroEleitorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblBI, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblNome, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(322, 322, 322))
+                    .addGroup(CadastroEleitorLayout.createSequentialGroup()
+                        .addGroup(CadastroEleitorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel7)
+                            .addComponent(lblPartido, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(CadastroEleitorLayout.createSequentialGroup()
+                .addGap(207, 207, 207)
+                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(76, 76, 76)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(79, 79, 79)
+                .addComponent(btVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         CadastroEleitorLayout.setVerticalGroup(
             CadastroEleitorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(CadastroEleitorLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
+                .addGap(38, 38, 38)
                 .addComponent(jLabel5)
                 .addGap(52, 52, 52)
-                .addGroup(CadastroEleitorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblBI, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(txtBI, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(CadastroEleitorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(CadastroEleitorLayout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(CadastroEleitorLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(lblNome, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(lblBI, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addGroup(CadastroEleitorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblPartido, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, 0)
+                .addComponent(lblNome, javax.swing.GroupLayout.DEFAULT_SIZE, 15, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jcSigla, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 137, Short.MAX_VALUE)
+                .addGap(0, 0, 0)
+                .addComponent(lblPartido, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(94, 94, 94)
                 .addGroup(CadastroEleitorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(41, 41, 41))
+                    .addComponent(btVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(50, 50, 50))
         );
 
-        MAIN.add(CadastroEleitor, "card2");
+        MAIN.add(CadastroEleitor, "CardCandidatos");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -289,14 +288,15 @@ private void configurarCorRecursivo(java.awt.Container container) {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
-
-        MenuPrincipal tela=new MenuPrincipal();
-        tela.setVisible(true);dispose();
+        if (menuPrincipal != null) {
+            menuPrincipal.mostrarTela("CardMain");
+        }
     }//GEN-LAST:event_btVoltarActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-       tabelaCandidatos tela = new tabelaCandidatos();
-       tela.setVisible(true);dispose();
+//       tabelaCandidatos tela = new tabelaCandidatos();
+//       tela.setVisible(true);dispose();
+menuPrincipal.mostrarTela("CardTbCandidatos");
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -404,6 +404,28 @@ private void configurarCorRecursivo(java.awt.Container container) {
         });
     }
 
+    
+     public JPanel getContentPanel() {
+        return MAIN; // Retorna o JPanel que contém o CardLayout
+    }
+        
+        public void setMenuPrincipal(MenuPrincipal menuPrincipal) {
+        this.menuPrincipal = menuPrincipal;
+    }
+        
+        public void setJanelaEleitor(JanelaCandidato janelaCandidato) {
+        this.janelaCandidato = janelaCandidato;
+    }
+
+
+     public void mostrarTela(String nomeTela) {
+        cardLayout.show(MAIN, nomeTela);
+    }
+
+        private CardLayout cardLayout;
+     private   MenuPrincipal menuPrincipal;
+     JanelaCandidato janelaCandidato;
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel CadastroEleitor;
     private javax.swing.JPanel MAIN;

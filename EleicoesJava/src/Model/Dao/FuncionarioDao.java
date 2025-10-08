@@ -21,7 +21,7 @@ public class FuncionarioDao {
         PreparedStatement stmt = null;
         try {
             stmt = con.prepareStatement(" Insert into funcionario (codigoFuncionario, celular, nome, BI,"
-                    + " genero, Distrito, dataNascimento) Values (?,?,?,?,?,?) ");
+                    + " genero, Distrito, dataNascimento,Tipofuncionario) Values (?,?,?,?,?,?,?,?) ");
             stmt.setString(1, f.getCodigoFuncionario());            // String - código
             stmt.setInt(2, f.getCelular());              // String - nome
             stmt.setString(3, f.getNome());                // String - BI
@@ -29,6 +29,7 @@ public class FuncionarioDao {
             stmt.setString(5, f.getGenero());            // String - genero
             stmt.setString(6, f.getDistrito());         // String - Distrito
             stmt.setDate(7, new java.sql.Date(f.getDataNasc().getTime())); // Date - dataNascimento
+            stmt.setInt(8, f.getTipoFuncionario()); // Date - dataNascimento
             stmt.executeUpdate();
             JOptionPane.showInternalMessageDialog(null, "Salvo com sucesso");
         } catch (SQLException ex) {
@@ -45,10 +46,10 @@ public class FuncionarioDao {
         PreparedStatement stmt = null;
         ResultSet rs = null;
 
-        List<Funcionario> eleitores = new ArrayList<>();
+        List<Funcionario> funcionario = new ArrayList<>();
 
         try {
-            stmt = con.prepareStatement(" Select id, nome, bi, dataNascimento, genero  from funcionario");
+            stmt = con.prepareStatement(" Select id, nome, bi, dataNascimento, genero , Tipofuncionario from funcionario");
             rs = stmt.executeQuery();
 
             while (rs.next()) {
@@ -58,7 +59,8 @@ public class FuncionarioDao {
                 f.setBI(rs.getString("BI"));
                 f.setDataNasc(rs.getDate("dataNascimento"));
                 f.setGenero(rs.getString("Genero"));
-                eleitores.add(f);
+                f.setTipoFuncionario(rs.getInt("Tipofuncionario"));
+                funcionario.add(f);
 
             }
             System.out.println("Listado com sucesso");
@@ -69,7 +71,7 @@ public class FuncionarioDao {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
 
-        return eleitores;
+        return funcionario;
     }
 
     public void atualizar(Funcionario f) {
@@ -79,11 +81,14 @@ public class FuncionarioDao {
         try {
             stmt = con.prepareStatement("Update funcionario set , nome = ?, BI = ? , dataNAscimento = ?, Distrito = ?  Where id = ? ");
 
-            stmt.setInt(1, f.getId());                   // int
-            stmt.setString(2, f.getNome());              // String
-            stmt.setString(3, f.getBI());                // String
-            stmt.setDate(4, (Date) f.getDataNasc());
-            stmt.setString(5, f.getDistrito());
+             stmt.setString(1, f.getCodigoFuncionario());            // String - código
+            stmt.setInt(2, f.getCelular());              // String - nome
+            stmt.setString(3, f.getNome());                // String - BI
+            stmt.setString(4, f.getBI());                // String - BI
+            stmt.setString(5, f.getGenero());            // String - genero
+            stmt.setString(6, f.getDistrito());         // String - Distrito
+            stmt.setDate(7, new java.sql.Date(f.getDataNasc().getTime())); // Date - dataNascimento
+            stmt.setInt(8, f.getTipoFuncionario()); 
             stmt.executeUpdate();
             JOptionPane.showInternalMessageDialog(null, "Atualizado com sucesso");
         } catch (SQLException ex) {
@@ -118,11 +123,11 @@ public class FuncionarioDao {
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        String filtro = " %"+termo+"%";
+        String filtro = "%"+termo+"%";
         List<Funcionario> funcionario = new ArrayList<>();
 
         try {
-            stmt = con.prepareStatement(" Select * from funcionario where nome Like ? or BI like?");
+            stmt = con.prepareStatement(" Select id,nome, Bi, DataNascimento, genero, TipoFuncionario  from funcionario where nome Like ? or BI like?");
             stmt.setString(1, filtro);
             stmt.setString(2, filtro);
             rs = stmt.executeQuery();
@@ -130,11 +135,12 @@ public class FuncionarioDao {
             while (rs.next()) {
 
                 Funcionario f = new Funcionario();
-                f.setId(rs.getInt("id"));
+                 f.setId(rs.getInt("id"));
                 f.setNome(rs.getString("nome"));
                 f.setBI(rs.getString("BI"));
-                f.setGenero(rs.getString("dataNascimento"));
-                f.setDistrito(rs.getString("Distrito"));
+                f.setDataNasc(rs.getDate("dataNascimento"));
+                f.setGenero(rs.getString("Genero"));
+                f.setTipoFuncionario(rs.getInt("Tipofuncionario"));
                 funcionario.add(f);
 
             }

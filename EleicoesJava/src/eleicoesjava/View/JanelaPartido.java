@@ -5,9 +5,11 @@
 package eleicoesjava.View;
 
 import com.formdev.flatlaf.intellijthemes.FlatArcOrangeIJTheme;
+import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.UIManager;
 
 /**
@@ -22,6 +24,7 @@ public class JanelaPartido extends javax.swing.JFrame {
     public JanelaPartido() {
         initComponents();
         configurarCorDigitacaoTextoTodosCampos();
+        cardLayout = (CardLayout) MAIN.getLayout(); 
     }
     private void configurarCorDigitacaoTextoTodosCampos() {
     configurarCorRecursivo(getContentPane());
@@ -118,6 +121,27 @@ try {
         });
     }
 
+    
+     public JPanel getContentPanel() {
+        return MAIN; // Retorna o JPanel que contém o CardLayout
+    }
+        
+        public void setMenuPrincipal(MenuPrincipal menuPrincipal) {
+        this.menuPrincipal = menuPrincipal;
+    }
+        
+        public void setJanelaEleitor(JanelaPartido janelaPartidor) {
+        this.janelaPartidor = janelaPartidor;
+    }
+
+
+     public void mostrarTela(String nomeTela) {
+        cardLayout.show(MAIN, nomeTela);
+    }
+
+        private CardLayout cardLayout;
+     private   MenuPrincipal menuPrincipal;
+     JanelaPartido janelaPartidor;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel MAIN;
     // End of variables declaration//GEN-END:variables
