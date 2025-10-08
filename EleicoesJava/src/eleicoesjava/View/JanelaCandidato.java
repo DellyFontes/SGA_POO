@@ -85,7 +85,7 @@ private void configurarCorRecursivo(java.awt.Container container) {
 
         btVoltar.setBackground(new java.awt.Color(204, 152, 108));
         btVoltar.setFont(new java.awt.Font("Segoe UI Semibold", 1, 17)); // NOI18N
-        btVoltar.setForeground(new java.awt.Color(255, 255, 255));
+        btVoltar.setForeground(new java.awt.Color(255, 255, 153));
         btVoltar.setText("Voltar");
         btVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,7 +95,7 @@ private void configurarCorRecursivo(java.awt.Container container) {
 
         jButton3.setBackground(new java.awt.Color(204, 152, 108));
         jButton3.setFont(new java.awt.Font("Segoe UI Semibold", 1, 17)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
+        jButton3.setForeground(new java.awt.Color(255, 255, 153));
         jButton3.setText("Listar");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -142,11 +142,11 @@ private void configurarCorRecursivo(java.awt.Container container) {
         });
 
         jLabel6.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setForeground(new java.awt.Color(255, 255, 153));
         jLabel6.setText("Nome");
 
         jLabel7.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setForeground(new java.awt.Color(255, 255, 153));
         jLabel7.setText("Partido(Sigla)");
 
         jcSigla.setBackground(new java.awt.Color(255, 255, 153));
@@ -168,16 +168,16 @@ private void configurarCorRecursivo(java.awt.Container container) {
         });
 
         jLabel8.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setForeground(new java.awt.Color(255, 255, 153));
         jLabel8.setText("B.I");
 
         jLabel5.setFont(new java.awt.Font("Segoe UI Semibold", 1, 24)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setForeground(new java.awt.Color(255, 255, 153));
         jLabel5.setText("Cadastro de Candidato");
 
         jButton4.setBackground(new java.awt.Color(204, 152, 108));
         jButton4.setFont(new java.awt.Font("Segoe UI Semibold", 1, 17)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(255, 255, 255));
+        jButton4.setForeground(new java.awt.Color(255, 255, 153));
         jButton4.setText("Cadastrar");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

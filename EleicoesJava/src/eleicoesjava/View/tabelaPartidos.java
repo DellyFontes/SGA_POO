@@ -82,7 +82,7 @@ public void lerBusca(String nome) {
         paneltbPartidos.setBackground(new java.awt.Color(170, 108, 58));
 
         jLabel3.setFont(new java.awt.Font("Square721 BT", 1, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setForeground(new java.awt.Color(255, 255, 153));
         jLabel3.setText("Tabela de Partidos");
 
         tbPartidos.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
@@ -107,12 +107,12 @@ public void lerBusca(String nome) {
 
         btnActualizar.setBackground(javax.swing.UIManager.getDefaults().getColor("OptionPane.warningDialog.titlePane.shadow"));
         btnActualizar.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
-        btnActualizar.setForeground(new java.awt.Color(255, 255, 255));
+        btnActualizar.setForeground(new java.awt.Color(255, 255, 153));
         btnActualizar.setText("Actualizar");
 
         btnEliminar.setBackground(javax.swing.UIManager.getDefaults().getColor("OptionPane.warningDialog.titlePane.shadow"));
         btnEliminar.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
-        btnEliminar.setForeground(new java.awt.Color(255, 255, 255));
+        btnEliminar.setForeground(new java.awt.Color(255, 255, 153));
         btnEliminar.setText("Eliminar");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -122,7 +122,7 @@ public void lerBusca(String nome) {
 
         btnListar.setBackground(javax.swing.UIManager.getDefaults().getColor("OptionPane.warningDialog.titlePane.shadow"));
         btnListar.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
-        btnListar.setForeground(new java.awt.Color(255, 255, 255));
+        btnListar.setForeground(new java.awt.Color(255, 255, 153));
         btnListar.setText("Listar");
         btnListar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -132,7 +132,7 @@ public void lerBusca(String nome) {
 
         btnVoltar.setBackground(javax.swing.UIManager.getDefaults().getColor("OptionPane.warningDialog.titlePane.shadow"));
         btnVoltar.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
-        btnVoltar.setForeground(new java.awt.Color(255, 255, 255));
+        btnVoltar.setForeground(new java.awt.Color(255, 255, 153));
         btnVoltar.setText("Voltar");
         btnVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -150,12 +150,12 @@ public void lerBusca(String nome) {
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setFont(new java.awt.Font("Swis721 BT", 1, 16)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setForeground(new java.awt.Color(255, 255, 153));
         jLabel1.setText("Pesquisar");
 
         btnBuscar.setBackground(javax.swing.UIManager.getDefaults().getColor("OptionPane.warningDialog.titlePane.shadow"));
         btnBuscar.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
-        btnBuscar.setForeground(new java.awt.Color(255, 255, 255));
+        btnBuscar.setForeground(new java.awt.Color(255, 255, 153));
         btnBuscar.setText("Buscar");
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

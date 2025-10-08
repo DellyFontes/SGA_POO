@@ -114,12 +114,12 @@ public class tabelaFuncionarios extends javax.swing.JFrame {
 
         jLabel2.setBackground(new java.awt.Color(0, 0, 0));
         jLabel2.setFont(new java.awt.Font("Swis721 BT", 1, 16)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setForeground(new java.awt.Color(255, 255, 153));
         jLabel2.setText("Pesquisar (Nome/B.I)");
 
         btnBusca1.setBackground(javax.swing.UIManager.getDefaults().getColor("OptionPane.warningDialog.titlePane.shadow"));
         btnBusca1.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
-        btnBusca1.setForeground(new java.awt.Color(255, 255, 255));
+        btnBusca1.setForeground(new java.awt.Color(255, 255, 153));
         btnBusca1.setText("Buscar");
         btnBusca1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -129,7 +129,7 @@ public class tabelaFuncionarios extends javax.swing.JFrame {
 
         btnVoltar1.setBackground(javax.swing.UIManager.getDefaults().getColor("OptionPane.warningDialog.titlePane.shadow"));
         btnVoltar1.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
-        btnVoltar1.setForeground(new java.awt.Color(255, 255, 255));
+        btnVoltar1.setForeground(new java.awt.Color(255, 255, 153));
         btnVoltar1.setText("Voltar");
         btnVoltar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -139,12 +139,12 @@ public class tabelaFuncionarios extends javax.swing.JFrame {
 
         btnActualizar1.setBackground(javax.swing.UIManager.getDefaults().getColor("OptionPane.warningDialog.titlePane.shadow"));
         btnActualizar1.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
-        btnActualizar1.setForeground(new java.awt.Color(255, 255, 255));
+        btnActualizar1.setForeground(new java.awt.Color(255, 255, 153));
         btnActualizar1.setText("Actualizar");
 
         btnEliminar1.setBackground(javax.swing.UIManager.getDefaults().getColor("OptionPane.warningDialog.titlePane.shadow"));
         btnEliminar1.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
-        btnEliminar1.setForeground(new java.awt.Color(255, 255, 255));
+        btnEliminar1.setForeground(new java.awt.Color(255, 255, 153));
         btnEliminar1.setText("Eliminar");
         btnEliminar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -154,7 +154,7 @@ public class tabelaFuncionarios extends javax.swing.JFrame {
 
         btnListar1.setBackground(javax.swing.UIManager.getDefaults().getColor("OptionPane.warningDialog.titlePane.shadow"));
         btnListar1.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
-        btnListar1.setForeground(new java.awt.Color(255, 255, 255));
+        btnListar1.setForeground(new java.awt.Color(255, 255, 153));
         btnListar1.setText("Listar");
         btnListar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -163,7 +163,7 @@ public class tabelaFuncionarios extends javax.swing.JFrame {
         });
 
         jLabel4.setFont(new java.awt.Font("Square721 BT", 1, 24)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setForeground(new java.awt.Color(255, 255, 153));
         jLabel4.setText("Tabela de Funcionarios");
 
         javax.swing.GroupLayout paneltbEleitor1Layout = new javax.swing.GroupLayout(paneltbEleitor1);

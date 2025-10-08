@@ -124,12 +124,12 @@ public class tabelaEleitor extends javax.swing.JFrame {
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setFont(new java.awt.Font("Swis721 BT", 1, 16)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setForeground(new java.awt.Color(255, 255, 153));
         jLabel1.setText("Pesquisar (Nome/B.I)");
 
         btnBusca.setBackground(javax.swing.UIManager.getDefaults().getColor("OptionPane.warningDialog.titlePane.shadow"));
         btnBusca.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
-        btnBusca.setForeground(new java.awt.Color(255, 255, 255));
+        btnBusca.setForeground(new java.awt.Color(255, 255, 153));
         btnBusca.setText("Buscar");
         btnBusca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -139,7 +139,7 @@ public class tabelaEleitor extends javax.swing.JFrame {
 
         btnVoltar.setBackground(javax.swing.UIManager.getDefaults().getColor("OptionPane.warningDialog.titlePane.shadow"));
         btnVoltar.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
-        btnVoltar.setForeground(new java.awt.Color(255, 255, 255));
+        btnVoltar.setForeground(new java.awt.Color(255, 255, 153));
         btnVoltar.setText("Voltar");
         btnVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -149,12 +149,12 @@ public class tabelaEleitor extends javax.swing.JFrame {
 
         btnActualizar.setBackground(javax.swing.UIManager.getDefaults().getColor("OptionPane.warningDialog.titlePane.shadow"));
         btnActualizar.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
-        btnActualizar.setForeground(new java.awt.Color(255, 255, 255));
+        btnActualizar.setForeground(new java.awt.Color(255, 255, 153));
         btnActualizar.setText("Actualizar");
 
         btnEliminar.setBackground(javax.swing.UIManager.getDefaults().getColor("OptionPane.warningDialog.titlePane.shadow"));
         btnEliminar.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
-        btnEliminar.setForeground(new java.awt.Color(255, 255, 255));
+        btnEliminar.setForeground(new java.awt.Color(255, 255, 153));
         btnEliminar.setText("Eliminar");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -164,7 +164,7 @@ public class tabelaEleitor extends javax.swing.JFrame {
 
         btnListar.setBackground(javax.swing.UIManager.getDefaults().getColor("OptionPane.warningDialog.titlePane.shadow"));
         btnListar.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
-        btnListar.setForeground(new java.awt.Color(255, 255, 255));
+        btnListar.setForeground(new java.awt.Color(255, 255, 153));
         btnListar.setText("Listar");
         btnListar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -173,7 +173,7 @@ public class tabelaEleitor extends javax.swing.JFrame {
         });
 
         jLabel3.setFont(new java.awt.Font("Square721 BT", 1, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setForeground(new java.awt.Color(255, 255, 153));
         jLabel3.setText("Tabela de Eleitores");
 
         javax.swing.GroupLayout paneltbEleitorLayout = new javax.swing.GroupLayout(paneltbEleitor);
@@ -187,7 +187,7 @@ public class tabelaEleitor extends javax.swing.JFrame {
                         .addComponent(jScrollPane1)
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paneltbEleitorLayout.createSequentialGroup()
-                        .addGap(0, 136, Short.MAX_VALUE)
+                        .addGap(0, 142, Short.MAX_VALUE)
                         .addGroup(paneltbEleitorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paneltbEleitorLayout.createSequentialGroup()
                                 .addComponent(btnListar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -223,7 +223,7 @@ public class tabelaEleitor extends javax.swing.JFrame {
                     .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBusca))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 405, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 411, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(paneltbEleitorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -240,16 +240,16 @@ public class tabelaEleitor extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(0, 0, 0)
                 .addComponent(MAIN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(0, 0, 0)
                 .addComponent(MAIN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(0, 0, 0))
         );
 
         pack();

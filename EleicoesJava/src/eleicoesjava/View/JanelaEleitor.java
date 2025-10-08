@@ -116,31 +116,31 @@ private void configurarCorRecursivo(java.awt.Container container) {
         CadastroEleitor.setPreferredSize(new java.awt.Dimension(927, 600));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Semibold", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setForeground(new java.awt.Color(255, 255, 153));
         jLabel1.setText("Cadastro de Eleitor");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI Semibold", 1, 17)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setForeground(new java.awt.Color(255, 255, 153));
         jLabel2.setText("Nome");
 
         jLabel3.setFont(new java.awt.Font("Segoe UI Semibold", 1, 17)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setForeground(new java.awt.Color(255, 255, 153));
         jLabel3.setText("Provincia");
 
         jLabel4.setFont(new java.awt.Font("Segoe UI Semibold", 1, 17)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setForeground(new java.awt.Color(255, 255, 153));
         jLabel4.setText("B.I");
 
         jLabel5.setFont(new java.awt.Font("Segoe UI Semibold", 1, 17)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setForeground(new java.awt.Color(255, 255, 153));
         jLabel5.setText("Data de nascimento");
 
         jLabel7.setFont(new java.awt.Font("Segoe UI Semibold", 1, 17)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setForeground(new java.awt.Color(255, 255, 153));
         jLabel7.setText("Genero");
 
         jLabel8.setFont(new java.awt.Font("Segoe UI Semibold", 1, 17)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setForeground(new java.awt.Color(255, 255, 153));
         jLabel8.setText("Sobrenome");
 
         cbProvincia.setBackground(new java.awt.Color(255, 255, 153));
@@ -253,7 +253,7 @@ private void configurarCorRecursivo(java.awt.Container container) {
 
         btnCadastrar.setBackground(javax.swing.UIManager.getDefaults().getColor("OptionPane.warningDialog.titlePane.shadow"));
         btnCadastrar.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
-        btnCadastrar.setForeground(new java.awt.Color(255, 255, 255));
+        btnCadastrar.setForeground(new java.awt.Color(255, 255, 153));
         btnCadastrar.setText("Cadastrar");
         btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -263,7 +263,7 @@ private void configurarCorRecursivo(java.awt.Container container) {
 
         btnListar.setBackground(javax.swing.UIManager.getDefaults().getColor("OptionPane.warningDialog.titlePane.shadow"));
         btnListar.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
-        btnListar.setForeground(new java.awt.Color(255, 255, 255));
+        btnListar.setForeground(new java.awt.Color(255, 255, 153));
         btnListar.setText("Listar");
         btnListar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -273,7 +273,7 @@ private void configurarCorRecursivo(java.awt.Container container) {
 
         btnVoltar.setBackground(javax.swing.UIManager.getDefaults().getColor("OptionPane.warningDialog.titlePane.shadow"));
         btnVoltar.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
-        btnVoltar.setForeground(new java.awt.Color(255, 255, 255));
+        btnVoltar.setForeground(new java.awt.Color(255, 255, 153));
         btnVoltar.setText("Voltar");
         btnVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -282,7 +282,7 @@ private void configurarCorRecursivo(java.awt.Container container) {
         });
 
         jLabel6.setFont(new java.awt.Font("Segoe UI Semibold", 1, 17)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setForeground(new java.awt.Color(255, 255, 153));
         jLabel6.setText("Distrito");
 
         cbDistrito.setBackground(new java.awt.Color(255, 255, 153));

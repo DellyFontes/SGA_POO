@@ -114,31 +114,31 @@ private void configurarCorRecursivo(java.awt.Container container) {
         CadastroFuncionarios.setBackground(new java.awt.Color(170, 108, 58));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Semibold", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setForeground(new java.awt.Color(255, 255, 153));
         jLabel1.setText("Cadastro de Funcionarios");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI Semibold", 1, 17)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setForeground(new java.awt.Color(255, 255, 153));
         jLabel2.setText("Nome");
 
         jLabel3.setFont(new java.awt.Font("Segoe UI Semibold", 1, 17)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setForeground(new java.awt.Color(255, 255, 153));
         jLabel3.setText("Tipo de Funcionarios");
 
         jLabel4.setFont(new java.awt.Font("Segoe UI Semibold", 1, 17)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setForeground(new java.awt.Color(255, 255, 153));
         jLabel4.setText("B.I");
 
         jLabel5.setFont(new java.awt.Font("Segoe UI Semibold", 1, 17)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setForeground(new java.awt.Color(255, 255, 153));
         jLabel5.setText("Data de nascimento");
 
         jLabel7.setFont(new java.awt.Font("Segoe UI Semibold", 1, 17)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setForeground(new java.awt.Color(255, 255, 153));
         jLabel7.setText("Genero");
 
         jLabel8.setFont(new java.awt.Font("Segoe UI Semibold", 1, 17)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setForeground(new java.awt.Color(255, 255, 153));
         jLabel8.setText("Sobrenome");
 
         cbFuncionarios.setBackground(new java.awt.Color(255, 255, 153));
@@ -238,7 +238,7 @@ private void configurarCorRecursivo(java.awt.Container container) {
 
         btnCadastrar.setBackground(javax.swing.UIManager.getDefaults().getColor("OptionPane.warningDialog.titlePane.shadow"));
         btnCadastrar.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
-        btnCadastrar.setForeground(new java.awt.Color(255, 255, 255));
+        btnCadastrar.setForeground(new java.awt.Color(255, 255, 153));
         btnCadastrar.setText("Cadastrar");
         btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -248,7 +248,7 @@ private void configurarCorRecursivo(java.awt.Container container) {
 
         btnListar.setBackground(javax.swing.UIManager.getDefaults().getColor("OptionPane.warningDialog.titlePane.shadow"));
         btnListar.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
-        btnListar.setForeground(new java.awt.Color(255, 255, 255));
+        btnListar.setForeground(new java.awt.Color(255, 255, 153));
         btnListar.setText("Listar");
         btnListar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -258,7 +258,7 @@ private void configurarCorRecursivo(java.awt.Container container) {
 
         btnVoltar.setBackground(javax.swing.UIManager.getDefaults().getColor("OptionPane.warningDialog.titlePane.shadow"));
         btnVoltar.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
-        btnVoltar.setForeground(new java.awt.Color(255, 255, 255));
+        btnVoltar.setForeground(new java.awt.Color(255, 255, 153));
         btnVoltar.setText("Voltar");
         btnVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -301,18 +301,6 @@ private void configurarCorRecursivo(java.awt.Container container) {
         CadastroFuncionarios.setLayout(CadastroFuncionariosLayout);
         CadastroFuncionariosLayout.setHorizontalGroup(
             CadastroFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CadastroFuncionariosLayout.createSequentialGroup()
-                .addGap(349, 349, 349)
-                .addComponent(jLabel1)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(CadastroFuncionariosLayout.createSequentialGroup()
-                .addGap(186, 186, 186)
-                .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(88, 88, 88)
-                .addComponent(btnListar, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(77, 77, 77)
-                .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CadastroFuncionariosLayout.createSequentialGroup()
                 .addGroup(CadastroFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, CadastroFuncionariosLayout.createSequentialGroup()
@@ -334,31 +322,45 @@ private void configurarCorRecursivo(java.awt.Container container) {
                                 .addComponent(jLabel7)
                                 .addComponent(lblData, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(dataNasc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 139, Short.MAX_VALUE)
                 .addGroup(CadastroFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CadastroFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(CadastroFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblSobrenome, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CadastroFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CadastroFuncionariosLayout.createSequentialGroup()
-                                    .addComponent(jLabel8)
-                                    .addGap(196, 196, 196))
-                                .addComponent(jLabel4)
-                                .addComponent(txtBI, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txtSobrenome, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblSobrenome, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtSobrenome, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(CadastroFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CadastroFuncionariosLayout.createSequentialGroup()
+                                        .addComponent(jLabel8)
+                                        .addGap(196, 196, 196))
+                                    .addComponent(jLabel4)
+                                    .addComponent(txtBI, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addComponent(jLabel3)
                         .addGroup(CadastroFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(lblCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cbFuncionarios, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(lblBI, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(126, 126, 126))
+            .addGroup(CadastroFuncionariosLayout.createSequentialGroup()
+                .addGroup(CadastroFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(CadastroFuncionariosLayout.createSequentialGroup()
+                        .addGap(292, 292, 292)
+                        .addComponent(jLabel1))
+                    .addGroup(CadastroFuncionariosLayout.createSequentialGroup()
+                        .addGap(176, 176, 176)
+                        .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(88, 88, 88)
+                        .addComponent(btnListar, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(77, 77, 77)
+                        .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         CadastroFuncionariosLayout.setVerticalGroup(
             CadastroFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(CadastroFuncionariosLayout.createSequentialGroup()
-                .addGap(31, 31, 31)
+                .addGap(27, 27, 27)
                 .addComponent(jLabel1)
-                .addGap(28, 28, 28)
+                .addGap(32, 32, 32)
                 .addGroup(CadastroFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(lblNome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblSobrenome, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE))
@@ -401,12 +403,12 @@ private void configurarCorRecursivo(java.awt.Container container) {
                     .addGroup(CadastroFuncionariosLayout.createSequentialGroup()
                         .addGap(35, 35, 35)
                         .addComponent(lblCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
+                .addGap(55, 55, 55)
                 .addGroup(CadastroFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnListar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(41, 41, 41))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
 
         MAIN.add(CadastroFuncionarios, "card2");

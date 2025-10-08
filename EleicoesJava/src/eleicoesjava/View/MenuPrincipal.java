@@ -106,7 +106,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        btnVotacoes2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -179,121 +180,126 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
 
         jLabel4.setFont(new java.awt.Font("Segoe UI Semibold", 0, 24)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setForeground(new java.awt.Color(255, 255, 153));
         jLabel4.setText("MENU PRINCIPAL");
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 32)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setForeground(new java.awt.Color(255, 255, 153));
         jLabel1.setText("Candidatos");
 
         jLabel3.setFont(new java.awt.Font("Dialog", 0, 32)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setForeground(new java.awt.Color(255, 255, 153));
         jLabel3.setText("Eleitores");
 
         jLabel7.setFont(new java.awt.Font("Dialog", 0, 32)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setForeground(new java.awt.Color(255, 255, 153));
         jLabel7.setText("Partidos");
 
         jLabel5.setFont(new java.awt.Font("Dialog", 0, 32)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setForeground(new java.awt.Color(255, 255, 153));
         jLabel5.setText("Votações");
 
         jLabel6.setFont(new java.awt.Font("Dialog", 0, 32)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setForeground(new java.awt.Color(255, 255, 153));
         jLabel6.setText("Relatorios");
 
-        jLabel8.setFont(new java.awt.Font("Dialog", 0, 32)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Sair");
+        jLabel9.setFont(new java.awt.Font("Dialog", 0, 32)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 153));
+        jLabel9.setText("Funcionaros");
+
+        btnVotacoes2.setBackground(new java.awt.Color(170, 108, 58));
+        btnVotacoes2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/funcionarios.png"))); // NOI18N
+        btnVotacoes2.setBorderPainted(false);
+        btnVotacoes2.setContentAreaFilled(false);
+        btnVotacoes2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVotacoes2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout MENU_PRINCIPALLayout = new javax.swing.GroupLayout(MENU_PRINCIPAL);
         MENU_PRINCIPAL.setLayout(MENU_PRINCIPALLayout);
         MENU_PRINCIPALLayout.setHorizontalGroup(
             MENU_PRINCIPALLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(MENU_PRINCIPALLayout.createSequentialGroup()
-                .addGroup(MENU_PRINCIPALLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(MENU_PRINCIPALLayout.createSequentialGroup()
-                        .addGap(74, 74, 74)
-                        .addGroup(MENU_PRINCIPALLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnCandidatos, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(MENU_PRINCIPALLayout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addGroup(MENU_PRINCIPALLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnVotacoes, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel1)))))
-                    .addGroup(MENU_PRINCIPALLayout.createSequentialGroup()
-                        .addGap(102, 102, 102)
-                        .addComponent(jLabel5)))
-                .addGroup(MENU_PRINCIPALLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(MENU_PRINCIPALLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel6)
-                        .addGap(199, 199, 199)
-                        .addComponent(jLabel8)
-                        .addGap(129, 129, 129))
-                    .addGroup(MENU_PRINCIPALLayout.createSequentialGroup()
-                        .addGap(154, 154, 154)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel7)
-                        .addGap(108, 108, 108))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MENU_PRINCIPALLayout.createSequentialGroup()
-                .addContainerGap(364, Short.MAX_VALUE)
                 .addGroup(MENU_PRINCIPALLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
+                    .addGroup(MENU_PRINCIPALLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(MENU_PRINCIPALLayout.createSequentialGroup()
+                            .addGap(92, 92, 92)
+                            .addComponent(jLabel9))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MENU_PRINCIPALLayout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(btnVotacoes2, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(MENU_PRINCIPALLayout.createSequentialGroup()
+                        .addGap(48, 48, 48)
+                        .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 102, Short.MAX_VALUE)
+                .addGroup(MENU_PRINCIPALLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(MENU_PRINCIPALLayout.createSequentialGroup()
                         .addGroup(MENU_PRINCIPALLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnEleitores, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnVotacoes, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(MENU_PRINCIPALLayout.createSequentialGroup()
-                                .addComponent(btnEleitores, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(82, 82, 82))
-                            .addGroup(MENU_PRINCIPALLayout.createSequentialGroup()
-                                .addComponent(btnRelatorios, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(91, 91, 91)))
+                                .addComponent(jLabel5)
+                                .addGap(24, 24, 24)))
                         .addGroup(MENU_PRINCIPALLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(MENU_PRINCIPALLayout.createSequentialGroup()
-                                .addGap(19, 19, 19)
-                                .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(84, 84, 84))
+                                .addGap(137, 137, 137)
+                                .addComponent(jLabel7))
+                            .addGroup(MENU_PRINCIPALLayout.createSequentialGroup()
+                                .addGap(91, 91, 91)
+                                .addGroup(MENU_PRINCIPALLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(btnRelatorios, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnPartidos, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MENU_PRINCIPALLayout.createSequentialGroup()
-                                .addComponent(btnPartidos, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(74, 74, 74))))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel6)
+                                .addGap(18, 18, 18))))
+                    .addComponent(jLabel4))
+                .addGap(75, 75, 75))
+            .addGroup(MENU_PRINCIPALLayout.createSequentialGroup()
+                .addGap(74, 74, 74)
+                .addGroup(MENU_PRINCIPALLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnCandidatos, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(MENU_PRINCIPALLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel1)))
+                .addGap(161, 161, 161)
+                .addComponent(jLabel3)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         MENU_PRINCIPALLayout.setVerticalGroup(
             MENU_PRINCIPALLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MENU_PRINCIPALLayout.createSequentialGroup()
-                .addGroup(MENU_PRINCIPALLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MENU_PRINCIPALLayout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(jLabel4)
-                        .addGap(64, 64, 64)
+                .addGap(29, 29, 29)
+                .addGroup(MENU_PRINCIPALLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(MENU_PRINCIPALLayout.createSequentialGroup()
+                        .addGroup(MENU_PRINCIPALLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(41, 41, 41)
                         .addGroup(MENU_PRINCIPALLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnEleitores, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnCandidatos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(MENU_PRINCIPALLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
-                        .addGroup(MENU_PRINCIPALLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(MENU_PRINCIPALLayout.createSequentialGroup()
-                                .addComponent(btnRelatorios, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, 0)
-                                .addGroup(MENU_PRINCIPALLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(MENU_PRINCIPALLayout.createSequentialGroup()
-                                .addComponent(btnVotacoes, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(36, 36, 36))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MENU_PRINCIPALLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(MENU_PRINCIPALLayout.createSequentialGroup()
                         .addComponent(btnPartidos, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(40, 40, 40)
-                        .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(24, 24, 24))
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addGroup(MENU_PRINCIPALLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnVotacoes2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnVotacoes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRelatorios, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(MENU_PRINCIPALLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12))
         );
 
         MAIN.add(MENU_PRINCIPAL, "card2");
@@ -348,6 +354,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
     new JanelaPartido().setVisible(0==0);      dispose();
     }//GEN-LAST:event_btnPartidosActionPerformed
 
+    private void btnVotacoes2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVotacoes2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnVotacoes2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -395,12 +405,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnRelatorios;
     private javax.swing.JButton btnSair;
     private javax.swing.JButton btnVotacoes;
+    private javax.swing.JButton btnVotacoes2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     // End of variables declaration//GEN-END:variables
 }
