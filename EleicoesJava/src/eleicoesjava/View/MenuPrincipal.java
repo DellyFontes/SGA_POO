@@ -22,6 +22,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     public MenuPrincipal() {
         initComponents();
         configurarAcessos();
+          configurarCardLayout();
 //        configurarBotoes();
     }
     
@@ -50,6 +51,38 @@ public class MenuPrincipal extends javax.swing.JFrame {
     btnRelatorios.setToolTipText(nivel >= 4 ? "Gerar Relatórios" : "Acesso negado - Nível 4 ou superior requerido");
 }
 
+    
+    
+    public void setMenuPrincipal(MenuPrincipal menuPrincipal) {
+        this.menuPrincipal = menuPrincipal;
+    }
+
+    public void mostrarTela(String nomeTela) {
+        cardLayout.show(MAIN, nomeTela);
+    }
+
+    private void configurarCardLayout() {
+        cardLayout = (CardLayout) MAIN.getLayout();
+
+        // Criar e adicionar os painéis ao CardLayout
+        JanelaEleitor janelaEleitor = new JanelaEleitor();
+        tabelaEleitor tbEleitor = new tabelaEleitor();
+        JanelaFuncionario janelaFuncionario = new JanelaFuncionario();
+        // JanelaCandidato janelaCandidato = new JanelaCandidato();
+
+        // JanelaPartido janelaPartido = new JanelaPartido();
+        // Adicionar o painel de eleitores ao MAIN
+        MAIN.add(janelaEleitor.getContentPanel(), "CardEleitores");
+        MAIN.add(tbEleitor.getContentPanel(), "CardTbEleitor");
+        MAIN.add(janelaFuncionario.getContentPanel(), "CardJanelaFuncionario");
+        //  MAIN.add(janelaCandidato.getContentPanel(), "CardEleitores");
+
+//        MAIN.add(JanelaPartido.getContentPanel(), "CardEleitores");
+        janelaEleitor.setMenuPrincipal(this);
+        janelaFuncionario.setMenuPrincipal(this);
+        tbEleitor.setMenuPrincipal(this);
+
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -59,7 +92,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        MAIN = new javax.swing.JPanel();
+        MENU_PRINCIPAL = new javax.swing.JPanel();
         btnCandidatos = new javax.swing.JButton();
         btnEleitores = new javax.swing.JButton();
         btnVotacoes = new javax.swing.JButton();
@@ -76,8 +110,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(170, 108, 58));
-        jPanel1.setMinimumSize(new java.awt.Dimension(927, 600));
+        MAIN.setBackground(new java.awt.Color(170, 108, 58));
+        MAIN.setMinimumSize(new java.awt.Dimension(927, 600));
+        MAIN.setLayout(new java.awt.CardLayout());
+
+        MENU_PRINCIPAL.setBackground(new java.awt.Color(170, 108, 58));
+        MENU_PRINCIPAL.setMinimumSize(new java.awt.Dimension(927, 600));
 
         btnCandidatos.setBackground(new java.awt.Color(170, 108, 58));
         btnCandidatos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/candidatos.png"))); // NOI18N
@@ -168,85 +206,85 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Sair");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout MENU_PRINCIPALLayout = new javax.swing.GroupLayout(MENU_PRINCIPAL);
+        MENU_PRINCIPAL.setLayout(MENU_PRINCIPALLayout);
+        MENU_PRINCIPALLayout.setHorizontalGroup(
+            MENU_PRINCIPALLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MENU_PRINCIPALLayout.createSequentialGroup()
+                .addGroup(MENU_PRINCIPALLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(MENU_PRINCIPALLayout.createSequentialGroup()
                         .addGap(74, 74, 74)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(MENU_PRINCIPALLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnCandidatos, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGroup(MENU_PRINCIPALLayout.createSequentialGroup()
                                 .addGap(6, 6, 6)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(MENU_PRINCIPALLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(btnVotacoes, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel1)))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(MENU_PRINCIPALLayout.createSequentialGroup()
                         .addGap(102, 102, 102)
                         .addComponent(jLabel5)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(MENU_PRINCIPALLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(MENU_PRINCIPALLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel6)
                         .addGap(199, 199, 199)
                         .addComponent(jLabel8)
                         .addGap(129, 129, 129))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(MENU_PRINCIPALLayout.createSequentialGroup()
                         .addGap(154, 154, 154)
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel7)
                         .addGap(108, 108, 108))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(372, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MENU_PRINCIPALLayout.createSequentialGroup()
+                .addContainerGap(364, Short.MAX_VALUE)
+                .addGroup(MENU_PRINCIPALLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(MENU_PRINCIPALLayout.createSequentialGroup()
+                        .addGroup(MENU_PRINCIPALLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(MENU_PRINCIPALLayout.createSequentialGroup()
                                 .addComponent(btnEleitores, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(82, 82, 82))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGroup(MENU_PRINCIPALLayout.createSequentialGroup()
                                 .addComponent(btnRelatorios, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(91, 91, 91)))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(MENU_PRINCIPALLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(MENU_PRINCIPALLayout.createSequentialGroup()
                                 .addGap(19, 19, 19)
                                 .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(84, 84, 84))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MENU_PRINCIPALLayout.createSequentialGroup()
                                 .addComponent(btnPartidos, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(74, 74, 74))))))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        MENU_PRINCIPALLayout.setVerticalGroup(
+            MENU_PRINCIPALLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MENU_PRINCIPALLayout.createSequentialGroup()
+                .addGroup(MENU_PRINCIPALLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MENU_PRINCIPALLayout.createSequentialGroup()
                         .addGap(29, 29, 29)
                         .addComponent(jLabel4)
                         .addGap(64, 64, 64)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(MENU_PRINCIPALLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnEleitores, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnCandidatos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(MENU_PRINCIPALLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(MENU_PRINCIPALLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(MENU_PRINCIPALLayout.createSequentialGroup()
                                 .addComponent(btnRelatorios, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, 0)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addGroup(MENU_PRINCIPALLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGroup(MENU_PRINCIPALLayout.createSequentialGroup()
                                 .addComponent(btnVotacoes, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(36, 36, 36))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MENU_PRINCIPALLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btnPartidos, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -258,15 +296,23 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addGap(24, 24, 24))
         );
 
+        MAIN.add(MENU_PRINCIPAL, "card2");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addComponent(MAIN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addComponent(MAIN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, 0))
         );
 
         pack();
@@ -275,12 +321,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void btnCandidatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCandidatosActionPerformed
         // TODO add your handling code here:
-        new JanelaCandidato().setVisible(true);dispose();
+//        new JanelaCandidato().setVisible(true);dispose();
+ mostrarTela("CardCadastroEleitor");
     }//GEN-LAST:event_btnCandidatosActionPerformed
 
     private void btnEleitoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEleitoresActionPerformed
         // TODO add your handling code here:
-        new JanelaEleitor().setVisible(true);dispose();
+//        new JanelaEleitor().setVisible(true);dispose();
+        mostrarTela("CardEleitores");
     }//GEN-LAST:event_btnEleitoresActionPerformed
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
@@ -336,7 +384,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
     }
 
+    private CardLayout cardLayout;
+    private MenuPrincipal menuPrincipal;
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel MAIN;
+    private javax.swing.JPanel MENU_PRINCIPAL;
     private javax.swing.JButton btnCandidatos;
     private javax.swing.JButton btnEleitores;
     private javax.swing.JButton btnPartidos;
@@ -350,6 +402,5 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

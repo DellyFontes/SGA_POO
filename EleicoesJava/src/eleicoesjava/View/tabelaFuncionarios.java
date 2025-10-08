@@ -66,21 +66,25 @@ public class tabelaFuncionarios extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        paneltbEleitor = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        MAIN = new javax.swing.JPanel();
+        paneltbEleitor1 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
         tbFuncionario = new javax.swing.JTable();
-        txtBusca = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        btnBusca = new javax.swing.JButton();
-        btnVoltar = new javax.swing.JButton();
-        btnActualizar = new javax.swing.JButton();
-        btnEliminar = new javax.swing.JButton();
-        btnListar = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
+        txtBusca1 = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        btnBusca1 = new javax.swing.JButton();
+        btnVoltar1 = new javax.swing.JButton();
+        btnActualizar1 = new javax.swing.JButton();
+        btnEliminar1 = new javax.swing.JButton();
+        btnListar1 = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        paneltbEleitor.setBackground(new java.awt.Color(170, 108, 58));
+        MAIN.setBackground(new java.awt.Color(170, 108, 58));
+        MAIN.setLayout(new java.awt.CardLayout());
+
+        paneltbEleitor1.setBackground(new java.awt.Color(170, 108, 58));
 
         tbFuncionario.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
         tbFuncionario.setForeground(new java.awt.Color(0, 0, 0));
@@ -103,170 +107,154 @@ public class tabelaFuncionarios extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(tbFuncionario);
+        jScrollPane2.setViewportView(tbFuncionario);
 
-        txtBusca.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
-        txtBusca.setCaretColor(new java.awt.Color(255, 102, 0));
+        txtBusca1.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
+        txtBusca1.setCaretColor(new java.awt.Color(255, 102, 0));
 
-        jLabel1.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel1.setFont(new java.awt.Font("Swis721 BT", 1, 16)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Pesquisar (Nome/B.I)");
+        jLabel2.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel2.setFont(new java.awt.Font("Swis721 BT", 1, 16)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Pesquisar (Nome/B.I)");
 
-        btnBusca.setBackground(javax.swing.UIManager.getDefaults().getColor("OptionPane.warningDialog.titlePane.shadow"));
-        btnBusca.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
-        btnBusca.setForeground(new java.awt.Color(255, 255, 255));
-        btnBusca.setText("Buscar");
-        btnBusca.addActionListener(new java.awt.event.ActionListener() {
+        btnBusca1.setBackground(javax.swing.UIManager.getDefaults().getColor("OptionPane.warningDialog.titlePane.shadow"));
+        btnBusca1.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
+        btnBusca1.setForeground(new java.awt.Color(255, 255, 255));
+        btnBusca1.setText("Buscar");
+        btnBusca1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscaActionPerformed(evt);
+                btnBusca1ActionPerformed(evt);
             }
         });
 
-        btnVoltar.setBackground(javax.swing.UIManager.getDefaults().getColor("OptionPane.warningDialog.titlePane.shadow"));
-        btnVoltar.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
-        btnVoltar.setForeground(new java.awt.Color(255, 255, 255));
-        btnVoltar.setText("Voltar");
-        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
+        btnVoltar1.setBackground(javax.swing.UIManager.getDefaults().getColor("OptionPane.warningDialog.titlePane.shadow"));
+        btnVoltar1.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
+        btnVoltar1.setForeground(new java.awt.Color(255, 255, 255));
+        btnVoltar1.setText("Voltar");
+        btnVoltar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVoltarActionPerformed(evt);
+                btnVoltar1ActionPerformed(evt);
             }
         });
 
-        btnActualizar.setBackground(javax.swing.UIManager.getDefaults().getColor("OptionPane.warningDialog.titlePane.shadow"));
-        btnActualizar.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
-        btnActualizar.setForeground(new java.awt.Color(255, 255, 255));
-        btnActualizar.setText("Actualizar");
+        btnActualizar1.setBackground(javax.swing.UIManager.getDefaults().getColor("OptionPane.warningDialog.titlePane.shadow"));
+        btnActualizar1.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
+        btnActualizar1.setForeground(new java.awt.Color(255, 255, 255));
+        btnActualizar1.setText("Actualizar");
 
-        btnEliminar.setBackground(javax.swing.UIManager.getDefaults().getColor("OptionPane.warningDialog.titlePane.shadow"));
-        btnEliminar.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
-        btnEliminar.setForeground(new java.awt.Color(255, 255, 255));
-        btnEliminar.setText("Eliminar");
-        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+        btnEliminar1.setBackground(javax.swing.UIManager.getDefaults().getColor("OptionPane.warningDialog.titlePane.shadow"));
+        btnEliminar1.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
+        btnEliminar1.setForeground(new java.awt.Color(255, 255, 255));
+        btnEliminar1.setText("Eliminar");
+        btnEliminar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminarActionPerformed(evt);
+                btnEliminar1ActionPerformed(evt);
             }
         });
 
-        btnListar.setBackground(javax.swing.UIManager.getDefaults().getColor("OptionPane.warningDialog.titlePane.shadow"));
-        btnListar.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
-        btnListar.setForeground(new java.awt.Color(255, 255, 255));
-        btnListar.setText("Listar");
-        btnListar.addActionListener(new java.awt.event.ActionListener() {
+        btnListar1.setBackground(javax.swing.UIManager.getDefaults().getColor("OptionPane.warningDialog.titlePane.shadow"));
+        btnListar1.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
+        btnListar1.setForeground(new java.awt.Color(255, 255, 255));
+        btnListar1.setText("Listar");
+        btnListar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnListarActionPerformed(evt);
+                btnListar1ActionPerformed(evt);
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Square721 BT", 1, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Tabela de Funcionarios");
+        jLabel4.setFont(new java.awt.Font("Square721 BT", 1, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Tabela de Funcionarios");
 
-        javax.swing.GroupLayout paneltbEleitorLayout = new javax.swing.GroupLayout(paneltbEleitor);
-        paneltbEleitor.setLayout(paneltbEleitorLayout);
-        paneltbEleitorLayout.setHorizontalGroup(
-            paneltbEleitorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(paneltbEleitorLayout.createSequentialGroup()
+        javax.swing.GroupLayout paneltbEleitor1Layout = new javax.swing.GroupLayout(paneltbEleitor1);
+        paneltbEleitor1.setLayout(paneltbEleitor1Layout);
+        paneltbEleitor1Layout.setHorizontalGroup(
+            paneltbEleitor1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(paneltbEleitor1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(paneltbEleitorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(paneltbEleitorLayout.createSequentialGroup()
-                        .addComponent(jScrollPane1)
+                .addGroup(paneltbEleitor1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(paneltbEleitor1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane2)
                         .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paneltbEleitorLayout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paneltbEleitor1Layout.createSequentialGroup()
                         .addGap(0, 148, Short.MAX_VALUE)
-                        .addGroup(paneltbEleitorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paneltbEleitorLayout.createSequentialGroup()
-                                .addComponent(btnListar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(paneltbEleitor1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paneltbEleitor1Layout.createSequentialGroup()
+                                .addComponent(btnListar1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(16, 16, 16)
-                                .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnEliminar1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnActualizar1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnVoltar1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(161, 161, 161))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paneltbEleitorLayout.createSequentialGroup()
-                                .addGroup(paneltbEleitorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
-                                    .addGroup(paneltbEleitorLayout.createSequentialGroup()
-                                        .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paneltbEleitor1Layout.createSequentialGroup()
+                                .addGroup(paneltbEleitor1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addGroup(paneltbEleitor1Layout.createSequentialGroup()
+                                        .addComponent(txtBusca1, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(btnBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(btnBusca1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addContainerGap())))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paneltbEleitorLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paneltbEleitor1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel3)
+                .addComponent(jLabel4)
                 .addGap(311, 311, 311))
         );
-        paneltbEleitorLayout.setVerticalGroup(
-            paneltbEleitorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paneltbEleitorLayout.createSequentialGroup()
+        paneltbEleitor1Layout.setVerticalGroup(
+            paneltbEleitor1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paneltbEleitor1Layout.createSequentialGroup()
                 .addGap(11, 11, 11)
-                .addComponent(jLabel3)
+                .addComponent(jLabel4)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel1)
+                .addComponent(jLabel2)
                 .addGap(0, 0, 0)
-                .addGroup(paneltbEleitorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBusca))
+                .addGroup(paneltbEleitor1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtBusca1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBusca1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 411, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 411, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(paneltbEleitorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnListar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(paneltbEleitor1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnVoltar1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnActualizar1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnListar1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEliminar1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(17, 17, 17))
         );
+
+        MAIN.add(paneltbEleitor1, "card2");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(paneltbEleitor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(MAIN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(paneltbEleitor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(MAIN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-        JanelaFuncionario tela = new JanelaFuncionario();
-        
-        tela.setVisible(true);dispose();
-        
-    }//GEN-LAST:event_btnVoltarActionPerformed
-
-    private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
+    private void btnBusca1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBusca1ActionPerformed
         // TODO add your handling code here:
-        lerTabela();
-    }//GEN-LAST:event_btnListarActionPerformed
+    }//GEN-LAST:event_btnBusca1ActionPerformed
 
-    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+    private void btnVoltar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltar1ActionPerformed
         // TODO add your handling code here:
-        if (tbFuncionario.getSelectedRow() != -1) {
-            Funcionario f = new Funcionario();
-            FuncionarioDao dao = new FuncionarioDao();
+    }//GEN-LAST:event_btnVoltar1ActionPerformed
 
-            f.setId((int) tbFuncionario.getValueAt(tbFuncionario.getSelectedRow(), 0));
-
-            dao.eliminar(f);
-
-            lerTabela();
-
-        } else {
-            JOptionPane.showMessageDialog(null, "Selecione um eleitor para Excluir");
-        }
-    }//GEN-LAST:event_btnEliminarActionPerformed
-
-    private void btnBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscaActionPerformed
+    private void btnEliminar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminar1ActionPerformed
         // TODO add your handling code here:
-        lerBusca(txtBusca.getText());
-    }//GEN-LAST:event_btnBuscaActionPerformed
+    }//GEN-LAST:event_btnEliminar1ActionPerformed
+
+    private void btnListar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListar1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnListar1ActionPerformed
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -301,16 +289,17 @@ public class tabelaFuncionarios extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnActualizar;
-    private javax.swing.JButton btnBusca;
-    private javax.swing.JButton btnEliminar;
-    private javax.swing.JButton btnListar;
-    private javax.swing.JButton btnVoltar;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JPanel paneltbEleitor;
+    private javax.swing.JPanel MAIN;
+    private javax.swing.JButton btnActualizar1;
+    private javax.swing.JButton btnBusca1;
+    private javax.swing.JButton btnEliminar1;
+    private javax.swing.JButton btnListar1;
+    private javax.swing.JButton btnVoltar1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JPanel paneltbEleitor1;
     private javax.swing.JTable tbFuncionario;
-    private javax.swing.JTextField txtBusca;
+    private javax.swing.JTextField txtBusca1;
     // End of variables declaration//GEN-END:variables
 }

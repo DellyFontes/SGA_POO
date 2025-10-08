@@ -9,6 +9,7 @@ import Model.Dao.EleitorDao;
 import com.formdev.flatlaf.intellijthemes.FlatArcOrangeIJTheme;
 import eleicoesjava.Modelo.Candidato;
 import eleicoesjava.Modelo.Eleitor;
+import java.awt.CardLayout;
 import java.net.URL;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -75,6 +76,7 @@ public class tabelaEleitor extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        MAIN = new javax.swing.JPanel();
         paneltbEleitor = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbEleitor = new javax.swing.JTable();
@@ -88,6 +90,9 @@ public class tabelaEleitor extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        MAIN.setBackground(new java.awt.Color(170, 108, 58));
+        MAIN.setLayout(new java.awt.CardLayout());
 
         paneltbEleitor.setBackground(new java.awt.Color(170, 108, 58));
 
@@ -182,7 +187,7 @@ public class tabelaEleitor extends javax.swing.JFrame {
                         .addComponent(jScrollPane1)
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paneltbEleitorLayout.createSequentialGroup()
-                        .addGap(0, 148, Short.MAX_VALUE)
+                        .addGap(0, 136, Short.MAX_VALUE)
                         .addGroup(paneltbEleitorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paneltbEleitorLayout.createSequentialGroup()
                                 .addComponent(btnListar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -218,7 +223,7 @@ public class tabelaEleitor extends javax.swing.JFrame {
                     .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBusca))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 417, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 405, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(paneltbEleitorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -228,15 +233,23 @@ public class tabelaEleitor extends javax.swing.JFrame {
                 .addGap(17, 17, 17))
         );
 
+        MAIN.add(paneltbEleitor, "card2");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(paneltbEleitor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(MAIN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(paneltbEleitor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(MAIN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -295,8 +308,19 @@ public static void main(String args[]) {
         });
     }
     
+    
+public JPanel getContentPanel() {
+        return MAIN; // Retorna o JPanel que contém o CardLayout
+    }
 
+    public void setMenuPrincipal(MenuPrincipal menuPrincipal) {
+        this.menuPrincipal = menuPrincipal;
+    }
+
+  private CardLayout cardLayout;
+    private MenuPrincipal menuPrincipal;
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel MAIN;
     private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnBusca;
     private javax.swing.JButton btnEliminar;

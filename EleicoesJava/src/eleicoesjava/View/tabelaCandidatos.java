@@ -37,10 +37,10 @@ public class tabelaCandidatos extends javax.swing.JFrame {
         btnEliminar.setEnabled(true);
         btnListar.setEnabled(true);
         btnVoltar.setEnabled(true);
-        paneltbEleitor.setVisible(true);
+        paneltbCandidatos.setVisible(true);
         // Atualiza a interface
-        paneltbEleitor.revalidate();
-        paneltbEleitor.repaint();
+        paneltbCandidatos.revalidate();
+        paneltbCandidatos.repaint();
 
     }
 
@@ -87,7 +87,8 @@ public class tabelaCandidatos extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        paneltbEleitor = new javax.swing.JPanel();
+        MAIN = new javax.swing.JPanel();
+        paneltbCandidatos = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbCandidatos = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
@@ -102,7 +103,10 @@ public class tabelaCandidatos extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Tabela Candidatos");
 
-        paneltbEleitor.setBackground(new java.awt.Color(170, 108, 58));
+        MAIN.setBackground(new java.awt.Color(170, 108, 58));
+        MAIN.setLayout(new java.awt.CardLayout());
+
+        paneltbCandidatos.setBackground(new java.awt.Color(170, 108, 58));
 
         tbCandidatos.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
         tbCandidatos.setForeground(new java.awt.Color(0, 0, 0));
@@ -172,17 +176,17 @@ public class tabelaCandidatos extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout paneltbEleitorLayout = new javax.swing.GroupLayout(paneltbEleitor);
-        paneltbEleitor.setLayout(paneltbEleitorLayout);
-        paneltbEleitorLayout.setHorizontalGroup(
-            paneltbEleitorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(paneltbEleitorLayout.createSequentialGroup()
+        javax.swing.GroupLayout paneltbCandidatosLayout = new javax.swing.GroupLayout(paneltbCandidatos);
+        paneltbCandidatos.setLayout(paneltbCandidatosLayout);
+        paneltbCandidatosLayout.setHorizontalGroup(
+            paneltbCandidatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(paneltbCandidatosLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(paneltbEleitorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(paneltbEleitorLayout.createSequentialGroup()
-                        .addGap(0, 148, Short.MAX_VALUE)
-                        .addGroup(paneltbEleitorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paneltbEleitorLayout.createSequentialGroup()
+                .addGroup(paneltbCandidatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(paneltbCandidatosLayout.createSequentialGroup()
+                        .addGap(0, 136, Short.MAX_VALUE)
+                        .addGroup(paneltbCandidatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paneltbCandidatosLayout.createSequentialGroup()
                                 .addComponent(btnListar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(16, 16, 16)
                                 .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -191,50 +195,58 @@ public class tabelaCandidatos extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(155, 155, 155))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paneltbEleitorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paneltbCandidatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel1)
-                                .addGroup(paneltbEleitorLayout.createSequentialGroup()
+                                .addGroup(paneltbCandidatosLayout.createSequentialGroup()
                                     .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paneltbEleitorLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paneltbCandidatosLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addGap(315, 315, 315))
         );
-        paneltbEleitorLayout.setVerticalGroup(
-            paneltbEleitorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(paneltbEleitorLayout.createSequentialGroup()
+        paneltbCandidatosLayout.setVerticalGroup(
+            paneltbCandidatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(paneltbCandidatosLayout.createSequentialGroup()
                 .addGap(12, 12, 12)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1)
                 .addGap(0, 0, 0)
-                .addGroup(paneltbEleitorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(paneltbCandidatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBuscar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 405, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24)
-                .addGroup(paneltbEleitorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(paneltbCandidatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnListar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 22, Short.MAX_VALUE))
+                .addGap(0, 10, Short.MAX_VALUE))
         );
+
+        MAIN.add(paneltbCandidatos, "card2");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(paneltbEleitor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addComponent(MAIN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(paneltbEleitor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addComponent(MAIN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, 0))
         );
 
         pack();
@@ -318,6 +330,7 @@ public class tabelaCandidatos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel MAIN;
     private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnEliminar;
@@ -326,12 +339,12 @@ public class tabelaCandidatos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JPanel paneltbEleitor;
+    private javax.swing.JPanel paneltbCandidatos;
     private javax.swing.JTable tbCandidatos;
     private javax.swing.JTextField txtBusca;
     // End of variables declaration//GEN-END:variables
 
     public JPanel getPaneltbCandidato() {
-        return paneltbEleitor;
+        return paneltbCandidatos;
     }
 }
