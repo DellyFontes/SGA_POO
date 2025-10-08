@@ -555,7 +555,7 @@ private void configurarCorRecursivo(java.awt.Container container) {
 
     private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
         // TODO add your handling code here:
-        new tabelaFuncionarios().setVisible(true);dispose();
+//        new tabelaFuncionarios().setVisible(true);dispose();
         if (menuPrincipal != null) {
             menuPrincipal.mostrarTela("CardTbFuncionarios");
         }
