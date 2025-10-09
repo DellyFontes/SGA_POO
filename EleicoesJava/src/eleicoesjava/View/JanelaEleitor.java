@@ -6,6 +6,7 @@ package eleicoesjava.View;
 
 import Model.Dao.EleitorDao;
 import com.formdev.flatlaf.intellijthemes.FlatArcOrangeIJTheme;
+import com.toedter.calendar.JDateChooser;
 import eleicoesjava.Modelo.Dados_Senhas;
 import eleicoesjava.Modelo.Eleitor;
 import eleicoesjava.View.MenuPrincipal;
@@ -14,6 +15,7 @@ import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.UIManager;
 
 /**
@@ -29,7 +31,25 @@ public class JanelaEleitor extends javax.swing.JFrame {
         initComponents();
         configurarCorDigitacaoTextoTodosCampos();
         cardLayout = (CardLayout) MAIN.getLayout(); 
+        bloquearDigitacao(dataNasc);
     }
+      public static void bloquearDigitacao(JDateChooser dateChooser) {
+        // Pega o componente editor (campo de texto interno do JDateChooser)
+        JTextField editor = (JTextField) dateChooser.getDateEditor().getUiComponent();
+        // Impede digitação
+        editor.setEditable(false);
+        // Opcional: muda o cursor para indicar que é apenas clicável
+        editor.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    }
+       public void limparCampos() {
+    txtNome.setText("");
+    txtSobrenome.setText("");
+    txtBI.setText("");
+    grupoGenero.clearSelection();
+    cbProvincia.setSelectedIndex(-1);
+    cbDistrito.setSelectedIndex(-1);
+    dataNasc.setDate(null); // limpa o JDateChooser
+}
     
 private void configurarCorDigitacaoTextoTodosCampos() {
     configurarCorRecursivo(getContentPane());
@@ -147,7 +167,9 @@ private void configurarCorRecursivo(java.awt.Container container) {
         cbProvincia.setBackground(new java.awt.Color(255, 255, 153));
         cbProvincia.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
         cbProvincia.setForeground(new java.awt.Color(0, 0, 0));
+        cbProvincia.setMaximumRowCount(5);
         cbProvincia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cabo Delgado", "Gaza", "Inhambane", "Manica", "Maputo", "Maputo Cidade", "Nampula", "Niassa", "Sofala", "Tete", "Zambézia" }));
+        cbProvincia.setSelectedIndex(-1);
         cbProvincia.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 cbProvinciaMouseEntered(evt);
@@ -231,7 +253,7 @@ private void configurarCorRecursivo(java.awt.Container container) {
         });
 
         grupoGenero.add(radioF);
-        radioF.setFont(new java.awt.Font("Georgia", 2, 15)); // NOI18N
+        radioF.setFont(new java.awt.Font("Georgia", 2, 18)); // NOI18N
         radioF.setText("Femenino");
         radioF.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -289,7 +311,9 @@ private void configurarCorRecursivo(java.awt.Container container) {
         cbDistrito.setBackground(new java.awt.Color(255, 255, 153));
         cbDistrito.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
         cbDistrito.setForeground(new java.awt.Color(0, 0, 0));
+        cbDistrito.setMaximumRowCount(5);
         cbDistrito.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Boane", "Magude", "Manhiça", "Marracuene", "Matola", "Matutuíne", "Moamba", "Namaacha", "KaMpfumu", "Nlhamankulu", "KaMaxakeni", "KaMavota", "KaMubukwana", "KaTembe", "KaNyaka" }));
+        cbDistrito.setSelectedIndex(-1);
         cbDistrito.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 cbDistritoMouseEntered(evt);
@@ -335,7 +359,7 @@ private void configurarCorRecursivo(java.awt.Container container) {
                             .addGap(10, 10, 10)
                             .addComponent(radioM, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(radioF, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(radioF, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(jLabel5)
                         .addComponent(jLabel2)
                         .addComponent(txtNome, javax.swing.GroupLayout.DEFAULT_SIZE, 304, Short.MAX_VALUE)
@@ -405,8 +429,8 @@ private void configurarCorRecursivo(java.awt.Container container) {
                         .addGap(0, 0, 0)
                         .addComponent(lblBI, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 0, 0)
-                .addGroup(CadastroEleitorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(CadastroEleitorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(CadastroEleitorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -449,6 +473,10 @@ private void configurarCorRecursivo(java.awt.Container container) {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cbProvinciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbProvinciaActionPerformed
+String item =(String) cbProvincia.getSelectedItem();
+lblData.setText(" Pegou a provincia de : " +item);
+        new javax.swing.Timer(3000, e -> lblData.setText("")).start();
+
 
     }//GEN-LAST:event_cbProvinciaActionPerformed
 
@@ -516,6 +544,15 @@ private void configurarCorRecursivo(java.awt.Container container) {
 
     private void cbDistritoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbDistritoActionPerformed
         // TODO add your handling code here:
+        if (cbDistrito.getSelectedIndex()== -1) {
+            lblData.setForeground(Color.red);
+            lblData.setText("Escolha um  distrito");
+            
+        } 
+        String item =(String) cbDistrito.getSelectedItem();
+lblData.setText(" Pegou o distrito  de : " +item);
+        new javax.swing.Timer(3000, e -> lblData.setText("")).start();
+
     }//GEN-LAST:event_cbDistritoActionPerformed
 
     private void txtNomeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNomeKeyTyped

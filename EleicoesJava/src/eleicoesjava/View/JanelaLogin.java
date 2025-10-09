@@ -1,6 +1,5 @@
 package eleicoesjava.View;
 
-import com.formdev.flatlaf.FlatLightLaf;
 import com.formdev.flatlaf.intellijthemes.FlatArcOrangeIJTheme;
 import eleicoesjava.Control.AutenticacaoController;
 import eleicoesjava.Modelo.Funcionario;
@@ -310,8 +309,8 @@ private void configurarCorRecursivo(java.awt.Container container) {
             "Login realizado com sucesso!\nBem-vindo, " + user.getNome() + 
             "\nNível de acesso: " + user.getTipoFuncionario(), 
             "Sucesso", JOptionPane.INFORMATION_MESSAGE);
-//        new MenuPrincipal().setVisible(true);
-         menuPrincipal.mostrarTela("CardLogin");
+        new MenuPrincipal().setVisible(true);
+         //menuPrincipal.mostrarTela("CardLogin");
         this.dispose();
     } else {
         JOptionPane.showMessageDialog(this, "Código de funcionário ou BI inválidos!", "Erro", JOptionPane.ERROR_MESSAGE);

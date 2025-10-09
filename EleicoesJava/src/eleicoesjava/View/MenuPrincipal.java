@@ -4,6 +4,7 @@
  */
 package eleicoesjava.View;
 
+import com.formdev.flatlaf.intellijthemes.FlatArcOrangeIJTheme;
 import eleicoesjava.Control.AutenticacaoController;
 import eleicoesjava.Modelo.Funcionario;
 import java.awt.CardLayout;
@@ -12,6 +13,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.UIManager;
 
 /**
  *
@@ -25,6 +27,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
           configurarCardLayout();
           cardLayout = (CardLayout) MAIN.getLayout(); 
 //        configurarBotoes();
+verFuncionario();
+    }
+    public void verFuncionario(){
+           Funcionario user = AutenticacaoController.getUsuarioLogado();
+        lblFuncionario.setText("Funcionario:"+user.getNome());
+    
     }
     
     private void configurarAcessos() {
@@ -129,6 +137,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         btnVotacoes2 = new javax.swing.JButton();
+        lblFuncionario = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -200,33 +209,33 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI Semibold", 0, 24)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Segoe UI Semibold", 1, 32)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 153));
         jLabel4.setText("MENU PRINCIPAL");
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 32)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI Semibold", 1, 32)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 153));
         jLabel1.setText("Candidatos");
 
-        jLabel3.setFont(new java.awt.Font("Dialog", 0, 32)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Segoe UI Semibold", 1, 32)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 153));
         jLabel3.setText("Eleitores");
 
-        jLabel7.setFont(new java.awt.Font("Dialog", 0, 32)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Segoe UI Semibold", 1, 32)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 153));
         jLabel7.setText("Partidos");
 
-        jLabel5.setFont(new java.awt.Font("Dialog", 0, 32)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Segoe UI Semibold", 1, 32)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 153));
         jLabel5.setText("Votações");
 
-        jLabel6.setFont(new java.awt.Font("Dialog", 0, 32)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Segoe UI Semibold", 1, 32)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 153));
         jLabel6.setText("Relatorios");
 
-        jLabel9.setFont(new java.awt.Font("Dialog", 0, 32)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Segoe UI Semibold", 1, 32)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 153));
-        jLabel9.setText("Funcionaros");
+        jLabel9.setText("Funcionarios");
 
         btnVotacoes2.setBackground(new java.awt.Color(170, 108, 58));
         btnVotacoes2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/funcionarios.png"))); // NOI18N
@@ -237,6 +246,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 btnVotacoes2ActionPerformed(evt);
             }
         });
+
+        lblFuncionario.setFont(new java.awt.Font("Cambria", 2, 17)); // NOI18N
+        lblFuncionario.setText("Funcionario :");
 
         javax.swing.GroupLayout MENU_PRINCIPALLayout = new javax.swing.GroupLayout(MENU_PRINCIPAL);
         MENU_PRINCIPAL.setLayout(MENU_PRINCIPALLayout);
@@ -253,7 +265,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                     .addGroup(MENU_PRINCIPALLayout.createSequentialGroup()
                         .addGap(59, 59, 59)
                         .addComponent(btnVotacoes2, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
                 .addGroup(MENU_PRINCIPALLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(MENU_PRINCIPALLayout.createSequentialGroup()
                         .addGroup(MENU_PRINCIPALLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -275,8 +287,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel6)
                                 .addGap(18, 18, 18))))
-                    .addComponent(jLabel4))
-                .addGap(75, 75, 75))
+                    .addGroup(MENU_PRINCIPALLayout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addGap(43, 43, 43)
+                        .addComponent(lblFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(30, 30, 30))
             .addGroup(MENU_PRINCIPALLayout.createSequentialGroup()
                 .addGap(74, 74, 74)
                 .addGroup(MENU_PRINCIPALLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -292,7 +307,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
             MENU_PRINCIPALLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MENU_PRINCIPALLayout.createSequentialGroup()
                 .addGap(29, 29, 29)
-                .addGroup(MENU_PRINCIPALLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(MENU_PRINCIPALLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(MENU_PRINCIPALLayout.createSequentialGroup()
                         .addGroup(MENU_PRINCIPALLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
@@ -306,10 +321,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(MENU_PRINCIPALLayout.createSequentialGroup()
+                        .addComponent(lblFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnPartidos, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addGroup(MENU_PRINCIPALLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnVotacoes2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnVotacoes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -390,21 +407,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
+            UIManager.setLookAndFeel( new FlatArcOrangeIJTheme());
+           
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        } 
         //</editor-fold>
         //</editor-fold>
 
@@ -439,5 +446,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel lblFuncionario;
     // End of variables declaration//GEN-END:variables
 }
