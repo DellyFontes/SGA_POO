@@ -111,12 +111,13 @@ public void lerBusca(String sigla) {
                 return canEdit [columnIndex];
             }
         });
+        tbPartidos.setSelectionForeground(new java.awt.Color(204, 190, 176));
         jScrollPane1.setViewportView(tbPartidos);
         if (tbPartidos.getColumnModel().getColumnCount() > 0) {
-            tbPartidos.getColumnModel().getColumn(0).setMaxWidth(40);
+            tbPartidos.getColumnModel().getColumn(0).setMaxWidth(120);
             tbPartidos.getColumnModel().getColumn(1).setMaxWidth(950);
-            tbPartidos.getColumnModel().getColumn(2).setMaxWidth(350);
-            tbPartidos.getColumnModel().getColumn(3).setMaxWidth(150);
+            tbPartidos.getColumnModel().getColumn(2).setMaxWidth(450);
+            tbPartidos.getColumnModel().getColumn(3).setMaxWidth(250);
         }
 
         btnActualizar.setBackground(javax.swing.UIManager.getDefaults().getColor("OptionPane.warningDialog.titlePane.shadow"));
@@ -305,10 +306,8 @@ public void lerBusca(String sigla) {
     }//GEN-LAST:event_txtBuscaFocusGained
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-//        JanelaPartido tela = new JanelaPartido();
-//        
-//        tela.setVisible(true);dispose();
-menuPrincipal.mostrarTela("CardTbEleitor");
+
+menuPrincipal.mostrarTela("CardPartido");
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     /**

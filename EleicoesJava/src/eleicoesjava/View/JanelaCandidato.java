@@ -174,7 +174,7 @@ private void configurarCorRecursivo(java.awt.Container container) {
         jLabel8.setForeground(new java.awt.Color(255, 255, 153));
         jLabel8.setText("B.I");
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI Semibold", 1, 24)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Segoe UI Semibold", 1, 28)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 153));
         jLabel5.setText("Cadastro de Candidato");
 
@@ -238,11 +238,11 @@ private void configurarCorRecursivo(java.awt.Container container) {
         CadastroEleitorLayout.setVerticalGroup(
             CadastroEleitorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(CadastroEleitorLayout.createSequentialGroup()
-                .addGap(38, 38, 38)
+                .addGap(23, 23, 23)
                 .addComponent(jLabel5)
-                .addGap(52, 52, 52)
+                .addGap(76, 76, 76)
                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtBI, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(lblBI, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -251,7 +251,7 @@ private void configurarCorRecursivo(java.awt.Container container) {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(lblNome, javax.swing.GroupLayout.DEFAULT_SIZE, 15, Short.MAX_VALUE)
+                .addComponent(lblNome, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -263,7 +263,7 @@ private void configurarCorRecursivo(java.awt.Container container) {
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(50, 50, 50))
+                .addGap(29, 29, 29))
         );
 
         MAIN.add(CadastroEleitor, "CardCandidatos");
