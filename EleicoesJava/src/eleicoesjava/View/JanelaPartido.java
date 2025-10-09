@@ -71,31 +71,280 @@ private void configurarCorRecursivo(java.awt.Container container) {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        MAIN = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        txtNomePartido = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        btnCadastrar = new javax.swing.JButton();
+        btnListar = new javax.swing.JButton();
+        btnVoltar = new javax.swing.JButton();
+        txtSigla = new javax.swing.JTextField();
+        jcCandidato = new javax.swing.JComboBox<>();
+        lblNome = new javax.swing.JLabel();
+        lblSigla = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        MAIN.setBackground(new java.awt.Color(170, 108, 58));
-        MAIN.setLayout(new java.awt.CardLayout());
+        jPanel1.setBackground(new java.awt.Color(170, 108, 58));
+
+        txtNomePartido.setBackground(new java.awt.Color(255, 255, 153));
+        txtNomePartido.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
+        txtNomePartido.setForeground(new java.awt.Color(0, 0, 0));
+        txtNomePartido.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                txtNomePartidoMouseEntered(evt);
+            }
+        });
+        txtNomePartido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNomePartidoActionPerformed(evt);
+            }
+        });
+        txtNomePartido.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNomePartidoKeyTyped(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI Semibold", 1, 17)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Nome");
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI Semibold", 1, 28)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Cadastro de Partido");
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI Semibold", 1, 17)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Sigla");
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI Semibold", 1, 17)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Candidato");
+
+        btnCadastrar.setBackground(javax.swing.UIManager.getDefaults().getColor("OptionPane.warningDialog.titlePane.shadow"));
+        btnCadastrar.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
+        btnCadastrar.setForeground(new java.awt.Color(255, 255, 255));
+        btnCadastrar.setText("Cadastrar");
+        btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastrarActionPerformed(evt);
+            }
+        });
+
+        btnListar.setBackground(javax.swing.UIManager.getDefaults().getColor("OptionPane.warningDialog.titlePane.shadow"));
+        btnListar.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
+        btnListar.setForeground(new java.awt.Color(255, 255, 255));
+        btnListar.setText("Listar");
+        btnListar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnListarActionPerformed(evt);
+            }
+        });
+
+        btnVoltar.setBackground(javax.swing.UIManager.getDefaults().getColor("OptionPane.warningDialog.titlePane.shadow"));
+        btnVoltar.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
+        btnVoltar.setForeground(new java.awt.Color(255, 255, 255));
+        btnVoltar.setText("Voltar");
+        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltarActionPerformed(evt);
+            }
+        });
+
+        txtSigla.setBackground(new java.awt.Color(255, 255, 153));
+        txtSigla.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
+        txtSigla.setForeground(new java.awt.Color(0, 0, 0));
+        txtSigla.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                txtSiglaMouseEntered(evt);
+            }
+        });
+        txtSigla.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSiglaActionPerformed(evt);
+            }
+        });
+        txtSigla.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtSiglaKeyTyped(evt);
+            }
+        });
+
+        jcCandidato.setBackground(new java.awt.Color(255, 255, 153));
+        jcCandidato.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
+        jcCandidato.setForeground(new java.awt.Color(0, 0, 0));
+        jcCandidato.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jcCandidato.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcCandidatoActionPerformed(evt);
+            }
+        });
+
+        lblNome.setFont(new java.awt.Font("Cambria", 2, 17)); // NOI18N
+        lblNome.setForeground(new java.awt.Color(102, 255, 0));
+
+        lblSigla.setFont(new java.awt.Font("Cambria", 2, 17)); // NOI18N
+        lblSigla.setForeground(new java.awt.Color(102, 255, 0));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(288, 288, 288)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel2)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblNome, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jLabel4)
+                                .addComponent(txtNomePartido, javax.swing.GroupLayout.DEFAULT_SIZE, 324, Short.MAX_VALUE)
+                                .addComponent(txtSigla)
+                                .addComponent(jcCandidato, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblSigla, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(324, 324, 324)
+                        .addComponent(jLabel1)))
+                .addGap(300, 300, 300))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(119, 119, 119)
+                .addComponent(btnCadastrar)
+                .addGap(192, 192, 192)
+                .addComponent(btnListar, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 168, Short.MAX_VALUE)
+                .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(148, 148, 148))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(lblNome, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(5, 5, 5)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtNomePartido, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(46, 46, 46)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(lblSigla, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtSigla, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jcCandidato, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 165, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnListar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(MAIN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(MAIN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtNomePartidoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNomePartidoMouseEntered
+        // TODO add your handling code here:
+        lblNome.setText("Nome  do Partido");
+        new javax.swing.Timer(2000, e -> lblNome.setText("")).start();
+    }//GEN-LAST:event_txtNomePartidoMouseEntered
+
+    private void txtNomePartidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomePartidoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNomePartidoActionPerformed
+
+    private void txtNomePartidoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNomePartidoKeyTyped
+        // TODO add your handling code here:
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+
+        // Só permite letras e espaços
+        if (!Character.isLetter(c) && c != ' ') {
+            // Cancela a digitação do caractere inválido
+            evt.consume();
+
+            // Exibe mensagem de aviso no JLabel
+            lblNome.setForeground(Color.red);
+            lblNome.setText("Caractere inválido! .");
+
+            // Limpa o aviso depois de 2 segundos
+            new javax.swing.Timer(2000, e -> lblNome.setText("")).start();
+        }
+    }//GEN-LAST:event_txtNomePartidoKeyTyped
+
+    private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCadastrarActionPerformed
+
+    private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
+        // TODO add your handling code here:
+        new tabelaPartidos().setVisible(true);
+    }//GEN-LAST:event_btnListarActionPerformed
+
+    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnVoltarActionPerformed
+
+    private void txtSiglaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtSiglaMouseEntered
+        // TODO add your handling code here:
+        lblSigla.setText("Sigla ou nome");
+        new javax.swing.Timer(2000, e -> lblSigla.setText("")).start();
+    }//GEN-LAST:event_txtSiglaMouseEntered
+
+    private void txtSiglaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSiglaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSiglaActionPerformed
+
+    private void txtSiglaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSiglaKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+
+        if (!Character.isLetter(c) && c != ' ') {
+            // Cancela a digitação do caractere inválido
+            evt.consume();
+
+            // Exibe mensagem de aviso no JLabel
+            lblSigla.setForeground(Color.red);
+            lblSigla.setText("Caractere inválido! .");
+
+            // Limpa o aviso depois de 2 segundos
+            new javax.swing.Timer(2000, e -> lblSigla.setText("")).start();
+        }
+    }//GEN-LAST:event_txtSiglaKeyTyped
+
+    private void jcCandidatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcCandidatoActionPerformed
+
+    }//GEN-LAST:event_jcCandidatoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -143,6 +392,18 @@ try {
      private   MenuPrincipal menuPrincipal;
      JanelaPartido janelaPartidor;
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel MAIN;
+    private javax.swing.JButton btnCadastrar;
+    private javax.swing.JButton btnListar;
+    private javax.swing.JButton btnVoltar;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JComboBox<String> jcCandidato;
+    private javax.swing.JLabel lblNome;
+    private javax.swing.JLabel lblSigla;
+    private javax.swing.JTextField txtNomePartido;
+    private javax.swing.JTextField txtSigla;
     // End of variables declaration//GEN-END:variables
 }
