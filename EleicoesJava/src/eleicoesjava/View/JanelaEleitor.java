@@ -147,7 +147,7 @@ private void configurarCorRecursivo(java.awt.Container container) {
         cbProvincia.setBackground(new java.awt.Color(255, 255, 153));
         cbProvincia.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
         cbProvincia.setForeground(new java.awt.Color(0, 0, 0));
-        cbProvincia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cabo Delgado", "Gaza", "Inhambane", "Manica", "Maputo", "Maputo Cidade", "Nampula", "Niassa", "Sofala", "Tete", "Zambézia" }));
+        cbProvincia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Maputo Cidade", "Gaza", "Inhambane", "Manica", "Maputo", "Nampula", "Niassa", "Sofala", "Tete", "Zambézia", "Cabo Delgado" }));
         cbProvincia.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 cbProvinciaMouseEntered(evt);
@@ -289,7 +289,7 @@ private void configurarCorRecursivo(java.awt.Container container) {
         cbDistrito.setBackground(new java.awt.Color(255, 255, 153));
         cbDistrito.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
         cbDistrito.setForeground(new java.awt.Color(0, 0, 0));
-        cbDistrito.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Boane", "Magude", "Manhiça", "Marracuene", "Matola", "Matutuíne", "Moamba", "Namaacha", "KaMpfumu", "Nlhamankulu", "KaMaxakeni", "KaMavota", "KaMubukwana", "KaTembe", "KaNyaka" }));
+        cbDistrito.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "KaMpfumu", "Boane", "Magude", "Manhiça", "Marracuene", "Matola", "Matutuíne", "Moamba", "Namaacha", "Nlhamankulu", "KaMaxakeni", "KaMavota", "KaMubukwana", "KaTembe", "KaNyaka" }));
         cbDistrito.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 cbDistritoMouseEntered(evt);
@@ -405,8 +405,8 @@ private void configurarCorRecursivo(java.awt.Container container) {
                         .addGap(0, 0, 0)
                         .addComponent(lblBI, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 0, 0)
-                .addGroup(CadastroEleitorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(CadastroEleitorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(CadastroEleitorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -494,6 +494,7 @@ private void configurarCorRecursivo(java.awt.Container container) {
         e.setDataNasc((dataNasc.getDate()));
         e.setDistrito(cbProvincia.getSelectedItem().toString());
         e.setCodigo(Dados_Senhas.gerarSenhaEleitor());
+        e.setVotou(true);
         dao.Salvar(e);
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
