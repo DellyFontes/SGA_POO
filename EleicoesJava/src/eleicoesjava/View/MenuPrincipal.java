@@ -22,38 +22,36 @@ public class MenuPrincipal extends javax.swing.JFrame {
     public MenuPrincipal() {
         initComponents();
 //        configurarAcessos();
-          configurarCardLayout();
-          cardLayout = (CardLayout) MAIN.getLayout(); 
+        configurarCardLayout();
+        cardLayout = (CardLayout) MAIN.getLayout();
 //        configurarBotoes();
     }
-    
-    private void configurarAcessos() {
-    Funcionario usuario = AutenticacaoController.getUsuarioLogado();
-    if (usuario == null) {
-        JOptionPane.showMessageDialog(this, "Usuário não autenticado!", "Erro", JOptionPane.ERROR_MESSAGE);
-        this.dispose();
-//        new JanelaLogin().setVisible(true);
-        return;
-    }
-    
-    int nivel = usuario.getTipoFuncionario();
-    String nomeUsuario = usuario.getNome();
-    
-    btnPartidos.setEnabled(nivel >= 2);
-    btnCandidatos.setEnabled(nivel >= 2);
-    btnVotacoes.setEnabled(nivel >= 3);
-    btnRelatorios.setEnabled(nivel >= 4);
-    
-    this.setTitle("Menu Principal - " + nomeUsuario + " (Nível " + nivel + ")");
-    
-    btnPartidos.setToolTipText(nivel >= 2 ? "Cadastrar Partidos" : "Acesso negado - Nível 2 ou superior requerido");
-    btnCandidatos.setToolTipText(nivel >= 2 ? "Cadastrar Candidatos" : "Acesso negado - Nível 2 ou superior requerido");
-    btnVotacoes.setToolTipText(nivel >= 3 ? "Gerenciar Votações" : "Acesso negado - Nível 3 ou superior requerido");
-    btnRelatorios.setToolTipText(nivel >= 4 ? "Gerar Relatórios" : "Acesso negado - Nível 4 ou superior requerido");
-}
 
-    
-    
+    private void configurarAcessos() {
+        Funcionario usuario = AutenticacaoController.getUsuarioLogado();
+        if (usuario == null) {
+            JOptionPane.showMessageDialog(this, "Usuário não autenticado!", "Erro", JOptionPane.ERROR_MESSAGE);
+            this.dispose();
+//        new JanelaLogin().setVisible(true);
+            return;
+        }
+
+        int nivel = usuario.getTipoFuncionario();
+        String nomeUsuario = usuario.getNome();
+
+        btnPartidos.setEnabled(nivel >= 2);
+        btnCandidatos.setEnabled(nivel >= 2);
+        btnVotacoes.setEnabled(nivel >= 3);
+        btnRelatorios.setEnabled(nivel >= 4);
+
+        this.setTitle("Menu Principal - " + nomeUsuario + " (Nível " + nivel + ")");
+
+        btnPartidos.setToolTipText(nivel >= 2 ? "Cadastrar Partidos" : "Acesso negado - Nível 2 ou superior requerido");
+        btnCandidatos.setToolTipText(nivel >= 2 ? "Cadastrar Candidatos" : "Acesso negado - Nível 2 ou superior requerido");
+        btnVotacoes.setToolTipText(nivel >= 3 ? "Gerenciar Votações" : "Acesso negado - Nível 3 ou superior requerido");
+        btnRelatorios.setToolTipText(nivel >= 4 ? "Gerar Relatórios" : "Acesso negado - Nível 4 ou superior requerido");
+    }
+
     public void setMenuPrincipal(MenuPrincipal menuPrincipal) {
         this.menuPrincipal = menuPrincipal;
     }
@@ -66,18 +64,16 @@ public class MenuPrincipal extends javax.swing.JFrame {
         cardLayout = (CardLayout) MAIN.getLayout();
 
         // Criar e adicionar os painéis ao CardLayout
-        
         MenuPrincipal menu = this;
         JanelaEleitor janelaEleitor = new JanelaEleitor();
         JanelaFuncionario janelaFuncionario = new JanelaFuncionario();
-         JanelaCandidato janelaCandidato = new JanelaCandidato();
-         JanelaPartido janelaPartido = new JanelaPartido();
-          tabelaEleitor tbEleitor = new tabelaEleitor();
-          tabelaCandidatos tbCandidatos = new tabelaCandidatos();
-          tabelaPartidos tbPartidos = new tabelaPartidos();
-          tabelaFuncionarios tbFuncionarios = new tabelaFuncionarios();
-          JanelaLogin janelaLogin = new JanelaLogin();
-         
+        JanelaCandidato janelaCandidato = new JanelaCandidato();
+        JanelaPartido janelaPartido = new JanelaPartido();
+        tabelaEleitor tbEleitor = new tabelaEleitor();
+        tabelaCandidatos tbCandidatos = new tabelaCandidatos();
+        tabelaPartidos tbPartidos = new tabelaPartidos();
+        tabelaFuncionarios tbFuncionarios = new tabelaFuncionarios();
+        JanelaLogin janelaLogin = new JanelaLogin();
 
         // JanelaPartido janelaPartido = new JanelaPartido();
         // Adicionar o painel de eleitores ao MAIN
@@ -85,18 +81,19 @@ public class MenuPrincipal extends javax.swing.JFrame {
         MAIN.add(janelaEleitor.getContentPanel(), "CardEleitores");
         MAIN.add(janelaFuncionario.getContentPanel(), "CardFuncionario");
         MAIN.add(janelaCandidato.getContentPanel(), "CardCandidatos");
-//        MAIN.add(janelaCandidato.getContentPanel(), "CardCandidatos");
-         MAIN.add(tbEleitor.getContentPanel(), "CardTbEleitor");
-         MAIN.add(tbCandidatos.getContentPanel(), "CardTbCandidatos");
-         MAIN.add(tbPartidos.getContentPanel(), "CardTbPartidos");
-         MAIN.add(tbFuncionarios.getContentPanel(), "CardTbFuncionarios");
-         MAIN.add(janelaLogin.getContentPanel(), "CardLogin");
+        MAIN.add(janelaPartido.getContentPanel(), "CardPartido");
+        MAIN.add(tbEleitor.getContentPanel(), "CardTbEleitor");
+        MAIN.add(tbCandidatos.getContentPanel(), "CardTbCandidatos");
+        MAIN.add(tbPartidos.getContentPanel(), "CardTbPartidos");
+        MAIN.add(tbFuncionarios.getContentPanel(), "CardTbFuncionarios");
+        MAIN.add(janelaLogin.getContentPanel(), "CardLogin");
 
 //        MAIN.add(JanelaPartido.getContentPanel(), "CardEleitores");
 //        menu.setMenuPrincipal(this);
         janelaEleitor.setMenuPrincipal(this);
         janelaFuncionario.setMenuPrincipal(this);
         janelaCandidato.setMenuPrincipal(this);
+        janelaPartido.setMenuPrincipal(this);
         tbEleitor.setMenuPrincipal(this);
         tbCandidatos.setMenuPrincipal(this);
         tbPartidos.setMenuPrincipal(this);
@@ -104,6 +101,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         janelaLogin.setMenuPrincipal(this);
 
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -349,7 +347,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void btnCandidatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCandidatosActionPerformed
         // TODO add your handling code here:
 //        new JanelaCandidato().setVisible(true);dispose();
- mostrarTela("CardCandidatos");
+        mostrarTela("CardCandidatos");
     }//GEN-LAST:event_btnCandidatosActionPerformed
 
     private void btnEleitoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEleitoresActionPerformed
@@ -364,7 +362,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSairActionPerformed
 
     private void btnRelatoriosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRelatoriosActionPerformed
-        
+
     }//GEN-LAST:event_btnRelatoriosActionPerformed
 
     private void btnVotacoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVotacoesActionPerformed
@@ -373,6 +371,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void btnPartidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPartidosActionPerformed
 //    new JanelaPartido().setVisible(0==0);      dispose();
+        mostrarTela("CardPartido");
     }//GEN-LAST:event_btnPartidosActionPerformed
 
     private void btnVotacoes2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVotacoes2ActionPerformed
@@ -415,7 +414,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
     }
-    
+
     public JPanel getContentPanel() {
         return MAIN; // Retorna o JPanel que contém o CardLayout
     }

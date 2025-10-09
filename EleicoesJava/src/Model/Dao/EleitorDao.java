@@ -25,13 +25,14 @@ public class EleitorDao {
         PreparedStatement stmt = null;
         try {
             stmt = con.prepareStatement(" Insert into eleitor (codigo,nome, BI, genero, "
-                    + "Distrito, dataNascimento) Values (?,?,?,?,?,?) ");
+                    + "Distrito, dataNascimento,votou) Values (?,?,?,?,?,?,?) ");
             stmt.setString(1, e.getCodigo());            // String - código
             stmt.setString(2, e.getNome());              // String - nome
             stmt.setString(3, e.getBI());                // String - BI
             stmt.setString(4, e.getGenero());            // String - genero
             stmt.setString(5, e.getDistrito());         // String - Distrito
             stmt.setDate(6, new java.sql.Date(e.getDataNasc().getTime())); // Date - dataNascimento
+            stmt.setBoolean(7, e.getVotou());  
             stmt.executeUpdate();
             JOptionPane.showInternalMessageDialog(null, "Salvo com sucesso o codigo do eleitor e :" + e.getCodigo());
         } catch (SQLException ex) {
@@ -81,7 +82,7 @@ public class EleitorDao {
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         try {
-            stmt = con.prepareStatement("Update eleitores set , nome = ?, BI = ? , dataNAscimento = ?, Distrito = ?  Where id = ? ");
+            stmt = con.prepareStatement("Update eleitores set votou = ?  Where id = ? ");
 
             stmt.setInt(1, e.getId());                   // int
             stmt.setString(2, e.getNome());              // String
@@ -99,6 +100,25 @@ public class EleitorDao {
 
     }
 
+    public void atualizarVotacao(Eleitor e) {
+
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        try {
+            stmt = con.prepareStatement("Update eleitores votou = ?  Where codigo = ? ");
+
+            stmt.setBoolean(1, e.getVotou());                   // int
+            stmt.executeUpdate();
+            JOptionPane.showInternalMessageDialog(null, "Atualizado com sucesso");
+        } catch (SQLException ex) {
+            JOptionPane.showInternalMessageDialog(null, "Erro ao Atualizar!!! " + ex);
+            System.out.println(" ");
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt);
+        }
+
+    }
+    
     public void eliminar(Eleitor e) {
 
         Connection con = ConnectionFactory.getConnection();
