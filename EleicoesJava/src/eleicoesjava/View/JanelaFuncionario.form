@@ -84,10 +84,8 @@
                                               <Component id="radioF" min="-2" pref="121" max="-2" attributes="0"/>
                                           </Group>
                                           <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                              <Component id="dataNasc" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="lblGenero" alignment="0" pref="282" max="32767" attributes="0"/>
-                                          </Group>
+                                          <Component id="dataNasc" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="lblGenero" alignment="0" pref="282" max="32767" attributes="0"/>
                                           <Component id="lblData" alignment="0" min="-2" pref="227" max="-2" attributes="0"/>
                                           <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="txtCelular" alignment="0" min="-2" pref="282" max="-2" attributes="0"/>

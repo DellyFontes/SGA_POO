@@ -81,7 +81,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         // JanelaPartido janelaPartido = new JanelaPartido();
         // Adicionar o painel de eleitores ao MAIN
-        MAIN.add(menu.getContentPanel(), "CardMain");
+//        MAIN.add(menu.getContentPanel(), "CardMain");
         MAIN.add(janelaEleitor.getContentPanel(), "CardEleitores");
         MAIN.add(janelaFuncionario.getContentPanel(), "CardFuncionario");
         MAIN.add(janelaCandidato.getContentPanel(), "CardCandidatos");
@@ -93,7 +93,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
          MAIN.add(janelaLogin.getContentPanel(), "CardLogin");
 
 //        MAIN.add(JanelaPartido.getContentPanel(), "CardEleitores");
-        menu.setMenuPrincipal(this);
+//        menu.setMenuPrincipal(this);
         janelaEleitor.setMenuPrincipal(this);
         janelaFuncionario.setMenuPrincipal(this);
         janelaCandidato.setMenuPrincipal(this);
